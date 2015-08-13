@@ -1,0 +1,21 @@
+\usepackage{atbegshi}
+\newcounter{abspage}
+\AtBeginShipout{\stepcounter{abspage}}
+\makeatletter
+\AtBeginDocument{% So spät wie möglich.
+  \AtEndDocument{%
+    \typeout{Wir haben derzeit \theabspage\ Seiten.}%
+    \if@twoside % sonst ist das ohnehin witzlos
+	  \pagestyle{empty}
+      \cleardoublepage
+      \begingroup
+        \@tempcnta=\value{abspage}
+        \divide\@tempcnta by 4
+        \multiply\@tempcnta by 4
+        \ifnum \@tempcnta=\value{abspage} \else Diese Seite ist aus technischen Gründen leer. \clearpage  Diese Seite ist aus technischen Gründen leer.  \fi
+      \endgroup
+    \fi
+    \typeout{Jetzt haben wir \theabspage\ Seiten.}%
+  }%
+}
+\makeatother

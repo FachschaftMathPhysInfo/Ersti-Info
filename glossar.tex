@@ -1,0 +1,120 @@
+% Kurzanleitung:
+% http://mirror.ctan.org/macros/latex/contrib/glossaries/glossariesbegin.pdf
+
+% Syntax:
+% \newglossaryentry{ label }{ settings }
+% \newacronym{ label }{ abbrv }{ full }
+
+
+% Beispiele: Einträge erstellen
+% \newglossaryentry{electrolyte}{name=electrolyte, description={solution able to conduct electric current}}
+
+% \newglossaryentry{oesophagus}{name=œsophagus, description={canal from mouth to stomach}, plural=œsophagi}
+
+% \newacronym{label}{svm}{support vector machine}
+
+
+% Beispiel: sich auf einen Glossareintrag beziehen
+%       \gls{ label }
+%       \glspl{ label }   % gibt die Pluralform aus
+
+
+\newglossaryentry{c.t.}{name={c.t.}, description={lat.: cum tempore, mit Zeit. Also eine viertel Stunde später}}
+\newglossaryentry{s.t.}{name={s.t.}, description={lat.: sine tempore, ohne Zeit. Also genau so, wie es da steht}}
+\newglossaryentry{HEIDI}{name={HEIDI}, description={So heißt das Computersystem der \gls{UB}, mit dem ihr nach Büchern suchen und sie auch gleich vorbestellen könnt. Eure aktuellen Ausleihen werden auch dort gelistet, ebenso besteht die Möglichkeit dort insgesamt zweimal eure Ausleihfristen um je einen Monat zu verlängern. Die Adresse ist \url{http://heidi.ub.uni-heidelberg.de}, aber eine Suche nach „heidi heidelberg“ führt auch zum Ziel}}
+
+
+\newglossaryentry{URZ}{
+	name={URZ},
+	first={Universitätsrechenzentrum (URZ)},
+	description={Das Universitätsrechenzentrum stellt alles bereit, was sich grob mit dem Begriff „Computer“ in Verbindung bringen lässt. Siehe Artikel auf \autopageref{urz}}
+}
+
+\newglossaryentry{AM}{
+	name={AM},
+	first={Angewandte Mathematik (AM, INF 294)},
+	description={In der Angewandten Mathematik befinden sich die Bereichsbibliothek sowie ein Kopierer, an dem Mathe- und Infostudis aus Studiengebühren finanziert kopieren können. Die Kopierkarte kann bei der Bibliotheksaufsicht gegen Studi- und Personalausweis ausgeliehen werden. Unseres Wissens nach ist dies auch das einzige Gebäude mit negativen Raumnummern. Wenn ihr also eine Übungsgruppe in „-104“ habt, ist der Keller der AM gemeint}
+}
+
+\newglossaryentry{RM}{
+	name={RM},
+	first={Reine Mathematik (RM, INF 288)},
+	description={Die Reine Mathematik ist das Gebäude INF 288. Im ersten Stock befinden sich die Prüfungssekretariate der Mathe}
+}
+
+\newglossaryentry{GymPO}{
+	name={GymPO I},
+	first={Gymnasiallehrerprüfungsordnung I (GymPO I)},
+	description={Die „Gymnasiallehrerprüfungsordnung I“ ist die Prüfungsordnung, nach der sich alle Lehrämtler\_innen ab dem WS 2010/2011 prüfen lassen müssen. Siehe Artikel auf \autopageref{lehramt_allg}}
+}
+
+\newglossaryentry{EPG}{
+	name={EPG},
+	first={Ethisch-Philosophische Grundlagenstudium (EPG)},
+	description={Das Ethisch-Philosophische Grundlagenstudium ist ein Teil des Lehramtsstudiums. Siehe Artikel auf \autopageref{epg}}
+}
+\newglossaryentry{OMZ}{
+    name={OMZ},
+    first={Otto-Meyerhof-Zentrum (OMZ)},
+    description={Im OMZ findet ihr das Robotiklabor, ein paar Seminarräume und einen großen CIP-Pool, in dem z.B. der Programmierkurs stattfindet}
+}
+
+\newglossaryentry{FSK}{
+	name={FSK},
+	first={Fachschaftskonferenz (FSK)},
+	description={Die Fachschaftskonferenz war der vorgänger des StuRa als Vertretung aller Studis vor der Wiedereinführung der Verfassten Studierendenschaft}
+}
+
+\newglossaryentry{StuRa}{
+	name={StuRa},
+	first={Studierendenrat (StuRa)},
+	description={Der StuRa ist das Zentralorgan der Verfassten Studierendenschaft an der Uni Heidelberg und tagt zweiwöchentlich im neuen Hörsaal am Philosophenweg. Details in den Artikeln auf \autopageref{hopo} ff}
+}
+
+\newglossaryentry{ZFB}{
+	name={ZFB},
+	first={Zentrales Fachschaftenbüro (ZFB)},
+	description={auch: StuRa-Kontor. Büro- und Tagungsräume für den StuRa und andere studentische Gruppen. Auch die Sozialberatung u.ä. finden hier statt. Die genaue Adresse ist Albert-Ueberle-Straße 3-5, 69120 Heidelberg}
+}
+
+
+\newglossaryentry{KVV}{
+	name={KVV},
+	first={Kommentiertes Vorlesungsverzeichnis (KVV)},
+	description={Das Kommentiertes Vorlesungsverzeichnis enthält eine Beschreibung zu vielen Veranstaltungen, die neben „Wer? Wo? Wann?“ auch Auskunft über den Inhalt gibt. Literaturempfehlungen und Voraussetzungen können hier ebenfalls nachgelesen werden.\\ \url{http://www.ub.uni-heidelberg.de/helios/fachinfo/www/math/kvv/}}
+}
+
+
+\newacronym{UB}{UB}{Universitätsbibliothek}
+\newacronym{OPNV}{ÖPNV}{Öffentlicher Personen Nahverkehr}
+\newacronym{INF}{INF}{im Neuenheimer Feld}
+\newacronym{HS}{HS}{Hörsaal}
+\newglossaryentry{FSWE}{
+	name={FSWE},
+	first={Fachschaftswochenende (FSWE)},
+	description={Das Fachschaftswochenende veranstalten wir einmal pro Semester um Themen diskutieren können, die sich nicht sinnvoll in einer Fachschaftssitzung unterbringen lassen. Und jede Menge Spaß haben natürlich \smiley. Die Mitfahrt ist für euch kostenlos.}
+}
+
+\newglossaryentry{SWS}{
+	name={SWS},
+	first={Semesterwochenstunden (SWS)},
+	description={Die Semesterwochenstunden geben an, wie viel Aufwand eine Veranstaltung ungefähr ist. Genau genommen wird nur die Anwesenheitszeit pro Woche angegeben: Ein Seminar hat dann meist 2 SWS, eine Vorlesung mit Übung dagegen 4+2 SWS}
+}
+
+
+
+\newacronym{ZUV}{ZUV}{Zentrale Universitätsverwaltung}
+\newacronym{StuWe}{StuWe}{\href{www.studentenwerk.uni-heidelberg.de}{Studentenwerk}}
+
+% Für bestimmte Akronyme, die keine Mehrzahl haben, missbrauchen wir das
+% Mehrzahlfeld um Genitiv (oder so… "des KIPs") zu speichern
+\newacronym[\glslongpluralkey={Kirchoff-Instituts für Physik},\glsshortpluralkey={KIP}]{KIP}{KIP}{Kirchoff-Institut für Physik}
+\newglossaryentry{PI}{
+	name={PI},
+	first={Physikalisches Institut (PI)},
+	description={Das PI wird des öfteren auch Klaus-Tschira-Institut genannt. Es handelt sich dabei um eines der neueren Gebäude im Feld. Dort finden eure ersten verpflichtenden Physikpraktika statt, welche aus diversen Versuchen bestehen.}
+}
+\newacronym[\glslongpluralkey={Verkehrsverbundes Rhein-Neckar},\glsshortpluralkey={VRN}]{VRN}{VRN}{Verkehrsverbund Rhein-Neckar}
+
+% Zeige alle Einträge an, auch die ohne Referenz
+\glsaddall

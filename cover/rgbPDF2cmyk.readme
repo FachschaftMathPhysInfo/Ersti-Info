@@ -1,0 +1,1 @@
+gs -oErstiInfo_Cover_2013_5mm_Bleed_CMYK.pdf -sDEVICE=pdfwrite -sProcessColorModel=DeviceCMYK -sColorConversionStrategy=CMYK -sColorConversionStategyForImages=CMYK ErstiInfo_Cover_2013_5mm_Bleed.pdf 

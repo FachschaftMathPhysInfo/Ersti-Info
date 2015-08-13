@@ -1,0 +1,1 @@
+convert -density 350 ErstiInfo_Cover_2013_Back_no_Bleed.pdf -scale 800 -quality 85 ErstiInfo_Cover_web.png

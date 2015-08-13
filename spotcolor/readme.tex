@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hks,pantone]{spotcolor}
+\usepackage{calc}
+\usepackage{color}
+\usepackage{times}
+
+\setlength\pdfhorigin{1in}
+\setlength\pdfvorigin{1in}
+\setlength\hoffset{-1in}
+\setlength\voffset{-1in}
+\setlength\oddsidemargin{20mm}
+\setlength\evensidemargin{20mm}
+\setlength\textwidth{\paperwidth - 40mm}
+
+\begin{document}
+	\setcounter{page}{1}
+	\bf\Huge\color{black}\parbox[t]{\textwidth}{\centering spotcolor Package}\newline
+	\rm\normalsize
+	\parbox[t]{\textwidth}{\centering\copyright 2006 Jens Elstner, jens.elstner@gmx.net}\newline\newline
+	The purpose of this small package is to add spot color support to pdfLaTeX. I mainly wrote it for myself because at some point I did some work which involved going to print and spot colors were a requirement. This means that I don't consider this package very robust or in any case complete but it worked for me and maybe it will help somebody who has the same problem.\\
+	The functions provided here write some native pdf code which may not always work but never failed with all the testing and applications I did. If there should be a bug then contact me and I will try to fix it.\\
+	Usage so far is pretty straight forward. First you define a color space that is going to hold the spot colors and will be made known in the pdf. One limitation I couldn't get around yet (because of my limited knowledge of the pdf file format) is that you can only use one color space per page. I will explain the reason why it is a limitation a little further down the page.\\
+	Color spaces are created with\\
+	\textbf{\string\CreateColorSpace\{SOMECOLORSPACE\}}\\
+	The name should of course be unique for every color space.\\
+	This creates an empty color space to which colors still have to be added with the command\\
+	\textbf{\string\AddSpotColor\{SOMECOLORSPACE\}\\
+															\{SOMECOLOR\}\\
+															\{Spot\string\SpotSpace\ Color\string\SpotSpace\ Name\string\SpotSpace\ in\string\SpotSpace\ PDF\}\\
+															\{1.0\ 0.0\ 0.51\ 0.0\}}\\
+	The first parameter denotes the color space to which the color should be added, the second parameter is the name of the color under which it should be accessible by LaTeX. The third parameter is the name that appears in the pdf file. Because I am not incredibly familiar with handling space characters in LaTeX I had to implement spaces that have to appear in the spot color name with \textbf{\string\SpotSpace} so you have to use it whenever you want a space to appear in the name. If you should happen to know a better way please let me know. The last parameter is the cmyk representation of the color that is used when viewing the file in Acrobat. I don't know exactly what the format specifications for this field are but safest should be to use space seperated values (like above). The dot can be omitted though. (ie. '0.0' would give the same result as '0')\\
+	To be able to use all the color capabilities of LaTeX there is also a new colorspace called "spotcolor" being defined. When colors have been made known to pdf via "\string\AddSpotColor", new colors can be defined:\\
+	\textbf{definecolor\{<NAME>\}\{spotcolor\}\{<SPOTCOLORNAME>,<TINT>\}} where <TINT> is a value in the range 0.0 to 1.0.
+
+	This is everything you have to do to make your colors known to LaTeX. If you want something to appear in one of the colors you have to use\\
+	\textbf{\string\SetPageColorSpace\{SOMECOLORSPACE\}}\\
+	once for the first page and it will be set for all subsequent pages.\\
+	\textbf{\string\SpotColor\{SOMECOLOR\}\{1.0\}}\\
+	will then set the color of any object like the usual color directive from the color package. Because colorspaces have to be set for the entire page you can only use one per page. Therefore, if you want to use colors from the Pantone system together with colors from HKS for example you would have to add them to the same color space and activate that for the page.\\
+	I have added many of the colors from these two systems already as presets. They can be used by including spotcolor with the option \textbf{PANTONE} and/or the option \textbf{HKS}. The color spaces are named correspondingly. For a complete list of the colors I have included already please refer to spotcolorpantone.tex and spotcolorhks.tex.\\
+	Last but not least, some examples.\\
+	If there are any questions regarding the package, usage or comments, suggestions, enhancements, please let me know.\\ This work is published under the LaTeX Project Public License. See http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html for the details of that license.
+	
+	\clearpage
+	\color{blue}
+	\bf\Huge Blue text color using color package
+	
+	\clearpage
+	\SetPageColorSpace{PANTONE}
+	\SpotColor{PANTONEVioletPC}{1.0}
+	\bf\Huge Pantone spot color
+	
+	\clearpage
+	\SetPageColorSpace{HKS}
+	\SpotColor{HKS68N}{1.0}
+	\bf\Huge HKS spot color
+	
+	\clearpage
+	\NewSpotColorSpace{SOMECOLORSPACE}
+	\AddSpotColor{SOMECOLORSPACE}{SOMECOLOR}{Spot\SpotSpace Color\SpotSpace Name\SpotSpace in\SpotSpace PDF}{0.5 1.0 0.51 0}
+	\SetPageColorSpace{SOMECOLORSPACE}
+	\definecolor{Spots}{spotcolor}{SOMECOLOR,1.0}
+	
+	\SpotColor{SOMECOLOR}{1.0}
+	\bf\Huge Self defined spot color\\
+	Some shades are also possible:\\
+	\SpotColor{SOMECOLOR}{1.0}\rule{1cm}{1cm}\\
+	\SpotColor{SOMECOLOR}{0.9}\rule{1cm}{1cm}\\
+	\SpotColor{SOMECOLOR}{0.8}\rule{1cm}{1cm}\\
+	\SpotColor{SOMECOLOR}{0.7}\rule{1cm}{1cm}\\
+	\SpotColor{SOMECOLOR}{0.6}\rule{1cm}{1cm}\\
+	\SpotColor{SOMECOLOR}{0.5}\rule{1cm}{1cm}\\
+	\SpotColor{SOMECOLOR}{0.4}\rule{1cm}{1cm}\\
+	\SpotColor{SOMECOLOR}{0.3}\rule{1cm}{1cm}\\
+	\SpotColor{SOMECOLOR}{0.2}\rule{1cm}{1cm}\\
+	\SpotColor{SOMECOLOR}{0.1}\rule{1cm}{1cm}\\
+	\SpotColor{SOMECOLOR}{0.0}\rule{1cm}{1cm}
+
+	\clearpage
+	\pagecolor{Spots}
+	\SpotColor{SOMECOLOR}{0.1}
+	A spotcolor as background color.
+
+	\clearpage
+	\pagecolor{white}
+	\colorbox{Spots}{xxx}
+\end{document}

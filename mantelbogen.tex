@@ -1,0 +1,91 @@
+% ACHTUNG: Ohne draft modus rendern die Seiten aufgrund der komplexen
+%          SVG Grafiken ewig. Nicht gut zum Testen geeignet.
+
+\documentclass[a4paper]{memoir}
+\input{praeambel}
+
+%zusätzliche Packages nur für den Mantelbogen
+\usepackage[absolute]{textpos}  % Zum Positionieren der Grafiken
+\usepackage{rotating}           % Zum Drehen von Text
+
+\begin{document}
+
+% VORDERSEITE, AUSSEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+% -6mm schieben die Grafiken an den linken Seitenrand
+% 30mm sind in etwa die Seitenmitte
+
+%inkl. 5mm bleed, daher um 2.5mm mehr verschoben
+\begin{textblock*}{217mm}[0,0](-9.5mm,0mm)
+    \includegraphics[width=217mm]{\coverimage} % inkl. 5mm bleed
+\end{textblock*}
+%\begin{textblock*}{220mm}[0,0](-5mm,-5mm)
+%    \includegraphics[width=220mm]{\coverimage} % inkl. 5mm bleed
+%\end{textblock*}
+
+
+% TeX denkt, dass die Seite noch leer ist und macht deswegen keinen
+% pagebreak. Das \null täuscht TeX und alle sind glücklich (bis auf die
+% Perfektionisten natürlich)
+\null
+\newpage
+
+% VORDERSEITE, INNEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\impressum{\redaktionsschluss}
+\null
+\newpage
+
+% RÜCKSEITE, INNEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\begin{textblock*}{297mm}[0,0](0mm,0mm)
+    \includegraphics[width=297mm,angle=-90]{\nhfkarte}
+\end{textblock*}
+
+
+% 210mm Papierbreite –  68.5mm Grafikhöhe = 141.5mm (dann ist die Grafik
+% rechts, bzw. in gedreht oben links)
+% Die 62mm ergeben sich aus Seitenverhältnis und der Breite von 120mm
+% (oder durch ausprobieren)
+\begin{textblock*}{120mm}[0,0](141.5mm,-0.4mm)
+    \setlength\fboxsep{0pt}
+    \setlength\fboxrule{0.4mm}
+    \fbox{\includegraphics[width=120mm,angle=-90]{\philwegkarte}}
+\end{textblock*}
+
+
+% Dies platziert den Text in die obere, rechte Ecke
+\begin{textblock*}{297mm}[0,0](-4.5mm,5mm)
+    \begin{turn}{-90}
+        Vollständige Karte auf \url{www.openstreetmap.org}.
+        Nahverkehrskarte auf \url{www.öpnvkarte.de}.
+        (Lizenz: \href{http://creativecommons.org/licenses/by-sa/2.0/}{Creative Commons Attribution-Share Alike})
+    \end{turn}
+\end{textblock*}
+\null
+\newpage
+
+% RÜCKSEITE, AUSSEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+% Überdrucke das Bild etwas, um weiße Ränder zu vermeiden
+
+%inkl. 5mm bleed, daher um 2.5mm mehr verschoben
+\begin{textblock*}{217mm}[0,0](-9.5mm,0mm)
+    \ifthenelse{\boolean{druckversion}}{
+        \includegraphics[width=217mm]{cover/festplakat_cmyk.pdf} % inkl. 5mm bleed
+    }{
+        \href{http://mathphystheo.de}{\includegraphics[width=217mm]{cover/festplakat_rgb}} % inkl. 5mm bleed
+    }
+\end{textblock*}
+
+%bardoce für ISSN
+\begin{textblock*}{10mm}[0,0](3mm,276mm)
+    \ifthenelse{\boolean{druckversion}}{
+        \includegraphics[]{bilder/issn_print.pdf}
+    }{
+        \includegraphics[]{bilder/issn_web.pdf}
+    }
+\end{textblock*}
+
+\end{document}

@@ -1,0 +1,243 @@
+% !TEX ROOT = ersti.tex
+\usepackage{fixltx2e}
+
+\usepackage[ngerman]{babel}
+\usepackage{color}
+
+\usepackage[utf8]{inputenc} % wir wollen das erstiinfo /richtig/
+                            % kodiert haben
+
+% Boolean, mit dem wir abfragen können, ob Druck- oder Webversion benötigt wird,
+% um nicht alles in config_druck.tex bzw. config_web.tex angeben zu müssen.
+\usepackage{ifthen}
+\newboolean{druckversion}
+
+% Diese Datei wird automatisch vom Makefile erstellt aus config_web.tex
+% und config_druck.tex, je nachdem was man will
+\input{config.tex}
+
+\usepackage{eurosym} % eurozeichen kann man schon gut gebrauchen
+\usepackage{amsmath}
+
+\usepackage{memhfixc} % fix für die kollision memoir/hyperref
+
+\usepackage{euler} % euler ist die schrift für die kapitelüberschriften
+\usepackage{wasysym}  % für die Simleys
+\usepackage[squaren]{SIunits}  % für "m^2" und andere Maßeinheiten
+\usepackage{newcent}
+\usepackage[pdftex]{graphicx} % hübsche bilder
+\usepackage{epstopdf} % direkt eps einbinden können
+\usepackage{booktabs} % hübsche tabellen
+\usepackage[protrusion=true,expansion]{microtype} % hübscherer Blocksatz
+\usepackage{multirow} % mehrzeilige Spalten in Tabellen
+\usepackage[T1]{fontenc}
+
+\usepackage{timetable} % für die Stundenpläne
+\defineeventgrey{xxxxxx}{1.00}{0.0}
+\defineeventgrey{xxxxx} {0.96}{0.0}
+\defineeventgrey{xxxx}  {0.86}{0.0}
+\defineeventgrey{xxx}   {0.76}{0.0}
+\defineeventgrey{xx}    {0.66}{0.0}
+\defineeventgrey{x}     {0.56}{0.0}
+
+\usepackage[section=chapter,numberline,nonumberlist]{glossaries}
+\renewcommand*{\glsclearpage}{\clearpage}
+\makeglossaries
+\input{glossar}
+
+% alternative Fußnoten-Symbole
+\makeatletter
+\newcommand*{\@greek}[1]{\ensuremath{\ifcase#1 \or \alpha \or \beta \or \gamma \or \delta \or \varepsilon \or \zeta \or \eta \or \vartheta \or \iota \or \kappa \or \lambda \or \mu \or \nu \or o \or \pi \or \varrho \or \sigma \or \tau \or \upsilon \or \varphi \or \chi \or \psi \or \omega \or \varsigma \else \@cterr \fi}}
+\newcommand*{\greek}[1]{\expandafter\@greek\csname c@#1\endcsname}
+\makeatother
+\renewcommand{\thefootnote}{\greek{footnote}}
+
+\input{zu_aktualisieren/daten} %% hier sind die ganzen wichtigen
+                               %% aktualisierungswürdigen daten
+                               %% drin. das ist wichtig!!!
+
+%%%%%% eigens definierter krimskrams
+
+
+\newenvironment{spalten}{}{}
+\newcommand{\nurimdruck}[1]{#1}
+\newcommand{\email}[1]{\href{mailto:#1}{#1}}
+% Dieser Befehl wird genutzt, um die Comics/Bilder am Rand, die auf
+% einer „neues Kapitel“-Seite sind nach unten zu verschieben, um
+% Überlappungen zu verhindern.
+\newcommand{\chaptersidebarpushdown}{\vspace*{6.47cm}}
+\setsidebarheight{22cm}
+
+\urlstyle{same}
+
+%%%% chapterstyle
+
+\makechapterstyle{mathphys}{
+    \renewcommand{\chaptitlefont}{
+        \checkoddpage
+        \ifoddpage
+            \Huge\flushright\sffamily
+        \else
+            \Huge\flushleft\sffamily
+        \fi
+    }
+    \renewcommand{\printchaptertitle}[1]{
+        \checkoddpage
+        \ifoddpage
+            % gerade seiten
+            \colorbox{kapitelhintergrund}{
+                \parbox{18cm}{
+                    \vspace{0.5cm}
+                    \parbox{0.985\textwidth}{
+                        \chaptitlefont ##1
+                    }
+                    \hspace*{2.3cm}%
+                    \raisebox{-9mm}{
+                        \makebox[0pt][l]{
+                            \resizebox{!}{42pt}{\chapnumfont
+                            % das ist nicht nett. stimmt. tut mir leid. ehrlich.
+                            \textcolor{white}{$\thechapter$}}
+                        }
+                    }
+                    \vspace{0.6cm}
+                }
+            }
+        \else
+            % ungerade seiten
+            \hspace*{-\foremargin}
+            \hspace*{-11.2mm} % keine Ahnung warum die fehlen
+            \colorbox{kapitelhintergrund}{
+                \parbox{18cm}{
+                    \vspace{0.5cm}
+                    \hspace{1.42cm}
+                    \raisebox{-9mm}{
+                        \makebox[0pt][l]{
+                            \resizebox{!}{42pt}{\chapnumfont
+                            \textcolor{white}{$\thechapter$}}
+                        }
+                    }
+                    \hspace*{3.4cm}%
+                    \parbox{0.985\textwidth}{
+                        \chaptitlefont ##1
+                    }
+                    % keine Ahnung warum die \colorbox sonst höher wird
+                    \vspace{0.56cm}
+                }
+            }
+        \fi
+    }
+
+    \renewcommand{\chapnumfont}{\sffamily\bfseries}
+    \renewcommand{\printchaptername}{}
+    \renewcommand{\afterchapternum}{}
+    \renewcommand{\printchapternum}{}
+    \renewcommand{\printchapternonum}{}
+}
+
+
+\chapterstyle{mathphys}
+
+\newcommand{\mathphyssubsubsec}[1]{\noindent\sffamily\bfseries\flushleft\textcolor{sectiontextfarbe}{#1}}
+\newcommand{\mathphyssubsec}[1]{\large\mathphyssubsubsec{#1}}
+\newcommand{\mathphyssec}[1]{
+    % Die Trennlinie nach neuen Kapiteln nicht zeichnen
+	\ifthenelse{\value{section}>1}{
+			\noindent\vspace{-0.2cm}\hrulefill\vspace{0.3cm}
+		}{}
+%    \ifnum \value{section}=1 \else
+%        \noindent\vspace{-0.2cm}\hrulefill\vspace{0.3cm}
+%    \fi
+    \Large\mathphyssubsubsec{#1}
+}
+\setsecheadstyle{\mathphyssec}
+\setsubsecheadstyle{\mathphyssubsec}
+\setsubsubsecheadstyle{\mathphyssubsubsec}
+\setparaheadstyle{\sffamily\textbf}
+\setsecnumformat{}
+
+\newcommand{\mathphyssecnobar}[1]{
+    \begingroup
+        \Large\mathphyssubsubsec{#1}\\[1em]
+        \addcontentsline{toc}{section}{\numberline{\thesection}#1}
+    \endgroup\noindent
+}
+
+
+%\renewcommand{\section}[1]{
+%     \addcontentsline{toc}{section}{#1}
+                % Wie soll der TOC-Eintrag aussehen?
+                % Text ohne Zähler.
+%}
+
+\pagestyle{plain}
+\makeoddfoot{plain}{}{}{\thepage}
+\makeevenfoot{plain}{\thepage}{}{}
+
+
+%%%% Impressum
+\newcommand{\impressum}[2]{
+    \vspace*{\fill}
+    \begin{tabular*}{0.77\textwidth}{ll}
+        \multicolumn{2}{l}{
+            \parbox{0.77\textwidth}{
+                Der Redaktionsschluss für diesen Text war am #1. Wir freuen uns
+                sehr über Kommentare, Anregungen, Verbesserungsvorschläge,
+                Mitarbeit und Kuchen -- melde dich bei
+				\email{vorkurs@mathphys.fsk.uni-heidelberg.de}.
+            }
+            \vspace{5cm}
+        }\\
+        V.\,i.\,S.\,d.\,P.: & Fachschaft MathPhys\\
+        & Uni Heidelberg \\
+        & Im Neuenheimer Feld 305, Raum 045\\
+        & 0\,62\,21 54\,-\,41\,67\\
+        & \email{fachschaft@mathphys.fsk.uni-heidelberg.de}\\
+        & \url{http://mathphys.fsk.uni-heidelberg.de}\\
+    \end{tabular*}
+
+    \vfill
+
+    \begin{textblock*}{202mm}[0,1](8mm,290mm)
+        \begin{flushleft}
+            \footnotesize\noindent
+            ISSN: \ifthenelse{\boolean{druckversion}}{2199-8310}{2199-8329}\\
+            Letzter Commit: \input{GITHASH}\\
+            Letzte Änderung: \input{GITDATE}\\
+        \end{flushleft}
+    \end{textblock*}
+
+    \begin{textblock*}{203mm}[0,1](-7mm,290mm)
+        \begin{flushright}
+            \footnotesize
+%            \href{http://www.flickr.com/photos/99962592@N00/2849889847/}{Ursprüngliches Coverfoto: Niki Odolphie} \href{http://creativecommons.org/licenses/by/2.0/deed.en}{(CC-BY)}\\ %2009
+%            \href{http://www.flickr.com/photos/atoach/6014917153/}{Ursprüngliches Coverfoto: Tim Green} \href{http://creativecommons.org/licenses/by/2.0/deed.en}{(CC-BY)}\\ %2011
+%            \href{mailto:mo+erstiinfo@mathphys.fsk.uni-heidelberg.de}{Coverbild: Moritz Brinkmann} \href{http://creativecommons.org/licenses/by-sa/3.0/deed.en}{(CC-BY-SA)}\\ %2012
+%            \href{mailto:mo+erstiinfo@mathphys.fsk.uni-heidelberg.de}{Coverbild: Moritz Brinkmann} \href{http://creativecommons.org/licenses/by-sa/3.0/deed.en}{(CC-BY-SA)}\\ %2013
+%            \href{http://mo.uni-hd.de/}{Coverbild: Moritz Brinkmann} \href{http://creativecommons.org/licenses/by-sa/4.0/}{(CC-BY-SA)}\\ %2014
+            \href{http://mobrinkmann.de}{Coverbild: Moritz Brinkmann} \href{http://creativecommons.org/licenses/by-sa/4.0/}{(CC-BY-SA)}\\ %2015  
+            \href{http://xkcd.com/}{xkcd Comics: Randall Munroe} \href{http://creativecommons.org/licenses/by-nc/2.5/}{(CC-BY-NC)}\\
+            \href{http://abstrusegoose.com/}{Abstruse Goose Comics: lcfr} \href{http://creativecommons.org/licenses/by-nc/3.0/us/}{(CC-BY-NC)}\\
+            \href{http://nfccomic.com/index.php}{Not From Concentrate Comics: \copyright{} Thomas Dobrosielski}\\
+            \href{http://www.phdcomics.com/}{Piled Higher and Deeper (PhD) Comics: \copyright{} Jorge Cham}\\
+            \href{http://mbah.deviantart.com/art/Evil-Tram-126691939}{Straßenbahn: Henno Lauinger} \href{http://creativecommons.org/licenses/by-nc-sa/3.0/}{(CC-BY-NC-SA)}\\
+            \href{http://www.openstreetmap.org/}{Landkarten: Mitarbeiter der OpenStreetMap} \href{http://creativecommons.org/licenses/by-sa/2.0/}{(CC-BY-SA)}
+        \end{flushright}
+    \end{textblock*}
+}
+
+%%%%%%%%% Suche nach Grafiken in ./bilder und .:
+\graphicspath{{./bilder/}{./}}
+
+%%%%%%%%% Dschungelbuch Verweise
+\newcommand{\dschungel}{
+    \marginpar{
+        \centering
+        \hyperref[dschungel] {
+            \includegraphics[width=3cm]{dschungelbuch_3.pdf}
+        }
+    }
+}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: ersti
+%%% End:

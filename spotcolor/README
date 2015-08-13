@@ -1,0 +1,17 @@
+This is the package spotcolor for pdfLaTeX.
+It provides procedures for using spot colors in LaTeX documents
+and the generated pdf files. Predefined templates for PANTONE and
+HKS color spaces are included but new ones can easily be defined.
+
+For detailed usage information please refer to readme.pdf.
+
+If you have any suggestions, bug reports, modifications or enhancements,
+please let me know:
+
+Jens Elstner
+jens.elstner@gmx.net
+
+This work is published under the LaTeX Project Public License.
+See http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html
+for the details of that license.
+

@@ -1,0 +1,33 @@
+\documentclass{mathphys-letter}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{datetime,microtype}
+\setkomavar{fromname}{Moriz Brinkmann}
+\setkomavar{fromemail}{mo@uni-hd.de}
+\setkomavar{subject}{Ablieferung Ersti-Info \the\year}
+\setkomavar{myref}{erstiinfo-\the\year-archiv\qquad\qquad}
+\begin{document}
+	\setkomavar{yourref}{Signatur Z 2013 B 3013}
+	\begin{letter}{Deutsche Nationalbibliothek\\Adickesallee 1\\60322 Frankfurt am Main}
+		\opening{Sehr geehrte Damen und Herren,}
+		anbei finden Sie die Pflichtexemplare unseres diesjährigen Erstsemester-Infohefts „Ersti-Info“.
+		\closing{Mit freundlichen Grüßen,}
+		\encl{zwei Pflichtexemplare „Ersti-Info \the\year“}
+	\end{letter}
+	\setkomavar{yourref}{Fachschaft-math-phy}
+	\begin{letter}{Badische Landesbibliothek\\Postfach 1429\\76003 Karlsruhe}
+		\opening{Sehr geehrte Damen und Herren,}
+		anbei finden Sie die Pflichtexemplare unseres diesjährigen Erstsemester-Infohefts „Ersti-Info“.
+		\closing{Mit freundlichen Grüßen,}
+		\encl{zwei Pflichtexemplare „Ersti-Info \the\year“}
+	\end{letter}
+	\setkomavar{yourref}{}
+	\setkomavar{myref}{}
+	\begin{letter}{Universitätsarchiv Heidelberg\\Akademiestraße 4-8\\69117 Heidelberg\\\quad\\HAUSPOST}
+		\opening{Sehr geehrte Damen und Herren,}
+		anbei finden Sie ein Exemplar unseres diesjährigen Erstsemester-Infohefts „Ersti-Info“ für Ihr Archiv.
+		\closing{Mit freundlichen Grüßen,}
+		\encl{ein Archivexemplar „Ersti-Info \the\year“}
+	\end{letter}
+\end{document}

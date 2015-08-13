@@ -1,0 +1,487 @@
+%    timetable.sty - The LaTeX timetable stylesheet V1.4
+%    http://www.planetk.de/index.php?title=Stundenplan
+%
+% Stark gehackte Version für Features die wir brauchen
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{timetable}
+\RequirePackage{ifthen, calc, color}
+
+% Simple for loop construct as proposed by N. Setzer
+\newcommand{\@ttforloop}[5][1]
+{
+  \setcounter{#2}{#3}
+  \ifthenelse{#4}
+  {
+    #5
+    \addtocounter{#2}{#1}
+    \@ttforloop[#1]{#2}{\value{#2}}{#4}{#5}
+  }
+  {}
+ }
+
+
+% Dimensions
+\newlength{\@rowheight}
+\newlength{\@colwidth}
+\newlength{\@timewidth}
+\newcounter{@rowcount}
+\newcounter{@colcount}
+\newlength{\@textframe}
+\newlength{\@bottomspace}
+\newlength{\@totalheight}
+\newlength{\@totalwidth}
+\newlength{\@toprowheight}
+
+% Arbitrary stuff
+\newcounter{@timemarks}
+\newcounter{@daymarks}
+\newcounter{@topheight}
+\newlength{\@cornerradius}
+\newcounter{@frametype}
+\newcounter{@framevalign}
+\newcounter{@tempHour}
+\newboolean{@iscut}
+
+% Predefines
+\setlength{\@cornerradius}{5pt}
+\setlength{\@timewidth}{2.4em}
+\setcounter{@frametype}2
+\setcounter{@framevalign}2
+\setlength{\@rowheight}{0.6cm}
+\setlength{\@colwidth}{2.92cm}
+\setlength{\@textframe}{0.8mm}
+\setlength{\@bottomspace}{8pt}
+\setcounter{@rowcount}9
+\setcounter{@colcount}5
+\setcounter{@topheight}{1}
+\newcommand{\@bottomstyle}{\scriptsize}
+\newcommand{\@timestyle}{}
+
+% Event declarations
+\newlength{\@startposx}
+\newlength{\@startposy}
+\newlength{\@eventheight}
+\newlength{\@newcolwidth}
+\newlength{\@newrowheight}
+\newlength{\@newcolleft}
+\newlength{\@newrowtop}
+
+% Helpers
+\newcounter{@hourslot}
+\newcounter{@durationslots}
+\newcounter{@minutesperslot}
+\newcounter{@timetablehelp}
+
+\newcounter{@day}
+\newcounter{@column}
+\newcounter{@row}
+\newcounter{@hour}
+\newcounter{@minute}
+\newcounter{@minuteStep}
+\newcounter{@hoursset}
+\setcounter{@hoursset}{0}
+\newcounter{@hourzero}
+
+\newcommand{\seteventcornerradius}[1]
+{
+  \setlength{\@cornerradius}{#1}
+  \ifthenelse{\strip@pt\@cornerradius > 7}
+  {
+    \setlength{\@cornerradius}{7pt}
+  }
+  {
+    \ifthenelse{\strip@pt\@cornerradius < 0}
+    {
+      \setlength{\@cornerradius}{0pt}
+    }
+    {}
+  }
+}
+
+\newcommand{\settopheight}[1]
+{
+    \addtocounter{@rowcount}{#1-\value{@topheight}}
+    \setcounter{@topheight}{#1}
+}
+
+\newcommand{\setframetype}[2][c]
+{
+  % Set frame type
+  \ifthenelse{#2 < 1}
+  {
+    % Lines
+    \setcounter{@frametype}{1}
+  }
+  {
+    \ifthenelse{#2 > 2}
+    {
+      % Checkerboard
+      \setcounter{@frametype}{2}
+    }
+    {
+      \setcounter{@frametype}{#2}
+    }
+  }
+
+  % Caption vertical alignment
+  \ifthenelse{\equal{#1}{b}}
+  {\setcounter{@framevalign}{1}}
+    {\ifthenelse{\equal{#1}{t}}
+    {\setcounter{@framevalign}{0}}
+    {\setcounter{@framevalign}{2}}
+  }
+}
+
+\newcommand{\setbottomstyle}[1]
+{
+    \renewcommand{\@bottomstyle}{#1}
+}
+
+\newcommand{\settimestyle}[1]
+{
+    \renewcommand{\@timestyle}{#1}
+}
+
+\newcommand{\setbottomspace}[1]
+{
+    \setlength{\@bottomspace}{#1}
+}
+
+\newcommand{\@fmtTime}[2]
+{
+    % Arguments: {hour}{minute}
+    \ifthenelse{\value{#1} < 10}{\phantom{0}}{}\arabic{#1}
+    % keine minutenangabe
+    %:\ifthenelse{\value{#2} < 10}{0}{}\arabic{#2}
+}
+
+\newcommand{\slotevent}[7]
+  {
+    % Arguments: {x}{y}{duration}{title}{lecturer}{place}{type}{textcolor}
+    \renewcommand{\baselinestretch}{0.75}\normalsize
+
+    \setlength{\@startposx}{#1\@colwidth-\@colwidth+\@timewidth+0.5pt}
+    \setlength{\@startposy}{-#2\@rowheight-1.5pt}
+    \setlength{\@eventheight}{#3\@rowheight-1pt}
+
+    \addtolength{\@startposy}{-\@eventheight}
+
+    \ifthenelse{\lengthtest{\@totalheight > \@startposy}}
+        {
+         \addtolength{\@eventheight}{\@startposy-\@totalheight+11pt}
+         \addtolength{\@startposy}{-\@startposy+\@totalheight-11pt}
+         \setboolean{@iscut}{true}
+        }
+        {
+         \setboolean{@iscut}{false}
+        }
+
+    \addtolength{\@startposx}{\@cornerradius}
+    \put(\strip@pt\@startposx,\strip@pt\@startposy){\textcolor{@timetable#7block}{\rule[-\dp\strutbox]{\@colwidth-1pt-2\@cornerradius}{\@eventheight}}}
+    \addtolength{\@startposx}{-\@cornerradius}
+    \addtolength{\@startposy}{\@cornerradius}
+    \ifthenelse{\boolean{@iscut}}
+        {
+            % zeichne den kasten länger und weiter unten, damit dann
+            % unten die gerundeten kanten fehlen… aber keine Ahnung
+            % wie das überhaupt funktioniert.
+            \addtolength{\@startposy}{-\@cornerradius}
+            \put(\strip@pt\@startposx,\strip@pt\@startposy){\textcolor{@timetable#7block}{\rule[-\dp\strutbox]{\@colwidth-1pt}{\@eventheight-1\@cornerradius}}}
+            \addtolength{\@startposy}{+\@cornerradius}
+        }
+        {
+            \put(\strip@pt\@startposx,\strip@pt\@startposy){\textcolor{@timetable#7block}{\rule[-\dp\strutbox]{\@colwidth-1pt}{\@eventheight-2\@cornerradius}}}
+        }
+    \addtolength{\@startposy}{-\@cornerradius}
+
+    \setlength{\@cornerradius}{2\@cornerradius}
+
+    \ifthenelse{\strip@pt\@cornerradius > 0}
+    {
+      % Left rounded corners
+      \addtolength{\@startposx}{.5\@cornerradius}
+      \addtolength{\@startposy}{.5\@cornerradius-\dp\strutbox}
+      \put(\strip@pt\@startposx,\strip@pt\@startposy){\textcolor{@timetable#7block}{\circle*{\strip@pt\@cornerradius}}}
+
+      \addtolength{\@startposy}{-.5\@cornerradius+\dp\strutbox}
+      \addtolength{\@startposy}{-.5\@cornerradius-\dp\strutbox+\@eventheight}
+      \put(\strip@pt\@startposx,\strip@pt\@startposy){\textcolor{@timetable#7block}{\circle*{\strip@pt\@cornerradius}}}
+      \addtolength{\@startposy}{.5\@cornerradius+\dp\strutbox-\@eventheight}
+      \addtolength{\@startposx}{-.5\@cornerradius}
+
+      % Right rounded corners
+      \addtolength{\@startposx}{-.5\@cornerradius+\@colwidth-1pt}
+      \addtolength{\@startposy}{.5\@cornerradius-\dp\strutbox}
+      \put(\strip@pt\@startposx,\strip@pt\@startposy){\textcolor{@timetable#7block}{\circle*{\strip@pt\@cornerradius}}}
+      \addtolength{\@startposy}{-.5\@cornerradius+\dp\strutbox}
+      \addtolength{\@startposy}{-.5\@cornerradius-\dp\strutbox+\@eventheight}
+      \put(\strip@pt\@startposx,\strip@pt\@startposy){\textcolor{@timetable#7block}{\circle*{\strip@pt\@cornerradius}}}
+      \addtolength{\@startposy}{.5\@cornerradius+\dp\strutbox-\@eventheight}
+      \addtolength{\@startposx}{.5\@cornerradius-\@colwidth-1pt}
+    }{}
+
+    \setlength{\@cornerradius}{0.5\@cornerradius}
+
+    \setlength{\@newrowheight}{\@rowheight}
+    \addtolength{\@newrowheight}{-2\@textframe-1pt}
+    \setlength{\@newcolwidth}{\@colwidth}
+    \addtolength{\@newcolwidth}{-4\@textframe-1pt}
+
+    \setlength{\@newrowtop}{-#2\@rowheight}
+    \addtolength{\@newrowtop}{-2\@textframe}
+    \setlength{\@newcolleft}{#1\@colwidth-\@colwidth+\@timewidth-0.5pt}
+    \addtolength{\@newcolleft}{2\@textframe}
+
+    % Title
+    \addtolength{\@newrowtop}{-4pt}
+    \put(\strip@pt\@newcolleft,\strip@pt\@newrowtop)
+        {\begin{minipage}[t]{\@newcolwidth}%
+          \raggedright\color{@timetable#7text}%
+            {#4}%
+         \end{minipage}}
+
+    \renewcommand{\baselinestretch}{0.5}\normalsize
+    \setlength{\@newrowtop}{-#2\@rowheight-#3\@rowheight}
+    \addtolength{\@newrowtop}{-5pt -\@textframe + \@bottomspace}
+
+    % Lecturer
+    \put(\strip@pt\@newcolleft,\strip@pt\@newrowtop)
+        {\begin{minipage}[b]{\@newcolwidth}%
+	  \raggedright\color{@timetable#7text}{\@bottomstyle #5%
+            \vphantom{A}}
+          \end{minipage}}
+
+    \renewcommand{\baselinestretch}{1.0}\normalsize
+  }
+
+\newcommand{\event}[6]
+  {
+    % Arguments: {@day}{@start}{@end}{title}{lecturer}{type}
+
+    % Use the time format, if hours are defined, and a slot number otherwise:
+    \ifthenelse{\value{@hoursset} > 0}
+    {
+      % dieses Konstrukt limitiert die Endzeit eines Eintrages auf die
+      % späteste darstellbare Zeit. Ansonsten schiebt sich der "Lecturer"
+      % Eintrag (der kleine Text) zu weit nach unten.
+      % Die -1 ist, weil der Header auch eine Zeile ist
+      \setcounter{@tempHour}{(\value{@rowcount}-1+\value{@hourzero})}
+      \ifthenelse{#3 < \value{@tempHour}}
+        {\setcounter{@tempHour}{#3}}
+        {}
+
+      \setcounter{@hourslot}{((#2 - \value{@hourzero})* (60 / \value{@minutesperslot})) + 2}
+      \setcounter{@durationslots}{((\value{@tempHour} - \value{@hourzero}) * (60 / \value{@minutesperslot})) + 2 - \value{@hourslot}}
+
+      % Compensate for 24h wrap
+      \ifthenelse{\value{@hourslot} < 0}{\addtocounter{@hourslot}{(24 * (60 / \value{@minutesperslot}))}}{}
+
+      \addtocounter{@hourslot}{\value{@topheight}-2}
+    }
+    {
+      \setcounter{@hourslot}{#2*100}
+      \setcounter{@durationslots}{#3*100-#2*100}
+    }
+
+    \slotevent{#1}{\value{@hourslot}}{\value{@durationslots}}{#4}{#5}{}{#6}
+  }
+
+\newcommand{\legendTIMETABLE}[3]
+  {
+    % Arguments: <horizontal> <vertical> <text>
+    % Lets you manually set slot contents (use this really rarely and
+    % SEE: \daymark, \timemark )
+
+    \setlength{\@newrowtop}{\@rowheight*(-#2+1)-\dp\strutbox}
+    \ifthenelse{#1 = 1}
+        {\setlength{\@newcolleft}{#1\@colwidth-\@colwidth}}
+        {\setlength{\@newcolleft}{#1\@colwidth-2\@colwidth+\@timewidth}}
+
+    \ifthenelse{\value{@hoursset} = 0}
+      {\setcounter{@minutesperslot}{60}}
+      {}
+
+    % Print text
+    \addtolength{\@newcolleft}{\@textframe}
+    \addtolength{\@newrowtop}{-\@textframe-\heightof{\large #3}}
+
+    % Optionally move caption to middle or bottom
+    \ifthenelse{\value{@framevalign} > 0}
+    {
+      \ifthenelse{#1 = 1}
+      {
+        \addtolength{\@newrowtop}{(- \@rowheight * (60 / \value{@minutesperslot}) + 2\@textframe + \heightof{\Large #3})/\value{@framevalign}}
+      }
+      {
+        \ifthenelse{#2 = 1}
+        {
+          \addtolength{\@newrowtop}{(- \value{@topheight}\@rowheight + 2\@textframe + \heightof{\Large #3})/\value{@framevalign}}
+        }{}
+      }
+    }{}
+
+    \put(\strip@pt\@newcolleft,\strip@pt\@newrowtop){\makebox{\large #3}}
+  }
+
+\newcommand{\timemark}[1]
+  {
+    \stepcounter{@timemarks}
+    \legendTIMETABLE{1}{\value{@timemarks}} {#1}
+  }
+
+\newcommand{\daymark}[1]
+  {
+    \stepcounter{@daymarks}
+    \legendTIMETABLE {\value{@daymarks}} 1 {#1}
+  }
+
+\newcommand{\days}[5]
+  {
+    \daymark{#1}
+    \daymark{#2}
+    \daymark{#3}
+    \daymark{#4}
+    \daymark{#5}
+  }
+
+
+\newcommand{\defineevent}[7]
+  {
+    \definecolor{@timetable#1block}{rgb}{#2, #3, #4}
+    \definecolor{@timetable#1text} {rgb}{#5, #6, #7}
+  }
+
+\newcommand{\defineeventgrey}[3]
+  {
+    \defineevent{#1}{#2}{#2}{#2}{#3}{#3}{#3}
+  }
+
+\newcommand{\printheading}[1]
+  {
+    {\LARGE #1}\par\vspace{5mm}\par
+  }
+
+\newcommand{\setslotsize}[2]
+  {
+    % Arguments: <width> <height>
+    % Defines the slot size
+
+    \setlength{\@rowheight}{#2}
+    \setlength{\@colwidth}{#1}
+  }
+
+\newcommand{\setslotcount}[2]
+  {
+    % Arguments: <days> <hours per day>
+    % Defines the number of slots in both dimensions
+
+    \setcounter{@colcount}{#1}
+    \setcounter{@rowcount}{#2+\value{@topheight}}
+
+    % breite für die Zeit manuell festlegen
+    %~ \stepcounter{@colcount}
+  }
+
+\newcommand{\settextframe}[1]
+  {
+    % Arguments: <width>
+    % Defines the width of the border of each entry (i.e. the
+    % distance between outer border and text)
+
+    \setlength{\@textframe}{#1}
+  }
+
+\newcommand{\hours}[3]
+  {
+    % Arguments: <start hour> <minute stepping> <print end time?>
+    % Automatically sets the time slots to full hours, beginning with <start hour>
+
+    \setcounter{@hoursset}{1}
+    \setcounter{@hourzero}{#1}
+
+    \setcounter{@hour}{#1}
+    \setcounter{@minute}{0}
+    \setcounter{@minuteStep}{#2}
+    \setcounter{@minutesperslot}{\value{@minuteStep}}
+
+    \@ttforloop{@row}{\value{@topheight}}{\value{@row} < \value{@rowcount}}
+    {
+      \ifthenelse{\value{@minute} = 0}{
+	  	\timemark{\@fmtTime{@hour}{@minute}\ifthenelse{#3 > 0}{-\setcounter{@hour}{\value{@hour}+1}\@fmtTime{@hour}{@minute}\setcounter{@hour}{\value{@hour}-1}}{}}
+	  }{\stepcounter{@timemarks}}
+	  \addtocounter{@minute}{#2}
+	  \ifthenelse{\value{@minute} = 60}{\stepcounter{@hour}\setcounter{@minute}{0}}{}
+      \ifthenelse{\value{@hour} > 23}{\addtocounter{@hour}{-24}}{}
+    }
+  }
+
+\newenvironment{timetable}%
+  {\noindent%
+    % Arguments: None
+    % Starts a new timetable
+    %
+    % Set the new layout setting
+
+    \setlength{\@totalheight}{-\value{@rowcount}\@rowheight+10pt}%
+    \setlength{\@totalwidth}{\value{@colcount}\@colwidth}%
+    \addtolength{\@totalwidth}{\@timewidth}%
+    %
+    % Reset the counters
+    \setcounter{@timemarks}{\value{@topheight}}%
+    \setcounter{@daymarks}{1}%
+    %
+    % Minipage to correct bounding box
+    \begin{minipage}[t][-\@totalheight]{\@totalwidth}
+    %
+    % Begin. Note the offset hack of the picture, this is to make it consistent to the old pstricks package.
+    \begin{picture}(\strip@pt\@totalwidth,\strip@pt\@totalheight)(0,-\strip@pt\baselineskip)
+      % Draw the grey frame
+      \setlength{\@toprowheight}{\value{@topheight}\@rowheight}
+  }
+  {
+    \end{picture}
+
+    \end{minipage}
+  }
+
+\newenvironment{stundenplan}[3]
+{
+    \vspace{0.3cm}
+
+% Dieser Hack braucht die Memoir Klasse oder das changepage Paket.
+% Je nachdem auf welcher Seite man sich befindet, muss der Stundenplan
+% anders eingerückt werden. Da TeX mit dem „memoir-Aufbau“ das Label
+% jedoch vor den Stundenplan platziert, bevor dieser überhaupt erstellt
+% wurde, kann es jedoch passieren, dass even/odd Label und Stundenplan
+% auf unterschiedlichen Seiten sind. Daher wird hier der "setze das
+% Label" Teil nach hinten verschoben, aber die Information vorher (aus
+% dem AUX file) abgerufen. Memoir/Changepage werden gebraucht, um sich
+% den ganzen sonstigen Overhead zu sparen.
+
+    \oddpagefalse
+    \stepcounter{cp@cntr}% das schreiben des Labels erfolgt weiter unten
+    \@memcnta=\pmemlabelref{\cplabel\thecp@cntr}\relax
+    \ifodd\@memcnta\oddpagetrue\fi
+
+    % richte den Plan auf geraden Seiten links aus
+    \ifoddpage\else\hspace*{-4.15cm}\fi
+    % keine Leerzeile, sonst passieren böse Dinge
+    \noindent\begin{tabular}{l}
+    \toprule
+    #1\\
+    \midrule
+
+    \setslotcount{5}{#3-#2}
+    \hspace*{-15pt}\begin{timetable}
+    \hours{#2}{60}{0}
+}
+{
+    \end{timetable}\\
+    \bottomrule
+    \end{tabular}
+    \vspace{0.3cm}
+
+    % Setze das Label
+    \pmemlabel{\cplabel\thecp@cntr}%
+}
