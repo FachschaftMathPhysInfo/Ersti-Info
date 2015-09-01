@@ -33,7 +33,7 @@ web: clean
 	@make --no-print-directory mantel
 	@make --no-print-directory inhalt
 	@echo "Verklebe Inhalt und Mantelbogen…"
-	@pdftk mantelbogen.pdf cat 1-2 3W 4 output mantelbogen_web.pdf > /dev/null
+	@pdftk mantelbogen.pdf cat 1-2 3west 4 output mantelbogen_web.pdf > /dev/null
 	@pdftk C=ersti.pdf M=mantelbogen_web.pdf cat M1-2 C M3-4 output webseite.pdf  > /dev/null
 	@make --no-print-directory clean
 	@echo -e "\v\v\v\v\vFolgende Dateien wurden erstellt:\nwebseite.pdf\t\tEnthält Cover und Inhalt in einem PDF, Grafiken sind als Vektoren eingebunden, RGB Format"
