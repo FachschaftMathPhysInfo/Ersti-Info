@@ -60,9 +60,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.6087973"
-     inkscape:cx="583.16666"
-     inkscape:cy="976.58856"
+     inkscape:zoom="0.4304847"
+     inkscape:cx="631.09001"
+     inkscape:cy="413.75457"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -82,9 +82,9 @@
      inkscape:snap-center="false"
      inkscape:snap-page="false"
      inkscape:window-width="1364"
-     inkscape:window-height="737"
+     inkscape:window-height="750"
      inkscape:window-x="0"
-     inkscape:window-y="14"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:snap-global="true"
      showguides="true"
@@ -132,7 +132,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -806,7 +806,7 @@
          y="444.91336"
          id="tspan3180-0-0-6-2-0-47"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Press Start';-inkscape-font-specification:'Press Start';fill:#000000"
-         dx="0 -0.10266143 0 0">ALDA</tspan></text>
+         dx="0 -0.10266143 -0.30798429 0 0 0 -0.61596859">ALGODAT</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.15390539px;line-height:125%;font-family:'Press Start K';-inkscape-font-specification:'Press Start K';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none"
