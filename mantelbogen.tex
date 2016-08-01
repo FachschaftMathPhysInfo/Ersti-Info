@@ -7,6 +7,7 @@
 %zusätzliche Packages nur für den Mantelbogen
 \usepackage[absolute]{textpos}  % Zum Positionieren der Grafiken
 \usepackage{rotating}           % Zum Drehen von Text
+\setlength{\parindent}{0pt}
 
 \begin{document}
 
@@ -16,12 +17,18 @@
 % 30mm sind in etwa die Seitenmitte
 
 %inkl. 5mm bleed, daher um 2.5mm mehr verschoben
-\begin{textblock*}{217mm}[0,0](-9.5mm,0mm)
-    \includegraphics[width=217mm]{\coverimage} % inkl. 5mm bleed
-\end{textblock*}
-%\begin{textblock*}{220mm}[0,0](-5mm,-5mm)
-%    \includegraphics[width=220mm]{\coverimage} % inkl. 5mm bleed
+%\begin{textblock*}{217mm}[0,0](-9.5mm,0mm)
+%    \includegraphics[width=217mm]{\coverimage} % inkl. 5mm bleed
 %\end{textblock*}
+\ifthenelse{\boolean{druckversion}}{
+  \begin{textblock*}{215mm}[0,0](0mm,-5mm)
+    \includegraphics[width=215mm]{\coverimage} % inkl. 5mm bleed
+  \end{textblock*}
+}{
+  \begin{textblock*}{210mm}[0,0](0mm,0mm)
+    \includegraphics[width=210mm]{\coverimage} % inkl. 5mm bleed
+  \end{textblock*}
+}
 
 
 % TeX denkt, dass die Seite noch leer ist und macht deswegen keinen
