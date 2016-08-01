@@ -22,11 +22,11 @@
 %\end{textblock*}
 \ifthenelse{\boolean{druckversion}}{
   \begin{textblock*}{215mm}[0,0](0mm,-5mm)
-    \includegraphics[width=215mm]{\coverimage} % inkl. 5mm bleed
+    \includegraphics[width=215mm]{\coverimage} % 5mm bleed oben, unten und rechts
   \end{textblock*}
 }{
   \begin{textblock*}{210mm}[0,0](0mm,0mm)
-    \includegraphics[width=210mm]{\coverimage} % inkl. 5mm bleed
+    \includegraphics[width=210mm]{\coverimage} % exkl. bleed
   \end{textblock*}
 }
 
@@ -45,24 +45,23 @@
 % RÜCKSEITE, INNEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{empty}
 
-\begin{textblock*}{297mm}[0,0](0mm,0mm)
+\begin{textblock*}{297mm}[0,0](7mm,0mm)
     \includegraphics[width=297mm,angle=-90]{\nhfkarte}
 \end{textblock*}
 
 
-% 210mm Papierbreite –  68.5mm Grafikhöhe = 141.5mm (dann ist die Grafik
-% rechts, bzw. in gedreht oben links)
-% Die 62mm ergeben sich aus Seitenverhältnis und der Breite von 120mm
-% (oder durch ausprobieren)
-\begin{textblock*}{120mm}[0,0](141.5mm,-0.4mm)
+% bezugspunkt des textblocks ist die rechte obere eche (gedreht: oben links)
+% die Karte hat eine Höhe von 65 mm und eine Breite von ca. 128 mm (gedreht)
+% oben und rechts steht die kleine Karte jeweils ca 3mm über
+\begin{textblock*}{65.8mm}[1,0](213mm,-3mm)
     \setlength\fboxsep{0pt}
     \setlength\fboxrule{0.4mm}
-    \fbox{\includegraphics[width=120mm,angle=-90]{\philwegkarte}}
+    \fbox{\includegraphics[height=65mm,angle=-90]{\philwegkarte}}
 \end{textblock*}
 
 
 % Dies platziert den Text in die obere, rechte Ecke
-\begin{textblock*}{297mm}[0,0](-4.5mm,5mm)
+\begin{textblock*}{297mm}[0,0](2mm,5mm)
     \begin{turn}{-90}
         Vollständige Karte auf \url{www.openstreetmap.org}.
         Nahverkehrskarte auf \url{www.öpnvkarte.de}.
@@ -76,15 +75,16 @@
 \pagestyle{empty}
 
 % Überdrucke das Bild etwas, um weiße Ränder zu vermeiden
+\ifthenelse{\boolean{druckversion}}{
+  \begin{textblock*}{215mm}[0,0](-5mm,-2.5mm)
+    \includegraphics[width=215mm]{cover/festplakat_cmyk.pdf} % 5mm bleed links, ca. 2,5mm oben und unten
+  \end{textblock*}
+}{
+  \begin{textblock*}{210.5mm}[0,0](-.25mm,-.6mm)
+    \href{http://mathphystheo.de}{\includegraphics[width=210.5mm]{cover/festplakat_rgb}} % exkl. bleed
+  \end{textblock*}
+}
 
-%inkl. 5mm bleed, daher um 2.5mm mehr verschoben
-\begin{textblock*}{210mm}[0,0](-6mm,0mm)
-    \ifthenelse{\boolean{druckversion}}{
-        \includegraphics[width=211mm]{cover/festplakat_cmyk.pdf} % exkl. 5mm bleed
-    }{
-        \href{http://mathphystheo.de}{\includegraphics[width=211mm]{cover/festplakat_rgb}} % exkl. 5mm bleed
-    }
-\end{textblock*}
 
 %bardoce für ISSN
 \begin{textblock*}{10mm}[0,0](3mm,276mm)
