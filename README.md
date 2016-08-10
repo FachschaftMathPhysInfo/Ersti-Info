@@ -36,3 +36,8 @@ immer subtil anderen Output (auf Druck/Website/nur Inhalt optimiert)
 Wenn die SVG-Landkarten aktualisiert wurden, empfiehlt sich ein make makeRGBreal um auch die PDF Versionen 
 zu aktualisieren, die letztendlich im Erstiinfo landen. Mit make spell kann man die Rechtschreibprüfung
 starten (die leider auch einige LaTeX Befehle überprüft). 
+
+## Lizenz
+Diese Broschüre ist lizenziert unter einer Creative Commons
+Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International
+Lizenz. Der Lizenztext findet sich in der LICENSE-Datei. 
