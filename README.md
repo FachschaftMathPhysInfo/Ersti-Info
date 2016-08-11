@@ -40,4 +40,4 @@ starten (die leider auch einige LaTeX Befehle überprüft).
 ## Lizenz
 Diese Broschüre ist lizenziert unter einer Creative Commons
 Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International
-Lizenz. Der Lizenztext findet sich in der LICENSE-Datei. 
+Lizenz. Der Lizenztext findet sich in der [LICENSE](https://github.com/FachschaftMathPhys/Ersti-Info/blob/master/LICENSE.md)-Datei. 
