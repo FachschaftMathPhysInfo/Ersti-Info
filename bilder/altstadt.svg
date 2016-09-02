@@ -21,8 +21,8 @@
    inkscape:export-xdpi="600"
    inkscape:export-ydpi="600">
   <sodipodi:namedview
-     inkscape:window-height="993"
-     inkscape:window-width="1278"
+     inkscape:window-height="749"
+     inkscape:window-width="1364"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      guidetolerance="10.0"
@@ -33,11 +33,11 @@
      pagecolor="#ffffff"
      id="base"
      showgrid="false"
-     inkscape:zoom="1.28"
-     inkscape:cx="995.07773"
-     inkscape:cy="301.79174"
-     inkscape:window-x="1366"
-     inkscape:window-y="14"
+     inkscape:zoom="1"
+     inkscape:cx="635.07773"
+     inkscape:cy="261.79174"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
      inkscape:current-layer="svg2"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -45,7 +45,8 @@
      inkscape:snap-bbox="true"
      inkscape:bbox-paths="true"
      inkscape:bbox-nodes="true"
-     inkscape:snap-bbox-edge-midpoints="true">
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-text-baseline="false">
     <sodipodi:guide
        position="24.7598,1156.8707"
        orientation="0,1"
@@ -71,7 +72,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -21310,4 +21311,37 @@
        id="tspan8871-8-2-2"
        sodipodi:role="line"
        dx="0">12</tspan></text>
+  <g
+     id="g32091"
+     transform="translate(218.17564,6.1143093)">
+    <g
+       transform="translate(-101.77098,-74.831979)"
+       id="g32093">
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffffff;fill-opacity:0.79057593;fill-rule:nonzero;stroke:#000000;stroke-width:1.42295337;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path32095"
+         sodipodi:cx="78.125"
+         sodipodi:cy="222.53125"
+         sodipodi:rx="7.03125"
+         sodipodi:ry="7.03125"
+         d="m 85.15625,222.53125 a 7.03125,7.03125 0 0 1 -6.986339,7.03111 7.03125,7.03125 0 0 1 -7.075587,-6.94129 7.03125,7.03125 0 0 1 6.895951,-7.11978 7.03125,7.03125 0 0 1 7.16368,6.85033"
+         sodipodi:start="0"
+         sodipodi:end="6.2576358"
+         sodipodi:open="true"
+         transform="matrix(0.9899591,0,0,0.9899591,529.58751,-51.420271)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:15.20640087px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+         x="606.87952"
+         y="172.2115"
+         id="text32097"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           id="tspan32099"
+           x="606.87952"
+           y="172.2115"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.60000038px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle">18</tspan></text>
+    </g>
+  </g>
 </svg>
