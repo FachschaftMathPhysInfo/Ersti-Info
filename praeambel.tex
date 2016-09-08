@@ -32,6 +32,25 @@
 \usepackage{multirow} % mehrzeilige Spalten in Tabellen
 \usepackage[T1]{fontenc}
 
+%% QR-Codes im Seitenrand
+\usepackage{qrcode} %QR-Codes erzeugen
+\newcommand{\marginQR}[1]{
+  \marginpar{
+    {\hypersetup{hidelinks}\qrcode[height=\marginparwidth]{#1}} \\[.6mm]
+    \scriptsize\url{#1}
+  }
+}
+\newcommand{\marginQRsmall}[1]{
+  \marginpar{
+    \checkoddpage\ifoddpage\hspace*{.4\marginparwidth}\fi
+    \parbox{.6\marginparwidth}{
+      {\hypersetup{hidelinks}\qrcode[height=.6\marginparwidth]{#1}} \\[.6mm]
+      \scriptsize\url{#1}
+    }
+  }
+}
+
+
 \usepackage{timetable} % für die Stundenpläne
 \defineeventgrey{xxxxxx}{1.00}{0.0}
 \defineeventgrey{xxxxx} {0.96}{0.0}
