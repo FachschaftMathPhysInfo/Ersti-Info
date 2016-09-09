@@ -18,7 +18,7 @@ Nicht nur am Anfang eures Studiums, sondern auch mitten drin, können kleinere u
     \fi
 
     \ifdefined\dekanmathefoto
-    \proffoto{\dekanmathefoto}{\dekanmathelang\\[-1ex]{\scriptsize Dekan Mathe}}
+	\proffoto{\dekanmathefoto}{\dekanmathelang\\[-1ex]{\scriptsize Dekan Mathe \& Info}}
     \fi
 
     \ifdefined\studiendekaninformatikfoto
@@ -29,16 +29,22 @@ Nicht nur am Anfang eures Studiums, sondern auch mitten drin, können kleinere u
     \proffoto{\studiendekanphysikfoto}{\studiendekanphysik\\[-1ex]{\scriptsize Studiendekan Physik}}
     \fi
 
-    \vspace*{1.8cm}
-
     \ifdefined\studiendekanmathefoto
     \proffoto{\studiendekanmathefoto}{\studiendekanmathe\\[-1ex]{\scriptsize Studiendekan Mathe}}
     \fi
-
-    \ifdefined\prodekanphyikfoto
-    \proffoto{\prodekanphyikfoto}{\prodekanphysik\\[-1ex]{\scriptsize Prodekan Physik}}
+\iffalse
+    \ifdefined\prodekanmathefoto
+	\proffoto{\prodekanmathefoto}{\prodekanmathe\\[-1ex]{\scriptsize Prodekan Mathe \& Info}}
     \fi
 
+    \ifdefined\prodekanphysikfotoA
+    \proffoto{\prodekanphysikfotoA}{\prodekanphysikA\\[-1ex]{\scriptsize Prodekan Physik}}
+    \fi
+
+    \ifdefined\prodekanphysikfotoB
+    \proffoto{\prodekanphysikfotoB}{\prodekanphysikB\\[-1ex]{\scriptsize Prodekan Physik}}
+    \fi
+\fi
     % Rest weiter unten weil die Physik zwei Prodekane hat
     % und damit nicht mehr alles in die Spalten passt
 }
@@ -71,6 +77,7 @@ Nicht nur am Anfang eures Studiums, sondern auch mitten drin, können kleinere u
 
 \relax
 
+\iffalse
 % Hinweis zu den Abständen:
 % die 1.3cm oben sind von Hand abgemessen, sodass der Abstand zwischen
 % den Fotos in der Sidebar hier fortgesetzt wird
@@ -85,8 +92,8 @@ Nicht nur am Anfang eures Studiums, sondern auch mitten drin, können kleinere u
 \iftrue
 \checkoddpage
 \ifoddpage
-    %\hspace*{-1.695cm}
-    \hspace*{-1.15cm}
+    \hspace*{-1.695cm}
+    %\hspace*{-1.15cm}
 \else
     \hspace*{-5.52cm}
 \fi
@@ -115,8 +122,8 @@ Nicht nur am Anfang eures Studiums, sondern auch mitten drin, können kleinere u
     \hspace*{-1.695cm}
     %\hspace*{-1.15cm}
 \else
-    %\hspace*{-5.52cm}
-    \hspace*{-4.55cm}
+    \hspace*{-5.52cm}
+    %\hspace*{-4.55cm}
 \fi
 \begin{minipage}{1.51\textwidth}
 %\hfill
@@ -145,7 +152,7 @@ Nicht nur am Anfang eures Studiums, sondern auch mitten drin, können kleinere u
 }
 \end{minipage}
 \fi
-
+\fi
 % Wenn noch Platz ist, z.B. weil Fotos fehlen oder die Physik
 % nur noch einen Prodekan hat, kann man das als Lückenfüller nehmen:
 
