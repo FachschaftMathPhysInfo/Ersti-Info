@@ -32,6 +32,25 @@
 \usepackage{multirow} % mehrzeilige Spalten in Tabellen
 \usepackage[T1]{fontenc}
 
+%% QR-Codes im Seitenrand
+\usepackage{qrcode} %QR-Codes erzeugen
+\newcommand{\marginQR}[1]{
+  \marginpar{
+    {\hypersetup{hidelinks}\qrcode[height=\marginparwidth]{#1}} \\[.6mm]
+    \scriptsize\url{#1}
+  }
+}
+\newcommand{\marginQRsmall}[1]{
+  \marginpar{
+    \checkoddpage\ifoddpage\hspace*{.4\marginparwidth}\fi
+    \parbox{.6\marginparwidth}{
+      {\hypersetup{hidelinks}\qrcode[height=.6\marginparwidth]{#1}} \\[.6mm]
+      \scriptsize\url{#1}
+    }
+  }
+}
+
+
 \usepackage{timetable} % für die Stundenpläne
 \defineeventgrey{xxxxxx}{1.00}{0.0}
 \defineeventgrey{xxxxx} {0.96}{0.0}
@@ -220,7 +239,7 @@
             \href{http://nfccomic.com/index.php}{Not From Concentrate Comics: \copyright{} Thomas Dobrosielski}\\
             \href{http://www.phdcomics.com/}{Piled Higher and Deeper (PhD) Comics: \copyright{} Jorge Cham}\\
             \href{http://mbah.deviantart.com/art/Evil-Tram-126691939}{Straßenbahn: Henno Lauinger} \href{http://creativecommons.org/licenses/by-nc-sa/3.0/}{(CC-BY-NC-SA)}\\
-            \href{http://www.openstreetmap.org/}{Landkarten: Mitarbeiter der OpenStreetMap} \href{http://creativecommons.org/licenses/by-sa/2.0/}{(CC-BY-SA)}
+			\href{http://www.openstreetmap.org/}{Landkarten: \copyright{} OpenStreetMap contributors} 
         \end{flushright}
     \end{textblock*}
 }
