@@ -25,3 +25,7 @@
 
 # Ignore .swp, created by vim
 .*.swp
+
+# Ignore all .DS_Store files
+.DS_Store
+*/.DS_Store
