@@ -1,0 +1,4 @@
+In dieser .txt Datei soll eine Sammlung von Fachbegriffen entstehen, für die
+es dann genaue eine englische Übersetzung gibt.
+
+Semesterticket -  student ticket
