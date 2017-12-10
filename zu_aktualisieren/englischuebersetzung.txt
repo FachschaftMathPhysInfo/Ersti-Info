@@ -1,0 +1,1 @@
+in ./mathphys/akfest.tex sicherstellen, dass \mathphystheotermin\ im passenden format für die englische übersetzung ist
