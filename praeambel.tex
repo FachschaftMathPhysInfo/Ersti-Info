@@ -30,6 +30,10 @@
 \usepackage[protrusion=true,expansion]{microtype} % hübscherer Blocksatz
 \usepackage{multirow} % mehrzeilige Spalten in Tabellen
 \usepackage[T1]{fontenc}
+\usepackage{subcaption} %für subfigures
+\usepackage[columnsep=10mm, outer=25mm, bottom=30mm, top=30mm]{geometry}
+
+
 
 %% QR-Codes im Seitenrand
 \usepackage{qrcode} %QR-Codes erzeugen
@@ -84,7 +88,7 @@
 % einer „neues Kapitel“-Seite sind nach unten zu verschieben, um
 % Überlappungen zu verhindern.
 \newcommand{\chaptersidebarpushdown}{\vspace*{6.47cm}}
-\setsidebarheight{22cm}
+%\setsidebarheight{22cm}
 
 \urlstyle{same}
 
@@ -94,22 +98,23 @@
     \renewcommand{\chaptitlefont}{
         \checkoddpage
         \ifoddpage
-            \Huge\flushright\sffamily
+            \fontsize{28}{28} \selectfont \flushright\sffamily
         \else
-            \Huge\flushleft\sffamily
+            \fontsize{28}{28} \selectfont \flushleft\sffamily
         \fi
     }
     \renewcommand{\printchaptertitle}[1]{
         \checkoddpage
         \ifoddpage
-            % gerade seiten
+            % ungerade seiten
             \colorbox{kapitelhintergrund}{
-                \parbox{18cm}{
+                \parbox{19.2cm}{
                     \vspace{0.5cm}
-                    \parbox{0.985\textwidth}{
-                        \chaptitlefont ##1
+                    \hspace{0.3cm}
+                    \parbox{0.985\textwidth}{%
+                        \textcolor{white}{\chaptitlefont ##1}%
                     }
-                    \hspace*{2.3cm}%
+                    %\hspace*{2.3cm}%
                     \raisebox{-9mm}{
                         \makebox[0pt][l]{
                             \resizebox{!}{42pt}{\chapnumfont
@@ -117,29 +122,31 @@
                             \textcolor{white}{$\thechapter$}}
                         }
                     }
-                    \vspace{0.6cm}
+                    \vspace{0.5cm}
                 }
             }
         \else
-            % ungerade seiten
+            % gerade seiten
+            
             \hspace*{-\foremargin}
-            \hspace*{-11.2mm} % keine Ahnung warum die fehlen
+            \hspace*{-5.6mm} % keine Ahnung warum die fehlen
             \colorbox{kapitelhintergrund}{
-                \parbox{18cm}{
+                \parbox{19.2cm}{
                     \vspace{0.5cm}
                     \hspace{1.42cm}
-                    \raisebox{-9mm}{
+                    \raisebox{-7mm}{
                         \makebox[0pt][l]{
-                            \resizebox{!}{42pt}{\chapnumfont
-                            \textcolor{white}{$\thechapter$}}
+                            \resizebox{!}{42pt}{
+                            \textcolor{white}{$\thechapter$} 
+                            }
                         }
                     }
-                    \hspace*{3.4cm}%
+                    \hspace*{2.3cm}%
                     \parbox{0.985\textwidth}{
-                        \chaptitlefont ##1
+                        \textcolor{white}{\chaptitlefont ##1}
                     }
                     % keine Ahnung warum die \colorbox sonst höher wird
-                    \vspace{0.56cm}
+                    \vspace{0.5cm}
                 }
             }
         \fi
@@ -154,13 +161,13 @@
 
 \chapterstyle{mathphys}
 
-\newcommand{\mathphyssubsubsec}[1]{\noindent\sffamily\bfseries\flushleft\textcolor{sectiontextfarbe}{#1}}
+\newcommand{\mathphyssubsubsec}[1]{\noindent\sffamily\bfseries\textcolor{sectiontextfarbe}{#1}}%
 \newcommand{\mathphyssubsec}[1]{\large\mathphyssubsubsec{#1}}
-\newcommand{\mathphyssec}[1]{
+\newcommand{\mathphyssec}[1]{%
     % Die Trennlinie nach neuen Kapiteln nicht zeichnen
-	\ifthenelse{\value{section}>1}{
-			\noindent\vspace{-0.2cm}\hrulefill\vspace{0.3cm}
-		}{}
+	\ifthenelse{\value{section}>1}{%
+			%\noindent\vspace{-0.2cm}\hrulefill\vspace{0.3cm}
+		}{}%
 %    \ifnum \value{section}=1 \else
 %        \noindent\vspace{-0.2cm}\hrulefill\vspace{0.3cm}
 %    \fi

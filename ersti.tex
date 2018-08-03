@@ -1,7 +1,7 @@
 % !TEX TS-program = pdflatex
 % !TEX encoding = UTF-8 Unicode
 \RequirePackage{fix-cm}
-\documentclass[ngerman,a4paper,openany,showtrims]{memoir}
+\documentclass[ngerman,a4paper,openany,twocolumn,showtrims]{memoir}
 \input{praeambel}
 
 \begin{document}
@@ -13,10 +13,10 @@
 
 \mainmatter
 \pagestyle{plain}
-
+%\onecolumn
 \chapter{Hallo und herzlich willkommen}
 \input{vorwort}
-
+\twocolumn
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Vorkurs}
 \input{zu_aktualisieren/vorkursplan.mathe}
