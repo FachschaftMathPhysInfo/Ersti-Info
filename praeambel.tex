@@ -112,7 +112,7 @@
                     \vspace{0.5cm}
                     \hspace{0.3cm}
                     \parbox{0.985\textwidth}{%
-                        \textcolor{white}{\chaptitlefont ##1}%
+                        \textcolor{white}{\chaptitlefont \textsc{##1}}%
                     }
                     %\hspace*{2.3cm}%
                     \raisebox{-9mm}{
@@ -143,7 +143,7 @@
                     }
                     \ifthenelse{\value{chapter}>9}{\hspace*{3.2cm}}{\hspace*{2.3cm}}
                     \parbox{0.985\textwidth}{
-                        \textcolor{white}{\chaptitlefont ##1}
+                        \textcolor{white}{\chaptitlefont \textsc{##1}}
                     }
                     % keine Ahnung warum die \colorbox sonst höher wird
                     \vspace{0.5cm}
@@ -171,7 +171,7 @@
 %    \ifnum \value{section}=1 \else
 %        \noindent\vspace{-0.2cm}\hrulefill\vspace{0.3cm}
 %    \fi
-    \Large\mathphyssubsubsec{#1}
+    \LARGE{\mathphyssubsubsec{#1}}
 }
 \setsecheadstyle{\mathphyssec}
 \setsubsecheadstyle{\mathphyssubsec}
