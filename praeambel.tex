@@ -13,7 +13,7 @@
 
 % Diese Datei wird automatisch vom Makefile erstellt aus config_web.tex
 % und config_druck.tex, je nachdem was man will
-\input{config.tex}
+\input{config_web.tex}
 
 \usepackage{eurosym} % eurozeichen kann man schon gut gebrauchen
 \usepackage{amsmath}
@@ -31,9 +31,9 @@
 \usepackage{multirow} % mehrzeilige Spalten in Tabellen
 \usepackage[T1]{fontenc}
 \usepackage{subcaption} %für subfigures
-\usepackage[columnsep=10mm, outer=25mm, bottom=30mm, top=30mm]{geometry}
-
-
+\usepackage[columnsep=10mm, outer=25mm, bottom=30mm, top=30mm]{geometry} % für ein passendere Layout
+\usepackage{enumitem} % für descriptions mit style=unboxed
+\usepackage{dblfloatfix}    % To enable figures at the bottom of page
 
 %% QR-Codes im Seitenrand
 \usepackage{qrcode} %QR-Codes erzeugen
@@ -62,7 +62,7 @@
 \defineeventgrey{xx}    {0.66}{0.0}
 \defineeventgrey{x}     {0.56}{0.0}
 
-\usepackage[section=chapter,numberline,nonumberlist]{glossaries}
+\usepackage[section=chapter,numberedsection=false,numberline,nonumberlist]{glossaries}
 \renewcommand*{\glsclearpage}{\clearpage}
 \makeglossaries
 \input{glossar}
@@ -133,7 +133,7 @@
             \colorbox{kapitelhintergrund}{
                 \parbox{19.2cm}{
                     \vspace{0.5cm}
-                    \hspace{1.42cm}
+                    \hspace{0.5cm}
                     \raisebox{-7mm}{
                         \makebox[0pt][l]{
                             \resizebox{!}{42pt}{
@@ -141,7 +141,7 @@
                             }
                         }
                     }
-                    \hspace*{2.3cm}%
+                    \ifthenelse{\value{chapter}>9}{\hspace*{3.2cm}}{\hspace*{2.3cm}}
                     \parbox{0.985\textwidth}{
                         \textcolor{white}{\chaptitlefont ##1}
                     }
