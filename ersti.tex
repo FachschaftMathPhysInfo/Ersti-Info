@@ -13,7 +13,24 @@
 
 \mainmatter
 \pagestyle{plain}
-%\onecolumn
+\makeevenhead{plain}{\leftmark}{}{}
+\makeoddhead{plain}{}{}{\rightmark}
+\renewcommand*{\chaptermark}[1]{%
+	\markboth{%
+		\textcolor{sectiontextfarbe}{%
+			\sffamily\bfseries\textsc{#1}%
+		}%
+	}{}%
+}
+
+\renewcommand*{\sectionmark}[1]{%
+	\markright{%
+		\textcolor{sectiontextfarbe}{%
+			\sffamily\bfseries\textsc{#1}%
+		}%
+	}%
+}
+
 \chapter{Hallo und herzlich willkommen}
 \input{vorwort}
 \twocolumn
@@ -25,7 +42,7 @@
 \input{zu_aktualisieren/vorkursplan.alle}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Studiengänge}
+\chapter{Studiengänge} 
 \input{studiengaenge/bachelor_allgemein}
 \input{studiengaenge/bachelor_informatik}
 \input{studiengaenge/bachelor_mathe}
