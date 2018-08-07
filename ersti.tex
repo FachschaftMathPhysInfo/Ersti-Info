@@ -1,7 +1,7 @@
 % !TEX TS-program = pdflatex
 % !TEX encoding = UTF-8 Unicode
 \RequirePackage{fix-cm}
-\documentclass[ngerman,a4paper,openany,showtrims]{memoir}
+\documentclass[ngerman,a4paper,openany,twocolumn,showtrims]{memoir}
 \input{praeambel}
 
 \begin{document}
@@ -13,19 +13,36 @@
 
 \mainmatter
 \pagestyle{plain}
+%Kopfzeile: Links Kapitelname, rechts Sectionname in Kapitälchen (small caps)
+\makeevenhead{plain}{\leftmark}{}{}
+\makeoddhead{plain}{}{}{\rightmark}
+\renewcommand*{\chaptermark}[1]{%
+	\markboth{%
+		\textcolor{sectiontextfarbe}{%
+			\sffamily\bfseries\textsc{#1}%
+		}%
+	}{}%
+}
+\renewcommand*{\sectionmark}[1]{%
+	\markright{%
+		\textcolor{sectiontextfarbe}{%
+			\sffamily\bfseries\textsc{#1}%
+		}%
+	}%
+}
 
 \chapter{Hallo und herzlich willkommen}
 \input{vorwort}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Vorkurs}
-\input{zu_aktualisieren/vorkursplan.info}
 \input{zu_aktualisieren/vorkursplan.mathe}
+\input{zu_aktualisieren/vorkursplan.info}
 \input{zu_aktualisieren/vorkursplan.physik}
 \input{zu_aktualisieren/vorkursplan.alle}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Studiengänge}
+\chapter{Studiengänge} 
 \input{studiengaenge/bachelor_allgemein}
 \input{studiengaenge/bachelor_informatik}
 \input{studiengaenge/bachelor_mathe}
@@ -57,12 +74,18 @@
 \input{wie-geht-studium/faq_physik}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Was tun bei Problemen?}
+\input{probleme/einleitung}
+\input{probleme/career_service}
+\input{probleme/kummerkasten}
+\input{probleme/nightline}
+\input{probleme/handicap}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{An der Uni \dots}
-\input{an-der-uni/kummerkasten}
 \input{an-der-uni/urz}
 \input{an-der-uni/bibliotheken}
 \input{an-der-uni/arbeitsraum}
-\input{an-der-uni/dschungel}
 \input{an-der-uni/bafoeg}
 \input{an-der-uni/ausland}
 \input{an-der-uni/weitere}
@@ -71,7 +94,6 @@
 \chapter{\dots und in der Stadt}
 \input{in-der-stadt/wohnung}
 \input{in-der-stadt/kneipen}
-\input{in-der-stadt/nightline}
 \input{in-der-stadt/verkehrsmittel}
 \input{in-der-stadt/hochschulsport}
 
@@ -95,6 +117,8 @@
 \chapter{Kontakte und Ansprechpartner}
 \input{ansprechpartner}
 
+\makeevenhead{plain}{}{}{}
+\makeoddhead{plain}{}{}{}
 \stepcounter{chapter}
 \printglossaries
 
