@@ -10,46 +10,81 @@ Nicht nur am Anfang eures Studiums, sondern auch mitten drin, können kleinere u
     \vspace{4mm}
 }
 
-\begin{description}
-\sidebar{
-    \chaptersidebarpushdown
+\begin{figure}[b]
+\begin{subfigure}{.48\linewidth}
     \ifdefined\dekanphysikfoto
     \proffoto{\dekanphysikfoto}{\dekanphysiklang\\[-1ex]{\scriptsize Dekan Physik}}
     \fi
 
+\end{subfigure}
+\begin{subfigure}{.48\linewidth}
     \ifdefined\dekanmathefoto
 	\proffoto{\dekanmathefoto}{\dekanmathelang\\[-1ex]{\scriptsize Dekan Mathe \& Info}}
     \fi
 
-    \ifdefined\studiendekaninformatikfoto
-    \proffoto{\studiendekaninformatikfoto}{\studiendekaninformatik\\[-1ex]{\scriptsize Studiendekan Info}}
-    \fi
+\end{subfigure}
+\end{figure}
 
+\begin{figure*}
+\centering
+\begin{subfigure}{.3\linewidth}
     \ifdefined\studiendekanphysikfoto
     \proffoto{\studiendekanphysikfoto}{\studiendekanphysik\\[-1ex]{\scriptsize Studiendekan Physik}}
     \fi
-
-	\vspace*{1.8cm}
-
+\end{subfigure}
+\begin{subfigure}{.3\linewidth}
     \ifdefined\studiendekanmathefoto
     \proffoto{\studiendekanmathefoto}{\studiendekanmathe\\[-1ex]{\scriptsize Studiendekan Mathe}}
     \fi
-\iffalse
-    \ifdefined\prodekanmathefoto
-	\proffoto{\prodekanmathefoto}{\prodekanmathe\\[-1ex]{\scriptsize Prodekan Mathe \& Info}}
+\end{subfigure}
+\begin{subfigure}{.3\linewidth}
+    \ifdefined\studiendekaninformatikfoto
+    \proffoto{\studiendekaninformatikfoto}{\studiendekaninformatik\\[-1ex]{\scriptsize Studiendekan Info}}
     \fi
+\end{subfigure}
+\end{figure*}
 
-    \ifdefined\prodekanphysikfotoA
-    \proffoto{\prodekanphysikfotoA}{\prodekanphysikA\\[-1ex]{\scriptsize Prodekan Physik}}
-    \fi
 
-    \ifdefined\prodekanphysikfotoB
-    \proffoto{\prodekanphysikfotoB}{\prodekanphysikB\\[-1ex]{\scriptsize Prodekan Physik}}
-    \fi
-\fi
-    % Rest weiter unten weil die Physik zwei Prodekane hat
-    % und damit nicht mehr alles in die Spalten passt
-}
+\begin{description}
+%\sidebar{
+%    \chaptersidebarpushdown
+%    \ifdefined\dekanphysikfoto
+%    \proffoto{\dekanphysikfoto}{\dekanphysiklang\\[-1ex]{\scriptsize Dekan Physik}}
+%    \fi
+%
+%    \ifdefined\dekanmathefoto
+%	\proffoto{\dekanmathefoto}{\dekanmathelang\\[-1ex]{\scriptsize Dekan Mathe \& Info}}
+%    \fi
+%
+%    \ifdefined\studiendekaninformatikfoto
+%    \proffoto{\studiendekaninformatikfoto}{\studiendekaninformatik\\[-1ex]{\scriptsize Studiendekan Info}}
+%    \fi
+%
+%    \ifdefined\studiendekanphysikfoto
+%    \proffoto{\studiendekanphysikfoto}{\studiendekanphysik\\[-1ex]{\scriptsize Studiendekan Physik}}
+%    \fi
+%
+%	\vspace*{1.8cm}
+%
+%    \ifdefined\studiendekanmathefoto
+%    \proffoto{\studiendekanmathefoto}{\studiendekanmathe\\[-1ex]{\scriptsize Studiendekan Mathe}}
+%    \fi
+%\iffalse
+%    \ifdefined\prodekanmathefoto
+%	\proffoto{\prodekanmathefoto}{\prodekanmathe\\[-1ex]{\scriptsize Prodekan Mathe \& Info}}
+%    \fi
+%
+%    \ifdefined\prodekanphysikfotoA
+%    \proffoto{\prodekanphysikfotoA}{\prodekanphysikA\\[-1ex]{\scriptsize Prodekan Physik}}
+%    \fi
+%
+%    \ifdefined\prodekanphysikfotoB
+%    \proffoto{\prodekanphysikfotoB}{\prodekanphysikB\\[-1ex]{\scriptsize Prodekan Physik}}
+%    \fi
+%\fi
+%    % Rest weiter unten weil die Physik zwei Prodekane hat
+%    % und damit nicht mehr alles in die Spalten passt
+%}
 
 \item[Die Dekanin] ist sozusagen Chefin der Fakultät und leitet diese. sie wird für vier Jahre gewählt. In der Mathe \& Informatik ist \dekanmathelang\ Dekan, in der Physik \dekanphysiklang .
 
