@@ -74,18 +74,18 @@
 
 % Überdrucke das Bild etwas, um weiße Ränder zu vermeiden
 \ifthenelse{\boolean{druckversion}}{
-  \begin{textblock*}{215mm}[0,0](-5mm,-2.5mm)
-    \includegraphics[width=215mm]{cover/festplakat_cmyk.pdf} % 5mm bleed links, ca. 2,5mm oben und unten
+  \begin{textblock*}{216mm}[0,0](-6mm,-3mm)
+    \includegraphics[width=216mm]{\festimage} % 6mm bleed links, ca. 3mm oben und unten
   \end{textblock*}
 }{
   \begin{textblock*}{210.5mm}[0,0](-.25mm,-.6mm)
-    \href{http://mathphystheo.de}{\includegraphics[width=210.5mm]{cover/festplakat_rgb}} % exkl. bleed
+    \href{http://mathphystheo.de}{\includegraphics[width=210.5mm]{\festimage}} % exkl. bleed
   \end{textblock*}
 }
 
 
 %bardoce für ISSN
-\begin{textblock*}{10mm}[0,0](13mm,266mm)
+\begin{textblock*}{10mm}[0,0](6mm,260mm)
     \ifthenelse{\boolean{druckversion}}{
         \includegraphics[]{bilder/issn_print.pdf}
     }{
