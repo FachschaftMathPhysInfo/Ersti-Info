@@ -1,4 +1,4 @@
-% !TEX ROOT = ersti.tex
+%!TEX ROOT = ersti.tex
 
 \usepackage[ngerman]{babel}
 \usepackage{color}
@@ -30,35 +30,11 @@
 \usepackage[protrusion=true,expansion]{microtype} % hübscherer Blocksatz
 \usepackage{multirow} % mehrzeilige Spalten in Tabellen
 \usepackage[T1]{fontenc}
+\usepackage{subcaption} %für subfigures
+\usepackage{enumitem} % für descriptions mit style=unboxed
+\usepackage{dblfloatfix}    % To enable figures at the bottom of page
 
-%% QR-Codes im Seitenrand
-\usepackage{qrcode} %QR-Codes erzeugen
-\newcommand{\marginQR}[1]{
-  \marginpar{
-    {\hypersetup{hidelinks}\qrcode[height=\marginparwidth]{#1}} \\[.6mm]
-    \scriptsize\url{#1}
-  }
-}
-\newcommand{\marginQRsmall}[1]{
-  \marginpar{
-    \checkoddpage\ifoddpage\hspace*{.4\marginparwidth}\fi
-    \parbox{.6\marginparwidth}{
-      {\hypersetup{hidelinks}\qrcode[height=.6\marginparwidth]{#1}} \\[.6mm]
-      \scriptsize\url{#1}
-    }
-  }
-}
-
-
-\usepackage{timetable} % für die Stundenpläne
-\defineeventgrey{xxxxxx}{1.00}{0.0}
-\defineeventgrey{xxxxx} {0.96}{0.0}
-\defineeventgrey{xxxx}  {0.86}{0.0}
-\defineeventgrey{xxx}   {0.76}{0.0}
-\defineeventgrey{xx}    {0.66}{0.0}
-\defineeventgrey{x}     {0.56}{0.0}
-
-\usepackage[section=chapter,numberline,nonumberlist]{glossaries}
+\usepackage[section=chapter,numberedsection=false,numberline,nonumberlist]{glossaries}
 \renewcommand*{\glsclearpage}{\clearpage}
 \makeglossaries
 \input{glossar}
@@ -75,71 +51,65 @@
                                %% drin. das ist wichtig!!!
 
 %%%%%% eigens definierter krimskrams
-
-
 \newenvironment{spalten}{}{}
 \newcommand{\nurimdruck}[1]{#1}
 \newcommand{\email}[1]{\href{mailto:#1}{#1}}
-% Dieser Befehl wird genutzt, um die Comics/Bilder am Rand, die auf
-% einer „neues Kapitel“-Seite sind nach unten zu verschieben, um
-% Überlappungen zu verhindern.
-\newcommand{\chaptersidebarpushdown}{\vspace*{6.47cm}}
-\setsidebarheight{22cm}
-
 \urlstyle{same}
 
 %%%% chapterstyle
-
 \makechapterstyle{mathphys}{
     \renewcommand{\chaptitlefont}{
         \checkoddpage
         \ifoddpage
-            \Huge\flushright\sffamily
+            \fontsize{28}{28} \selectfont \flushright\sffamily
         \else
-            \Huge\flushleft\sffamily
+            \fontsize{28}{28} \selectfont \flushleft\sffamily
         \fi
     }
     \renewcommand{\printchaptertitle}[1]{
         \checkoddpage
         \ifoddpage
-            % gerade seiten
+            % ungerade seiten
             \colorbox{kapitelhintergrund}{
-                \parbox{18cm}{
+                \parbox{19.2cm}{
                     \vspace{0.5cm}
-                    \parbox{0.985\textwidth}{
-                        \chaptitlefont ##1
+                    \hspace{0.3cm}
+                    \parbox{0.985\textwidth}{%
+                        \textcolor{white}{\chaptitlefont \textsc{##1}}%
                     }
-                    \hspace*{2.3cm}%
                     \raisebox{-9mm}{
                         \makebox[0pt][l]{
                             \resizebox{!}{42pt}{\chapnumfont
                             % das ist nicht nett. stimmt. tut mir leid. ehrlich.
+                            \hspace*{-1.8mm}
                             \textcolor{white}{$\thechapter$}}
                         }
                     }
-                    \vspace{0.6cm}
+
+                    \vspace{0.5cm}
                 }
             }
         \else
-            % ungerade seiten
+            % gerade seiten
             \hspace*{-\foremargin}
-            \hspace*{-11.2mm} % keine Ahnung warum die fehlen
+            \hspace*{-5.6mm} % keine Ahnung warum die fehlen
             \colorbox{kapitelhintergrund}{
-                \parbox{18cm}{
+                \parbox{19.2cm}{
                     \vspace{0.5cm}
-                    \hspace{1.42cm}
-                    \raisebox{-9mm}{
+                    \hspace{0.5cm}
+                    \raisebox{-7mm}{
                         \makebox[0pt][l]{
-                            \resizebox{!}{42pt}{\chapnumfont
-                            \textcolor{white}{$\thechapter$}}
+                            \resizebox{!}{42pt}{
+                            \textcolor{white}{$\thechapter$} 
+                            }
                         }
                     }
-                    \hspace*{3.4cm}%
+                    \ifthenelse{\value{chapter}>9}{\hspace*{3.2cm}}{\hspace*{2.3cm}}
                     \parbox{0.985\textwidth}{
-                        \chaptitlefont ##1
+                        \textcolor{white}{\chaptitlefont \textsc{##1}}
                     }
                     % keine Ahnung warum die \colorbox sonst höher wird
-                    \vspace{0.56cm}
+                    \vspace{0.5cm}
                 }
             }
         \fi
@@ -154,63 +124,41 @@
 
 \chapterstyle{mathphys}
 
-\newcommand{\mathphyssubsubsec}[1]{\noindent\sffamily\bfseries\flushleft\textcolor{sectiontextfarbe}{#1}}
+\newcommand{\mathphyssubsubsec}[1]{\noindent\sffamily\bfseries\textcolor{sectiontextfarbe}{#1}}%
 \newcommand{\mathphyssubsec}[1]{\large\mathphyssubsubsec{#1}}
-\newcommand{\mathphyssec}[1]{
-    % Die Trennlinie nach neuen Kapiteln nicht zeichnen
-	\ifthenelse{\value{section}>1}{
-			\noindent\vspace{-0.2cm}\hrulefill\vspace{0.3cm}
-		}{}
-%    \ifnum \value{section}=1 \else
-%        \noindent\vspace{-0.2cm}\hrulefill\vspace{0.3cm}
-%    \fi
-    \Large\mathphyssubsubsec{#1}
-}
+\newcommand{\mathphyssec}[1]{\LARGE{\mathphyssubsubsec{#1}}}
 \setsecheadstyle{\mathphyssec}
 \setsubsecheadstyle{\mathphyssubsec}
 \setsubsubsecheadstyle{\mathphyssubsubsec}
 \setparaheadstyle{\sffamily\textbf}
 \setsecnumformat{}
 
-% Bitte niemal irgendwann wieder verwenden, solange nicht debugged!
-%\newcommand{\mathphyssecnobar}[1]{
-%    \begingroup
-%        \Large\mathphyssubsubsec{#1}\\
-%		\stepcounter{section}
-%        \addcontentsline{toc}{section}{\numberline{\thesection}#1}
-%    \endgroup\noindent
-%}
-
-
-%\renewcommand{\section}[1]{
-%     \addcontentsline{toc}{section}{#1}
-                % Wie soll der TOC-Eintrag aussehen?
-                % Text ohne Zähler.
-%}
-
 \pagestyle{plain}
 \makeoddfoot{plain}{}{}{\thepage}
 \makeevenfoot{plain}{\thepage}{}{}
-
+  
 %%%% Impressum
 \newcommand{\impressum}[2]{
     \vspace*{\fill}
     \begin{tabular*}{0.77\textwidth}{ll}
         \multicolumn{2}{l}{
             \parbox{0.77\textwidth}{
-                Der Redaktionsschluss für diesen Text war am 08.09.2017. Wir freuen uns
+                Der Redaktionsschluss für diesen Text war am 08.08.2018. Wir freuen uns
                 sehr über Kommentare, Anregungen, Verbesserungsvorschläge,
                 Mitarbeit und Kuchen -- melde dich bei
 				\email{vorkurs@mathphys.stura.uni-heidelberg.de}.
             }
             \vspace{5cm}
         }\\
-        V.\,i.\,S.\,d.\,P.: & Fachschaft\\
-        & Uni Heidelberg \\
-        & Im Neuenheimer Feld 205, Raum 01.301\\
-        & 0\,62\,21 54\,-\,14\,999\\
-        & \email{fachschaft@mathphys.stura.uni-heidelberg.de}\\
-        & \url{http://mathphys.stura.uni-heidelberg.de}\\
+        Herausgeberin: & Fachschaft MathPhysInfo\\
+	& Im Neuenheimer Feld 205, Raum 1.301\\
+	& 69120 Heidelberg\\
+	& www.mathphys.info\\
+        & vertr. durch den Vorsitz der\\
+	& Verfassten Studierendenschaft\\
+	& \vorsitzVS\\
+        & Albert-Überle-Straße 3-5\\
+	& 69120 Heidelberg
     \end{tabular*}
 
     \vfill
@@ -229,13 +177,10 @@
     \begin{textblock*}{203mm}[0,1](-7mm,290mm)
         \begin{flushright}
             \footnotesize
-%            \href{http://www.flickr.com/photos/99962592@N00/2849889847/}{Ursprüngliches Coverfoto: Niki Odolphie} \href{http://creativecommons.org/licenses/by/2.0/deed.en}{(CC-BY)}\\ %2009
-%            \href{http://www.flickr.com/photos/atoach/6014917153/}{Ursprüngliches Coverfoto: Tim Green} \href{http://creativecommons.org/licenses/by/2.0/deed.en}{(CC-BY)}\\ %2011
-%            \href{mailto:mo+erstiinfo@mathphys.stura.uni-heidelberg.de}{Coverbild: Moritz Brinkmann} \href{http://creativecommons.org/licenses/by-sa/3.0/deed.en}{(CC-BY-SA)}\\ %2012
-%            \href{mailto:mo+erstiinfo@mathphys.stura.uni-heidelberg.de}{Coverbild: Moritz Brinkmann} \href{http://creativecommons.org/licenses/by-sa/3.0/deed.en}{(CC-BY-SA)}\\ %2013
-%            \href{http://mo.uni-hd.de/}{Coverbild: Moritz Brinkmann} \href{http://creativecommons.org/licenses/by-sa/4.0/}{(CC-BY-SA)}\\ %2014
-%            \href{http://mobrinkmann.de}{Coverbild: Moritz Brinkmann} \href{http://creativecommons.org/licenses/by-sa/4.0/}{(CC-BY-SA)}\\ %2015 
-	    \href{http://mntl.de}{Coverbild: Maximilian Jalea} \href{http://creativecommons.org/licenses/by-sa/4.0/}{(CC-BY-SA)}\\ %2017
+ 	     	Coverbild: Elisabeth Häberle \href{http://
+creativecommons.org/licenses/by-sa/4.0/}{(CC-BY-SA)}\\ %2018
+		\href{http://mathphys.info/}{Cover: Tom Rix \& Lennart Stipulkowski} \href{http://
+creativecommons.org/licenses/by-sa/4.0/}{(CC-BY-SA)}\\ %2018
             \href{http://xkcd.com/}{xkcd Comics: Randall Munroe} \href{http://creativecommons.org/licenses/by-nc/2.5/}{(CC-BY-NC)}\\
             \href{http://abstrusegoose.com/}{Abstruse Goose Comics: lcfr} \href{http://creativecommons.org/licenses/by-nc/3.0/us/}{(CC-BY-NC)}\\
             \href{http://nfccomic.com/index.php}{Not From Concentrate Comics: \copyright{} Thomas Dobrosielski}\\
@@ -246,18 +191,12 @@
     \end{textblock*}
 }
 
-%%%%%%%%% Suche nach Grafiken in ./bilder und .:
+%%%%%%%%% Suche nach Grafiken in ./bilder und  . :
 \graphicspath{{./bilder/}{./}}
 
-%%%%%%%%% Dschungelbuch Verweise
-\newcommand{\dschungel}{
-    \marginpar{
-        \centering
-        \hyperref[dschungel] {
-            \includegraphics[width=3cm]{dschungelbuch_3.pdf}
-        }
-    }
-}
+%%%%%%%%% Silbentrennung
+\input{silbentrennung}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: ersti
