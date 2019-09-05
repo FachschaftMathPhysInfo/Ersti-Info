@@ -21,8 +21,8 @@
 %    \includegraphics[width=217mm]{\coverimage} % inkl. 5mm bleed
 %\end{textblock*}
 \ifthenelse{\boolean{druckversion}}{
-  \begin{textblock*}{220mm}[0,0](-4mm,0mm)
-    \includegraphics[width=220mm]{\coverimage} % 6mm bleed oben, unten und rechts
+  \begin{textblock*}{216mm}[0,0](-0mm,0mm)
+    \includegraphics[width=216mm]{\coverimage} % 6mm bleed oben, unten und rechts
   \end{textblock*}
 }{
   \begin{textblock*}{210mm}[0,0](0mm,0mm)
@@ -74,7 +74,7 @@
 
 % Überdrucke das Bild etwas, um weiße Ränder zu vermeiden
 \ifthenelse{\boolean{druckversion}}{
-  \begin{textblock*}{216mm}[0,0](0mm,-2mm)
+  \begin{textblock*}{216mm}[0,0](0mm,0mm)
     \includegraphics[width=216mm]{\festimage} % 6mm bleed links, ca. 3mm oben und unten
   \end{textblock*}
 }{
@@ -85,7 +85,7 @@
 
 
 %bardoce für ISSN
-\begin{textblock*}{10mm}[0,0](6mm,260mm)
+\begin{textblock*}{10mm}[0,0](160mm,260mm)
     \ifthenelse{\boolean{druckversion}}{
         \includegraphics[]{bilder/issn_print.pdf}
     }{
