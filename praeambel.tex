@@ -42,7 +42,7 @@
 
 % alternative Fußnoten-Symbole
 \makeatletter
-\newcommand*{\@greek}[1]{\ensuremath{\ifcase#1 \or \alpha \or \beta \or \gamma \or \delta \or \varepsilon \or \zeta \or \eta \or \vartheta \or \iota \or \kappa \or \lambda \or \mu \or \nu \or o \or \pi \or \varrho \or \sigma \or \tau \or \upsilon \or \varphi \or \chi \or \psi \or \omega \or \varsigma \else \@cterr \fi}}
+\newcommand*{\@greek}[1]{\ensuremath{\ifcase#1 \or \alpha \or \beta \or \gamma \or \delta \or \varepsilon \or \zeta \or \eta \or \vartheta \or \iota \or \kappa \or \lambda \or \mu \or \nu \or o \or \pi \or \varrho \or \sigma \or \tau \or \upsilon \or \varphi \or \chi \or \psi \or \omega \or \varsigma \or \alpha \or \beta \or \gamma \or \delta \or \varepsilon \else \@cterr \fi}}
 \newcommand*{\greek}[1]{\expandafter\@greek\csname c@#1\endcsname}
 \makeatother
 \renewcommand{\thefootnote}{\greek{footnote}}
@@ -180,10 +180,8 @@ Source Code: \ifthenelse{\boolean{druckversion}}{https://github.com/FachschaftMa
     \begin{textblock*}{203mm}[0,1](-7mm,290mm)
         \begin{flushright}
             \footnotesize
- 	     	Coverbild: Elisabeth Häberle \href{http://
-creativecommons.org/licenses/by-sa/4.0/}{(CC-BY-SA)}\\ %2018
-		\href{http://mathphys.info/}{Cover: Tom Rix \& Lennart Stipulkowski} \href{http://
-creativecommons.org/licenses/by-sa/4.0/}{(CC-BY-SA)}\\ %2018
+ 	     	Coverbild: Samuel Scherer \\ %2019
+		\href{http://mathphys.info/}{Cover: Henrik Reinstädtler}\\ %2019
             \href{http://xkcd.com/}{xkcd Comics: Randall Munroe} \href{http://creativecommons.org/licenses/by-nc/2.5/}{(CC-BY-NC)}\\
             \href{http://abstrusegoose.com/}{Abstruse Goose Comics: lcfr} \href{http://creativecommons.org/licenses/by-nc/3.0/us/}{(CC-BY-NC)}\\
             \href{http://nfccomic.com/index.php}{Not From Concentrate Comics: \copyright{} Thomas Dobrosielski}\\
