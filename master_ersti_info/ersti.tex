@@ -1,0 +1,120 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+\RequirePackage{fix-cm}
+\documentclass[ngerman,a4paper,openany,twocolumn,showtrims]{memoir}
+\input{praeambel}
+
+\begin{document}
+\pagestyle{empty}
+
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+\pagestyle{plain}
+%Kopfzeile: Links Kapitelname, rechts Sectionname in Kapitälchen (small caps)
+\makeevenhead{plain}{\leftmark}{}{}
+\makeoddhead{plain}{}{}{\rightmark}
+\renewcommand*{\chaptermark}[1]{%
+	\markboth{%
+		\textcolor{sectiontextfarbe}{%
+			\sffamily\bfseries\textsc{#1}%
+		}%
+	}{}%
+}
+\renewcommand*{\sectionmark}[1]{%
+	\markright{%
+		\textcolor{sectiontextfarbe}{%
+			\sffamily\bfseries\textsc{#1}%
+		}%
+	}%
+}
+
+\chapter{Hallo und herzlich willkommen}
+\input{vorwort}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Vorkurs}
+\input{zu_aktualisieren/vorkursplan.mathe}
+\input{zu_aktualisieren/vorkursplan.info}
+\input{zu_aktualisieren/vorkursplan.physik}
+\input{zu_aktualisieren/vorkursplan.alle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Studiengänge} 
+\input{studiengaenge/bachelor_allgemein}
+\input{studiengaenge/bachelor_informatik}
+\input{studiengaenge/bachelor_mathe}
+\input{studiengaenge/bachelor_physik}
+\input{studiengaenge/lehramt_allgemein}
+\input{studiengaenge/lehramt_info}
+\input{studiengaenge/lehramt_mathe}
+\input{studiengaenge/lehramt_physik}
+\input{studiengaenge/lehramt_kontakte}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Studieren -- Wie geht das?}
+\input{wie-geht-studium/vorlesung_allgemein}
+\input{wie-geht-studium/vorlesungen_info}
+\input{wie-geht-studium/vorlesungen_mathe}
+\input{wie-geht-studium/vorlesungen_physik}
+\input{wie-geht-studium/durchgefallen}
+\input{wie-geht-studium/uebungsgruppen_allgemein}
+\input{wie-geht-studium/praktikum}
+\input{wie-geht-studium/seminar}
+\input{wie-geht-studium/lehrbuecher}
+\input{wie-geht-studium/medienplattformen_mathe}
+\input{wie-geht-studium/faq_physik}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Was tun bei Problemen?}
+\input{probleme/einleitung}
+\input{probleme/career_service}
+\input{probleme/kummerkasten}
+\input{probleme/nightline}
+\input{probleme/handicap}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{An der Uni \dots}
+\input{an-der-uni/edv}
+\input{an-der-uni/bibliotheken}
+\input{an-der-uni/arbeitsraum}
+\input{an-der-uni/bafoeg}
+\input{an-der-uni/ausland}
+\input{an-der-uni/weitere}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{\dots und in der Stadt}
+\input{in-der-stadt/wohnung}
+\input{in-der-stadt/kneipen}
+\input{in-der-stadt/kultur}
+\input{in-der-stadt/verkehrsmittel}
+\input{in-der-stadt/hochschulsport}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Hochschulpolitik}
+\input{hopo/ueberblick_gremien}
+\input{hopo/studiengebuehren}
+\input{hopo/semesterticket}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Die Fachschaft MathPhysInfo}
+\label{diefsmathphys}
+\input{mathphys/fachschaft}
+\input{mathphys/arbeitsweise}
+\input{mathphys/informatik_vollversammlung}
+\input{mathphys/vorkursteam}
+%\input{mathphys/akfest}
+\input{mathphys/evaluation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Kontakte und Ansprechpartner}
+\input{ansprechpartner}
+
+\makeevenhead{plain}{}{}{}
+\makeoddhead{plain}{}{}{}
+\stepcounter{chapter}
+\printglossaries
+
+\end{document}
