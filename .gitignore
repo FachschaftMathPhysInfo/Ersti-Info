@@ -2,6 +2,7 @@
 /GITDATE
 /GITHASH
 /config.tex
+/ersti.pdf
 /mantelbogen.pdf
 /mantelbogen_web.pdf
 /webseite.pdf
@@ -22,6 +23,9 @@
 *.aux
 *.log
 *.out
+*.glg
+*.gls
+*.toc
 
 # Ignore .swp, created by vim
 .*.swp
