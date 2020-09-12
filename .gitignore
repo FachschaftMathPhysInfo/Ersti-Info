@@ -290,8 +290,4 @@ TSWLatexianTemp*
 *.sta
 
 # Makeindex log files
-<<<<<<< HEAD
 *.lpz
-=======
-*.lpz
->>>>>>> Default github TeX gitignore settings hinzugefügt
