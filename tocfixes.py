@@ -9,7 +9,7 @@ Beispiel: python tocfixes.py metadaten.txt metadaten_updated.txt
 import sys
 
 if len(sys.argv) < 2:
-    print("Dieses Skript benötigt zwei Dateinamen als Argumente. Beispiel: python tocfixes.py metadaten.txt metadaten_updated.txt")
+    print("Dieses Skript benoetigt zwei Dateinamen als Argumente.\nBeispiel: python tocfixes.py metadaten.txt metadaten_updated.txt\n")
 
 with open(sys.argv[1]) as file:
     with open(sys.argv[2],'a') as outfile:
