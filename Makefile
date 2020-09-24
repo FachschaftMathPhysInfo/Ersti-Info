@@ -35,7 +35,7 @@ web: clean
 	@echo "Exportiere Metadaten mit Inhaltsverzeichnis des Inhaltsteils…"
 	@pdftk ersti.pdf dump_data_utf8 output metadaten.txt
 	@echo "Inkrementiere Seitenzahlen im Inhaltsverzeichnis um 2…"
-	@python tocfixes.py
+	@python tocfixes.py metadaten.txt metadaten_updated.txt
 	@echo "Verklebe Inhalt und Mantelbogen…"
 	@pdftk mantelbogen.pdf cat 1-2 3west 4 output mantelbogen_web.pdf > /dev/null
 	@pdftk C=ersti.pdf M=mantelbogen_web.pdf cat M1-2 C M3-4 output webseite_wrong_toc.pdf  > /dev/null
