@@ -107,8 +107,8 @@ clean:
 	@rm -f ersti.pdf
 	@rm -f mantelbogen.pdf
 	@rm -f webseite_wrong_toc.pdf
-	@rm -f metadaten.txt
-	@rm -f metadaten_updated.txt
+	#@rm -f metadaten.txt
+	#@rm -f metadaten_updated.txt
 	@rm -f config.tex
 	@rm -f GITHASH
 	@rm -f GITDATE
