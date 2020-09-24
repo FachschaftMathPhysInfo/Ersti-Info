@@ -38,7 +38,8 @@ web: clean
 	@python tocfixes.py
 	@echo "Verklebe Inhalt und Mantelbogen…"
 	@pdftk mantelbogen.pdf cat 1-2 3west 4 output mantelbogen_web.pdf > /dev/null
-	@pdftk C=ersti.pdf M=mantelbogen_web.pdf cat M1-2 C M3-4 update_info metadaten_updated.txt output webseite.pdf  > /dev/null
+	@pdftk C=ersti.pdf M=mantelbogen_web.pdf cat M1-2 C M3-4 output webseite_wrong_toc.pdf  > /dev/null
+	@pdftk webseite_wrong_toc.pdf update_info metadaten_updated.txt output website.pdf > /dev/null
 	@make --no-print-directory clean
 	@echo -e "\v\v\v\v\vFolgende Dateien wurden erstellt:\nwebseite.pdf\t\tEnthält Cover und Inhalt in einem PDF, Grafiken sind als Vektoren eingebunden, RGB Format"
 
@@ -105,6 +106,9 @@ clean:
 	@echo "Entferne temporäre Dateien…"
 	@rm -f ersti.pdf
 	@rm -f mantelbogen.pdf
+	@rm -f webseite_wrong_toc.pdf
+	@rm -f metadaten.txt
+	@rm -f metadaten_updated.txt
 	@rm -f config.tex
 	@rm -f GITHASH
 	@rm -f GITDATE
