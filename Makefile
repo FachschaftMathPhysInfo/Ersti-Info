@@ -38,8 +38,9 @@ web: clean
 	@python tocfixes.py metadaten.txt metadaten_updated.txt
 	@echo "Verklebe Inhalt und Mantelbogen…"
 	@pdftk mantelbogen.pdf cat 1-2 3west 4 output mantelbogen_web.pdf > /dev/null
-	@pdftk C=ersti.pdf M=mantelbogen_web.pdf cat M1-2 C M3-4 output webseite_wrong_toc.pdf  > /dev/null
-	@pdftk webseite_wrong_toc.pdf update_info_utf8 metadaten_updated.txt output webseite.pdf > /dev/null
+	@pdftk C=ersti.pdf M=mantelbogen_web.pdf cat M1-2 C M3-4 output webseite_without_toc.pdf  > /dev/null
+	@echo "Füge Metadaten hinzu…"
+	@pdftk webseite_without_toc.pdf update_info_utf8 metadaten_updated.txt output webseite.pdf > /dev/null
 	@make --no-print-directory clean
 	@echo -e "\v\v\v\v\vFolgende Dateien wurden erstellt:\nwebseite.pdf\t\tEnthält Cover und Inhalt in einem PDF, Grafiken sind als Vektoren eingebunden, RGB Format"
 
@@ -107,7 +108,7 @@ clean:
 	@rm -f ersti.pdf
 	@rm -f mantelbogen.pdf
 	@rm -f mantelbogen_web.pdf
-	@rm -f webseite_wrong_toc.pdf
+	@rm -f webseite_without_toc.pdf
 	@rm -f metadaten.txt
 	@rm -f metadaten_updated.txt
 	@rm -f config.tex
