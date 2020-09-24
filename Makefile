@@ -33,7 +33,7 @@ web: clean
 	@make --no-print-directory mantel
 	@make --no-print-directory inhalt
 	@echo "Exportiere Metadaten mit Inhaltsverzeichnis des Inhaltsteils…"
-	@pdftk ersti.pdf dump_data output metadaten.txt
+	@pdftk ersti.pdf dump_data_utf8 output metadaten.txt
 	@echo "Inkrementiere Seitenzahlen im Inhaltsverzeichnis um 2…"
 	@python tocfixes.py
 	@echo "Verklebe Inhalt und Mantelbogen…"
