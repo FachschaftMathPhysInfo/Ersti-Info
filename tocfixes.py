@@ -1,7 +1,7 @@
 '''
 Mit diesem Skript wird eine pdftk data_dump Datei bearbeitet, sodass die Bookmark Eintraege des Inhaltsverzeichnisses um zwei erhoeht werden. Dies ist notwendig, weil beim mergen des Mantelbogens mit dem Inhalt zwei zusaetzliche Seiten vorne angehaengt werden.
 
-Erwartet, dass dass das erste Komandozeilenargument den Dateinamen der ursprünglichen Metadaten enthält und das zweite den Dateinamen der geupdateten.
+Erwartet, dass dass das erste Komandozeilenargument den Dateinamen der urspruenglichen Metadaten enthaelt und das zweite den Dateinamen der geupdateten.
 
 Beispiel: python tocfixes.py metadaten.txt metadaten_updated.txt
 '''
