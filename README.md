@@ -23,7 +23,7 @@ in dem viele sich oft ändernde Dinge mit Aliasen benannt wird, um sie an einem 
 
 Neben dem `ersti.tex` Dokument wird in `mantelbogen.tex` ein eigenes Dokument für den Mantelbogen erstellt, welcher in Farbe gedruckt  und deshalb gesondert behandelt wird.
 
-Das sind im Wesentlichen auch alle Dinge, an denen man manuell als LaTeX-Amateur rumfummeln kann und will. Im [Styleguide](styleguide.md) werden noch weitere Tipps gegeben, um einen einheitlichen Stil des Ersti-Infos zu gewährleisten.
+Das sind im Wesentlichen auch alle Dinge, an denen man manuell als LaTeX-Amateur rumfummeln kann und will. Im [Styleguide](STYLEGUIDE.md) werden noch weitere Tipps gegeben, um einen einheitlichen Stil des Ersti-Infos zu gewährleisten.
 
 ## Kompilieren und ähnliches
 
