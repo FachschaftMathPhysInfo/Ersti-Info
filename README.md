@@ -1,6 +1,6 @@
 # Ersti-Info
 
-[![Build Status](https://travis-ci.org/FachschaftMathPhys/Ersti-Info.svg?branch=master)](https://travis-ci.org/FachschaftMathPhys/Ersti-Info)
+[![Build Status](https://travis-ci.org/FachschaftMathPhysInfo/Ersti-Info.svg?branch=master)](https://travis-ci.org/FachschaftMathPhysInfo/Ersti-Info)
 
 Das Ersti-Info ist eine Broschüre der Fachschaften Informatik, Mathematik und Physik, die jedes Jahr
 am Anfang des Semesters allen neuen Studierenden ausgehändigt wird. Es
