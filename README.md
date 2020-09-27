@@ -69,7 +69,7 @@ Manchmal werden lange Wörter falsch getrennt. Diese können in `silbentrennung.
 
 In `glossar.tex` werden diverse Akronyme definiert, die dann im Dokument mit `\gls{}` aufgerufen werden können.
 
-Damit in der Druckversion ein Dokument entsteht, was eine durch 4 teilbare Seitenanzahl hat, werden in `durch4teilbar.tex` weitere Seiten erzeugt, wo dann drauf steht `Diese Seite ist aus technischen Gründen leer.`
+Damit in der Druckversion ein Dokument entsteht, was eine durch 4 teilbare Seitenanzahl hat, werden in `durch4teilbar.tex` weitere Seiten für das Dokumentenende erzeugt, wo dann drauf steht `Diese Seite ist aus technischen Gründen leer.`
 
 ## Lizenz
 Diese Broschüre ist lizenziert unter einer Creative Commons
