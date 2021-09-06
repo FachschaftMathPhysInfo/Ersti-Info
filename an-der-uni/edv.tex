@@ -67,8 +67,8 @@ Rechnerräume gibt es im \gls{KIP} und im \gls{PI} im 1. Stock, in der Bibliothe
 \end{figure}
 
 \begin{figure*}[t]
-\centering
-\includegraphics[width=.8\textwidth]{bilder/computers_vs_humans.png}
+    \centering
+    \includegraphics[width=.8\textwidth]{bilder/computers_vs_humans.png}
 \end{figure*}
 
 
@@ -77,18 +77,16 @@ Am einfachsten und komfortabelsten ist der WLAN-Zugang über das e\-du\-roam-Net
 
 Wie ihr euer Notebook konfigurieren müsst, um eduroam zu nutzen, ist auf den Webseiten des URZ\footnote{\url{https://www.urz.uni-heidelberg.de/de/eduroam}} für die unterschiedlichsten Betriebssysteme sehr detailliert erklärt.
 
-Neben eduroam bietet das URZ an einigen Stellen noch das Netzwerk „UNI-HEIDELBERG“, das man mit einem VPN-Zugang nutzen kann, sowie das unverschlüsselte „UNI-WEBACCESS“, bei dem man sich in einem Captive Portal authentifiziert. 
+Neben eduroam bietet das URZ an einigen Stellen noch das Netzwerk „UNI-HEIDELBERG“, das man mit einem VPN-Zugang nutzen kann, sowie das unverschlüsselte „UNI-WEBACCESS“, bei dem man sich in einem Captive Portal authentifiziert.
 
 Sollte euch der WLAN-Zugang nicht mehr ausreichen, gibt es an einigen Orten auch kabelgebundene Zugänge mit mehr Bandbreite. Wenn ihr jetzt schon feuchte Hände bekommt und euch die niegelnagel neue externe Platte mit Inhalten aus zweifelhaften Quellen vollladen möchtet, seid auf die Benutzerordnung\footnote{\url{https://www.urz.uni-heidelberg.de/sites/default/files/2017-08/vbo.pdf}} verwiesen. Nach zu viel Traffic dreht euch das \gls{URZ} den Hahn ab und schaltet ihn erst wieder frei, wenn ihr bestätigt, dass ihr keine bösen Dinge damit anstellt.
 
 \subsection{VPN}
 Um auf manche Dienste zugreifen zu können, müsst ihr euch im internen Uni-Netz befinden. Weil das von zu Hause irgendwie schwer ist, braucht ihr einen VPN-Tunnel. Damit stellt euer Rechner über einen Internetzugang eine Verbindung zur Uni her und es ist so, als würdet ihr mit einem LAN-Kabel in der Uni sitzen. Eine ausführliche Anleitung findet ihr online\footnote{\url{https://www.urz.uni-heidelberg.de/de/vpn}}, die neben allgemeinen Informationen auch Anleitungen zur Installation des \emph{Cisco AnyConnect VPN Client}, enthält. Hier aber dennoch die Kurzfassung:
 
-Unter Linux könnt ihr einfach \emph{openconnect} verwenden. Hier könnt ihr z.B. unter Ubuntu, Debian oder Mint das Paket \emph{network-manager-openconnect-gnome} nutzen und dort \emph{vpnsrv0.urz.uni-heidelberg.de} als Gateway und \emph{Deutsche\_Telekom\_Root\_CA\_2.pem} als CA Certificate einstellen.
+Unter Linux könnt ihr einfach \emph{openconnect} verwenden. Hier könnt ihr z.B. unter Ubuntu, Debian oder Mint das Paket \emph{network-manager-openconnect-gnome} nutzen und dort \emph{vpnsrv0.urz.uni-heidelberg.de} als Gateway und \emph{Deutsche\_Telekom\_Root\_CA\_2.pem} als CA Certificate einstellen, hier eine Anleitung\footnote{\url{https://youtu.be/_vOrUASbegs}}.
 
-Unter Windows \ldots benutzt einfach kein Windows. Falls doch, nutzt den Cisco AnyConnect Client. Es gibt auch Alternativen, diese findet ihr auch auf den Seiten des Rechenzentrums.
-
-Alternativ könnt ihr euch auch aus der Ferne direkt auf den Uni-Rechnern anmelden und so die dort installierte Software nutzen. Eine ausführliche Anleitung findet ihr online\footnote{\url{https://www.urz.uni-heidelberg.de/de/server}}.
+Unter Windows \ldots benutzt einfach kein Windows. Falls doch, nutzt den Cisco AnyConnect Client und folgt dieser Anleitung\footnote{\url{https://youtu.be/L6mlUyoEJ9I}}. Es gibt auch Alternativen, diese findet ihr auch auf den Seiten des Rechenzentrums.
 
 \subsection{Lehre -- Studium -- Forschung (LSF)}
 Das LSF\footnote{\url{https://lsf.uni-heidelberg.de/}} ist das Campus-Management-System der Uni. Hier findet ihr neben dem Vorlesungsverzeichnis und Informationen zu Gebäuden und Personen auch eure Bescheinigungen, beispielsweise für BAföG o.ä., euer Stammdatenblatt könnt ihr da auch ausdrucken. Das braucht ihr, um später nachweisen zu können, dass ihr auch wirklich studiert habt.
