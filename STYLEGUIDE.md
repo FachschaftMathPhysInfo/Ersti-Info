@@ -14,7 +14,7 @@ Auch wenn wir versuchen, die Erstis möglichst persönlich anzureden mit dem Ers
 
 ## Sprache
 
-Das Ersti-Info wird in Deutsch geschrieben. Es sollte korrekte Rechtschreibung und Kommasetzung angewandt werden. Vom Stil her, muss es nicht all zu formell sein, ein legerer Ausdruck ist gut geeignet, um Erstsemester ungezwungen und zwanglos anzusprechen.
+Das Ersti-Info wird in Deutsch geschrieben. Es sollte korrekte Rechtschreibung und Kommasetzung angewandt werden. Um dies zu überprüfen, kann `make spell` ausgeführt werden, womit ein spell checking ausgelöst wird, was die Wörter aus der Datei `aspelldic` prüft. Vom Stil her, muss es nicht all zu formell sein, ein legerer Ausdruck ist gut geeignet, um Erstsemester ungezwungen und zwanglos anzusprechen.
 
 ## Auslassungspunkte
 
