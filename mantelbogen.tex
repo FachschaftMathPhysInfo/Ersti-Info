@@ -25,7 +25,7 @@
     \includegraphics[width=216mm]{\coverimage} % 6mm bleed oben, unten und rechts
   \end{textblock*}
 }{
-  
+
   \begin{textblock*}{210mm}[0,0](0mm,0mm)
     \includegraphics[width=210mm]{\coverimage} % exkl. bleed
   \end{textblock*}
@@ -46,26 +46,26 @@
 \pagestyle{empty}
 
 \begin{textblock*}{299mm}[0,0](14.5mm,3mm)
-    \includegraphics[width=299mm,angle=-90]{\nhfkarte}
+  \includegraphics[width=299mm,angle=-90]{\nhfkarte}
 \end{textblock*}
 
 % bezugspunkt des textblocks ist die rechte obere eche (gedreht: oben links)
 % die Karte hat eine Höhe von 65 mm und eine Breite von ca. 128 mm (gedreht)
 % oben und rechts steht die kleine Karte jeweils ca 3mm über
 \begin{textblock*}{65.8mm}[1,0](124mm,-3mm)
-    \setlength\fboxsep{0pt}
-    \setlength\fboxrule{0.4mm}
-    \fbox{\includegraphics[height=65mm,angle=0]{\philwegkarte}}
+  \setlength\fboxsep{0pt}
+  \setlength\fboxrule{0.4mm}
+  \fbox{\includegraphics[height=65mm,angle=0]{\philwegkarte}}
 \end{textblock*}
 
 
 % Dies platziert den Text in die obere, rechte Ecke
 \begin{textblock*}{299mm}[0,0](10.5mm,7mm)
-    \begin{turn}{-90}
-        Vollständige Karte auf \url{www.openstreetmap.org}.
-        Nahverkehrskarte auf \url{www.öpnvkarte.de}.
-		(Lizenz: \url{http://www.openstreetmap.org/copyright})
-    \end{turn}
+  \begin{turn}{-90}
+    Vollständige Karte auf \url{www.openstreetmap.org}.
+    Nahverkehrskarte auf \url{www.öpnvkarte.de}.
+    (Lizenz: \url{http://www.openstreetmap.org/copyright})
+  \end{turn}
 \end{textblock*}
 \null
 \newpage
@@ -86,12 +86,12 @@
 
 
 %bardoce für ISSN
-\begin{textblock*}{10mm}[0,0](25mm,266mm)
-    \ifthenelse{\boolean{druckversion}}{
-        \includegraphics[]{bilder/issn_print.pdf}
-    }{
-        \includegraphics[]{bilder/issn_web.pdf}
-    }
+\begin{textblock*}{10mm}[0,0](155mm,284mm)
+  \ifthenelse{\boolean{druckversion}}{
+    \includegraphics[]{bilder/issn_print.pdf}
+  }{
+    \includegraphics[]{bilder/issn_web.pdf}
+  }
 \end{textblock*}
 
 \end{document}

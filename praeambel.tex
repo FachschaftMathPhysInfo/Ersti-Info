@@ -4,7 +4,7 @@
 \usepackage{color}
 
 \usepackage[utf8]{inputenc} % wir wollen das erstiinfo /richtig/
-                            % kodiert haben
+% kodiert haben
 
 % Boolean, mit dem wir abfragen können, ob Druck- oder Webversion benötigt wird,
 % um nicht alles in config_druck.tex bzw. config_web.tex angeben zu müssen.
@@ -48,8 +48,8 @@
 \renewcommand{\thefootnote}{\greek{footnote}}
 
 \input{zu_aktualisieren/daten} %% hier sind die ganzen wichtigen
-                               %% aktualisierungswürdigen daten
-                               %% drin. das ist wichtig!!!
+%% aktualisierungswürdigen daten
+%% drin. das ist wichtig!!!
 
 %%%%%% eigens definierter krimskrams
 \newenvironment{spalten}{}{}
@@ -82,9 +82,9 @@
                     \raisebox{-9mm}{
                         \makebox[0pt][l]{
                             \resizebox{!}{42pt}{\chapnumfont
-                            % das ist nicht nett. stimmt. tut mir leid. ehrlich.
-                            \hspace*{-1.8mm}
-                            \textcolor{white}{$\thechapter$}}
+                                % das ist nicht nett. stimmt. tut mir leid. ehrlich.
+                                \hspace*{-1.8mm}
+                                \textcolor{white}{$\thechapter$}}
                         }
                     }
 
@@ -102,7 +102,7 @@
                     \raisebox{-7mm}{
                         \makebox[0pt][l]{
                             \resizebox{!}{42pt}{
-                            \textcolor{white}{$\thechapter$} 
+                                \textcolor{white}{$\thechapter$}
                             }
                         }
                     }
@@ -138,7 +138,7 @@
 \pagestyle{plain}
 \makeoddfoot{plain}{}{}{\thepage}
 \makeevenfoot{plain}{\thepage}{}{}
-  
+
 %%%% Impressum
 \newcommand{\impressum}[2]{
     \vspace*{\fill}
@@ -148,21 +148,21 @@
                 Der Redaktionsschluss für diesen Text war am \redaktionsschluss. Wir freuen uns
                 sehr über Kommentare, Anregungen, Verbesserungsvorschläge,
                 Mitarbeit und Kuchen -- melde dich bei
-				\email{vorkurs@mathphys.info}.\\
-				
-		Um Lesbarkeit zu gewährleisten, nutzt dieses Schriftstück das generische Femininum. Soweit personenbezogene Bezeichnungen in weiblicher Form aufgeführt sind, beziehen sie sich auf alle Geschlechter in gleicher Weise.
+                \email{vorkurs@mathphys.info}.\\
+
+                Um Lesbarkeit zu gewährleisten, nutzt dieses Schriftstück das generische Femininum. Soweit personenbezogene Bezeichnungen in weiblicher Form aufgeführt sind, beziehen sie sich auf alle Geschlechter in gleicher Weise.
             }
             \vspace{5cm}
         }\\
         Herausgeberin: & Fachschaft MathPhysInfo\\
-	& Im Neuenheimer Feld 205, Raum 1.301\\
-	& 69120 Heidelberg\\
-	& www.mathphys.info\\
+        & Im Neuenheimer Feld 205, Raum 1.301\\
+        & 69120 Heidelberg\\
+        & www.mathphys.info\\
         & vertr. durch den Vorsitz der\\
-	& Verfassten Studierendenschaft\\
-	& \vorsitzVS\\
+        & Verfassten Studierendenschaft\\
+        & \vorsitzVS\\
         & Albert-Überle-Straße 3-5\\
-	& 69120 Heidelberg
+        & 69120 Heidelberg
     \end{tabular*}
 
     \vfill
@@ -171,10 +171,10 @@
         \begin{flushleft}
             \footnotesize\noindent
             ISSN: \ifthenelse{\boolean{druckversion}}{2199-8310}{2199-8329}\\
-			Auflage: \auflage\ Stück\\
+            Auflage: \auflage\ Stück\\
             Letzter Commit: \input{GITHASH}\\
             Letzte Änderung: \input{GITDATE}\\
-            Source Code: \ifthenelse{\boolean{druckversion}}{https://github.com/FachschaftMathPhys/Ersti-Info}{\url{https://github.com/FachschaftMathPhys/Ersti-Info}}\\
+            Source Code: \ifthenelse{\boolean{druckversion}}{https://github.com/FachschaftMathPhysInfo/Ersti-Info}{\url{https://github.com/FachschaftMathPhysInfo/Ersti-Info}}\\
 
         \end{flushleft}
     \end{textblock*}
@@ -182,13 +182,12 @@
     \begin{textblock*}{203mm}[0,1](-7mm,290mm)
         \begin{flushright}
             \footnotesize
- 	     	Coverbild: Sergey Dzyuba / Alamy Stock Photo\\ %2020
-		\href{http://mathphys.info/}{Cover und Rückseite: Raeesa Yousaf}\\ %2012
+            \href{http://mathphys.info/}{Cover und Rückseite: Raeesa Yousaf}\\ %2012
             \href{http://xkcd.com/}{xkcd Comics: Randall Munroe} \href{http://creativecommons.org/licenses/by-nc/2.5/}{(CC-BY-NC)}\\
             \href{http://abstrusegoose.com/}{Abstruse Goose Comics: lcfr} \href{http://creativecommons.org/licenses/by-nc/3.0/us/}{(CC-BY-NC)}\\
             \href{http://nfccomic.com}{Not From Concentrate Comics: \copyright{} Thomas Dobrosielski}\\
             \href{http://www.phdcomics.com/}{Piled Higher and Deeper (PhD) Comics: \copyright{} Jorge Cham}\\
-		\href{http://www.openstreetmap.org/}{Landkarten: \copyright{} OpenStreetMap contributors} 
+            \href{http://www.openstreetmap.org/}{Landkarten: \copyright{} OpenStreetMap contributors}
         \end{flushright}
     \end{textblock*}
 }
