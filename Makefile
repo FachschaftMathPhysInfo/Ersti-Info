@@ -58,6 +58,22 @@ druck: clean
 	@make --no-print-directory clean
 	@echo -e "\v\v\v\v\vFolgende Daten wurden erstellt:\ndruck_inhalt.pdf\tEnthält nur den Innenteil, CMYK Format\ndruck_mantel.pdf\tEnthält nur das Cover, CMYK Format"
 
+druckzuammen: clean
+	@echo "Erstelle Druck-Variante des Erstiinfos…"
+	@cp config_druck.tex config.tex
+	@make --no-print-directory makeGIT
+	@make --no-print-directory makeRGB
+	@make --no-print-directory makeCMYK
+	@make --no-print-directory mantel
+	@make --no-print-directory inhalt
+#	@mv ersti.pdf druck_inhalt.pdf
+#	@mv mantelbogen.pdf druck_mantel.pdf
+	@echo "Verklebe Inhalt und Mantelbogen…"
+	@pdftk C=ersti.pdf M=mantelbogen.pdf cat M1-2 C M3-4 output druck_ersti_info.pdf  > /dev/null
+	
+	@make --no-print-directory clean
+	@echo -e "\v\v\v\v\vFolgende Daten wurden erstellt:\ndruck_ersti_info.pdf\tEnthält den Mantelbogen und den Innenteil in einer Datei, durckfertig im CMYK Format"
+
 inhalt:
 	@echo -n "TeXe den Inhalt"
 	@pdflatex -interaction batchmode -draftmode -file-line-error -halt-on-error "ersti.tex" > /dev/null || (echo -e "\n\n"; cat ersti.log | grep "^\./" --after-context=100; exit 1)
