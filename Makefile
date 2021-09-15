@@ -18,7 +18,7 @@ SHELL := /bin/bash
 
 
 fast: clean
-	@echo -e "Erstelle nur schnell den Inhalt neu. Für ein komplettes PDF nutze eins der folgenden:\nmake web\nmake druck\nmake all\n\n"
+	@echo -e "Erstelle nur schnell den Inhalt neu. Für ein komplettes PDF nutze eins der folgenden:\nmake web\nmake zusammen\nmake all\n\n"
 	@cp config_web.tex config.tex
 	@make --no-print-directory inhalt
 	@mv ersti.pdf vorschau_inhalt.pdf
@@ -45,7 +45,7 @@ web: clean
 	@echo -e "\v\v\v\v\vFolgende Dateien wurden erstellt:\nwebseite.pdf\t\tEnthält Cover und Inhalt in einem PDF, Grafiken sind als Vektoren eingebunden, RGB Format"
 
 
-druck: clean
+druckgetrennt: clean
 	@echo "Erstelle Druck-Variante des Erstiinfos…"
 	@cp config_druck.tex config.tex
 	@make --no-print-directory makeGIT
@@ -58,7 +58,7 @@ druck: clean
 	@make --no-print-directory clean
 	@echo -e "\v\v\v\v\vFolgende Daten wurden erstellt:\ndruck_inhalt.pdf\tEnthält nur den Innenteil, CMYK Format\ndruck_mantel.pdf\tEnthält nur das Cover, CMYK Format"
 
-druckzuammen: clean
+druckzusammen: clean
 	@echo "Erstelle Druck-Variante des Erstiinfos…"
 	@cp config_druck.tex config.tex
 	@make --no-print-directory makeGIT
@@ -66,8 +66,6 @@ druckzuammen: clean
 	@make --no-print-directory makeCMYK
 	@make --no-print-directory mantel
 	@make --no-print-directory inhalt
-#	@mv ersti.pdf druck_inhalt.pdf
-#	@mv mantelbogen.pdf druck_mantel.pdf
 	@echo "Verklebe Inhalt und Mantelbogen…"
 	@pdftk C=ersti.pdf M=mantelbogen.pdf cat M1-2 C M3-4 output druck_ersti_info.pdf  > /dev/null
 	
@@ -132,11 +130,11 @@ clean:
 	@rm -f GITDATE
 	@rm -f *.log *.aux *.toc *.bbl *.blg *.toc *.out *.glo *.ilg *.ist *.ind *.glg *.gls
 
-druckopen: druck
+druckopen: druckgetrennt
 	open druck_inhalt.pdf
 
-all: web druck archiv
-	@echo -e "\v\v\v\v\vFolgende Dateien wurden erstellt:\ndruck_inhalt.pdf\tEnthält nur den Innenteil, CMYK Format\ndruck_mantel.pdf\tEnthält nur das Cover, CMYK Format\nwebseite.pdf\t\tEnthält Cover und Inhalt in einem PDF, Grafiken sind als Vektoren eingebunden, RGB Format\narchive.pdf\t\tBitte je einmal ausdrucken, mit entsprechend vielen Exemplaren\n\t\tdes Ersti-Infos in Umschäge packen und in die Post geben."
+all: web druckzusammen archiv
+	@echo -e "\v\v\v\v\vFolgende Dateien wurden erstellt:\ndruck_ersti_info.pdf\tEnthält den Mantelbogen und den Innenteil in einer Datei, durckfertig im CMYK Format\nwebseite.pdf\t\tEnthält Cover und Inhalt in einem PDF, Grafiken sind als Vektoren eingebunden, RGB Format\narchive.pdf\t\tBitte je einmal ausdrucken, mit entsprechend vielen Exemplaren\n\t\tdes Ersti-Infos in Umschäge packen und in die Post geben."
 
 webopen: web
 	open webseite.pdf
