@@ -2,39 +2,39 @@ sudo: required
 dist: trusty
 
 before_install:
-    - pushd ~
-    - mkdir -p ~/texmf/tex/latex/qrcode
-    - wget -O ~/texmf/tex/latex/qrcode/qrcode.ins http://mirrors.ctan.org/macros/latex/contrib/qrcode/qrcode.ins
-    - wget -O ~/texmf/tex/latex/qrcode/qrcode.dtx http://mirrors.ctan.org/macros/latex/contrib/qrcode/qrcode.dtx
-    - cd ~/texmf/tex/latex/qrcode
-    - latex qrcode.ins
-    - mktexlsr ~/texmf
-    - popd
+  - pushd ~
+  - mkdir -p ~/texmf/tex/latex/qrcode
+  - wget -O ~/texmf/tex/latex/qrcode/qrcode.ins http://mirrors.ctan.org/macros/latex/contrib/qrcode/qrcode.ins
+  - wget -O ~/texmf/tex/latex/qrcode/qrcode.dtx http://mirrors.ctan.org/macros/latex/contrib/qrcode/qrcode.dtx
+  - cd ~/texmf/tex/latex/qrcode
+  - latex qrcode.ins
+  - mktexlsr ~/texmf
+  - popd
 
 addons:
   apt:
     packages:
-    - texlive-fonts-recommended
-    - texlive-latex-extra
-    - texlive-fonts-extra
-    - dvipng
-    - texlive-latex-recommended
-    - texlive-lang-german
-    - texlive-science
-    - pdftk
-    - ghostscript
-    - latex-xcolor
+      - texlive-fonts-recommended
+      - texlive-latex-extra
+      - texlive-fonts-extra
+      - dvipng
+      - texlive-latex-recommended
+      - texlive-lang-german
+      - texlive-science
+      - pdftk
+      - ghostscript
+      - latex-xcolor
 script:
-- make web
-- make druck
-- make fast
+  - make web
+  - make druckzusammen
+  - make fast
 # make archive is not tested due to copyright restrictions on the MathPhys stationery
 deploy:
   provider: releases
   api_key:
     secure: [YOUR KEY]
   file:
-  - vorschau_inhalt.pdf
+    - vorschau_inhalt.pdf
   skip_cleanup: true
   on:
     tags: true
