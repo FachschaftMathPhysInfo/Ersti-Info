@@ -4,8 +4,8 @@ dist: trusty
 before_install:
   - pushd ~
   - mkdir -p ~/texmf/tex/latex/qrcode
-  - wget -O ~/texmf/tex/latex/qrcode/qrcode.ins http://mirrors.ctan.org/macros/latex/contrib/qrcode/qrcode.ins
-  - wget -O ~/texmf/tex/latex/qrcode/qrcode.dtx http://mirrors.ctan.org/macros/latex/contrib/qrcode/qrcode.dtx
+  - wget --no-check-certificate -O ~/texmf/tex/latex/qrcode/qrcode.ins http://mirrors.ctan.org/macros/latex/contrib/qrcode/qrcode.ins
+  - wget --no-check-certificate -O ~/texmf/tex/latex/qrcode/qrcode.dtx http://mirrors.ctan.org/macros/latex/contrib/qrcode/qrcode.dtx
   - cd ~/texmf/tex/latex/qrcode
   - latex qrcode.ins
   - mktexlsr ~/texmf
