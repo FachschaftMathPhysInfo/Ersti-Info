@@ -1,6 +1,38 @@
 % !TEX ROOT = ../ersti.tex
 \section{EDV}
 
+\subsection{Übersicht der digitalen Tools}
+\label{digitale-tools-uebersicht}
+
+Im Uni-Alltag benötigt ihr zahlreiche digitale Tools, die teilweise von der Universität selbst, teilweise von externen Anbietern gehostet werden. Dementsprechend sind sie manchmal frei zugänglich oder ihr benötigt einen Account; meist euren Uni-Account.
+
+\begin{description}
+    \item[\href{https://heico.uni-heidelberg.de/}{heiCO (Heidelberg Campus Online)}]
+    Neues Campus-Management-System, das zukünftig für alle studentischen Angelegenheiten wie Bewerbung, Zulassung, Prüfungsanmeldung, Bescheinigungen etc. verwendet werden soll. Das System befindet sich aktuell im Aufbau und wird nach und nach eingeführt.
+
+	\item[\href{https://lsf.uni-heidelberg.de/}{LSF (Lehre, Studium und Forschung)}]
+    Informationssystem der Uni. Bietet aktuell alles, was mit Verwaltung zu tun hat: Vorlesungsverzeichnis, Informationen zu Personen, Gebäuden, Rückmeldung durchführen, Bescheinigungen ausdrucken. In Zukunft soll es (teilweise) durch heiCO ersetzt werden.
+
+	\item[\href{https://moodle.uni-heidelberg.de}{Moodle}]
+    E-Learning-Plattform der Uni, auf der in manchen Vorlesungen Lernmaterialien, Zettelabgaben, Punkteeinsicht, Klausuranmeldung und organisatorische Informationen angeboten werden.
+
+	\item[\href{https://uebungen.physik.uni-heidelberg.de}{PhÜ (Physik-Übungruppen)}]
+    Der Name ist Programm. Hier könnt ihr euch in der Physik in Übungsgruppen eintragen, zu Veranstaltungen anmelden sowie Punkte für Übungszettel und die Klausurnoten einsehen. Integriert Rocket-Chatrooms, die teilweise für die Kommunikation mit den Tutorinnen genutzt werden.
+
+	\item[\href{https://muesli.mathi.uni-heidelberg.de}{MÜSLI}]
+    In der Mathe und Info werden mit diesem System Übungsgruppen organisiert. Man kann sich in Übungsgruppen eintragen, zu Veranstaltungen und Klausuren anmelden und Punkte für Übungszettel und die Klausurnote einsehen.
+
+	\item[\href{https://mampf.mathi.uni-heidelberg.de}{MaMpf (Mathematische Medienplattform)}]
+    MaMpf bündelt und vernetzt verschiedene E-Learning-Angebote: Vorlesungsvideos und Skripte mit inhaltlicher Gliederung, Übungsblätter, eine umfangreiche Sammlung von Multiple-Choice-Fragen und Quizaufgaben inklusive angeleiteter Beweise und vieles mehr. Mehr Infos zu dieser Plattform auf \autopageref{mampf}.
+
+	\item[\href{https://heiconf.uni-heidelberg.de}{heiCONF}]
+    Uni-internes Videokonferenztool basierend auf BigBlueButton.
+
+	\item[\href{https://meet.jit.si/}{Jitsi Meet}]
+    Open-source Videokonferenztool.
+\end{description}
+
+
 \subsection{Universitätsrechenzentrum (URZ)}
 \label{urz}
 Computer sind die Triebfeder unseres Zeitalters und auch im Studium kommt ihr nicht um sie herum. Das beginnt zum Beispiel schon damit, dass die meisten Übungszettel nur online erscheinen und selbst ausgedruckt werden müssen. Später möchtet ihr eure Bachelor- oder Masterarbeit bzw.\ eure Examensarbeit sicher nicht handschriftlich anfertigen, sondern lieber in \LaTeX \footnote{„Latech“ gesprochen. LibreOffice -- oder noch schlimmer -- Word helfen nicht weiter, weil man Formeln nur sehr umständlich eingeben kann. Außerdem schafft es \LaTeX{} Blocktexte ohne größere Freiräume und mit weniger Bindestrichen zu setzen, wie man z.\,B.\ an diesem Ersti-Info sehen kann. Wenn ihr \LaTeX{} lernen möchtet, haltet in den nächsten Semestern nach einem entsprechenden Kurs Ausschau oder nutzt eins der vielen Onlinetutorials.} setzen. Das \gls{URZ} bietet eine ganze Menge von Services an, die hier kurz erläutert werden sollen.
@@ -79,7 +111,7 @@ Wie ihr euer Notebook konfigurieren müsst, um eduroam zu nutzen, ist auf den We
 
 Neben eduroam bietet das URZ an einigen Stellen noch das Netzwerk „UNI-HEIDELBERG“, das man mit einem VPN-Zugang nutzen kann, sowie das unverschlüsselte „UNI-WEBACCESS“, bei dem man sich in einem Captive Portal authentifiziert.
 
-Sollte euch der WLAN-Zugang nicht mehr ausreichen, gibt es an einigen Orten auch kabelgebundene Zugänge mit mehr Bandbreite. Wenn ihr jetzt schon feuchte Hände bekommt und euch die niegelnagel neue externe Platte mit Inhalten aus zweifelhaften Quellen vollladen möchtet, seid auf die Benutzerordnung\footnote{\url{https://www.urz.uni-heidelberg.de/de/dokumente/verwaltungs-und-benutzungsordnung-vbo/download}} verwiesen. Nach zu viel Traffic dreht euch das \gls{URZ} den Hahn ab und schaltet ihn erst wieder frei, wenn ihr bestätigt, dass ihr keine bösen Dinge damit anstellt.
+Sollte euch der WLAN-Zugang nicht mehr ausreichen, gibt es an einigen Orten auch kabelgebundene Zugänge mit mehr Bandbreite. Wenn ihr jetzt schon feuchte Hände bekommt und euch die nigelnagelneue externe Platte mit Inhalten aus zweifelhaften Quellen vollladen möchtet, seid auf die Benutzerordnung\footnote{\url{https://www.urz.uni-heidelberg.de/de/dokumente/verwaltungs-und-benutzungsordnung-vbo/download}} verwiesen. Nach zu viel Traffic dreht euch das \gls{URZ} den Hahn ab und schaltet ihn erst wieder frei, wenn ihr bestätigt, dass ihr keine bösen Dinge damit anstellt.
 
 \subsection{VPN}
 Um auf manche Dienste zugreifen zu können, müsst ihr euch im internen Uni-Netz befinden. Weil das von zu Hause irgendwie schwer ist, braucht ihr einen VPN-Tunnel. Damit stellt euer Rechner über einen Internetzugang eine Verbindung zur Uni her und es ist so, als würdet ihr mit einem LAN-Kabel in der Uni sitzen. Eine ausführliche Anleitung findet ihr online\footnote{\url{https://www.urz.uni-heidelberg.de/de/vpn}}, die neben allgemeinen Informationen auch Anleitungen zur Installation des \emph{Cisco AnyConnect VPN Client}, enthält. Hier aber dennoch die Kurzfassung:
