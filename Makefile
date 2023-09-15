@@ -3,7 +3,7 @@
 # für's Internet. Die Farben sind allerdings in RGB und daher ungeeignet
 # zum Drucken.
 # Das Programm gibt es hier:
-# http://wiki.inkscape.org/wiki/index.php/Tools#svg2pdf
+# https://wiki.inkscape.org/wiki/index.php/Tools#svg2pdf
 # Eine für Debian kompilierte Version findet sich im Hauptverzeichnis
 
 # Convert ist das Kommandozeilentool von Imagemagick und konvertiert die
