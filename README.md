@@ -10,7 +10,7 @@ am Anfang des Semesters allen neuen Studierenden ausgehändigt wird. Es
 - beschreibt das Studium in Heidelberg
 - informiert über Hochschulpolitik
 - erklärt die Stadt
-- und ist super awesome :))
+- und ist super awesome :)))
 
 ## Struktur
 
