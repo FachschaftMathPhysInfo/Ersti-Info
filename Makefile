@@ -44,6 +44,22 @@ web: clean
 	@make --no-print-directory clean
 	@echo -e "\v\v\v\v\vFolgende Dateien wurden erstellt:\nwebseite.pdf\t\tEnthält Cover und Inhalt in einem PDF, Grafiken sind als Vektoren eingebunden, RGB Format"
 
+webgetrennt: 
+	@echo "Erstelle Web-Variante des Erstiinfos…"
+	@cp config_web.tex config.tex
+	@make --no-print-directory makeGIT
+	@make --no-print-directory makeRGBreal
+	@make --no-print-directory inhalt
+	@echo "Exportiere Metadaten mit Inhaltsverzeichnis des Inhaltsteils…"
+	@pdftk ersti.pdf dump_data_utf8 output metadaten.txt
+	@echo "Inkrementiere Seitenzahlen im Inhaltsverzeichnis um 2…"
+	@python3 tocfixes.py metadaten.txt metadaten_updated.txt
+#	@pdftk C=ersti.pdf M=mantelbogen_web.pdf cat M1-2 C M3-4 output webseite_without_toc.pdf  > /dev/null
+	@echo "Füge Metadaten hinzu…"
+	@pdftk ersti.pdf update_info_utf8 metadaten_updated.txt output webseite_ohne_cover.pdf > /dev/null
+	@make --no-print-directory clean
+	@echo -e "\v\v\v\v\vFolgende Dateien wurden erstellt:\nwebseite_ohne_cover.pdf\t\tEnthält nur den Inhalt, Grafiken sind als Vektoren eingebunden, RGB Format"
+
 
 druckgetrennt: clean
 	@echo "Erstelle Druck-Variante des Erstiinfos…"
