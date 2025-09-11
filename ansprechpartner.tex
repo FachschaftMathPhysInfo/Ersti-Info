@@ -1,166 +1,188 @@
 % !TEX ROOT = ersti.tex
+
+\newcommand{\proffoto}[2]{
+	\centering
+	\includegraphics[height=4cm]{#1}\\
+	#2
+	\vspace{4mm}
+}
+
+\vspace{.7cm}
+
+\noindent
+\begin{minipage}[t]{0.2\textwidth}
+	\proffoto{\dekanphysikfoto}{\dekanphysikvor\\ \dekanphysiknach \\{\scriptsize Dekanin Physik}}
+\end{minipage}%
+\begin{minipage}[t]{0.2\textwidth}
+	\proffoto{\dekanmathefoto}{\dekanmathevor \\ \dekanmathenach \\ {\scriptsize Dekan Mathe und Info}}
+\end{minipage}%
+\begin{minipage}[t]{0.2\textwidth}
+	\proffoto{\studiendekanphysikfoto}{\studiendekanphysikvor \\ \studiendekanphysiknach \\{\scriptsize Studiendekan Physik}}
+\end{minipage}%
+\begin{minipage}[t]{0.2\textwidth}
+	\proffoto{\studiendekanmathefoto}{\studiendekanmathevor \\ \studiendekanmathenach \\{\scriptsize Studiendekanin Mathe}}
+\end{minipage}%
+\begin{minipage}[t]{0.2\textwidth}
+	\proffoto{\studiendekaninformatikfoto}{\studiendekaninformatikvor \\ \studiendekaninformatiknach \\{\scriptsize Studiendekan Informatik}}
+\end{minipage}
+
+\vspace{.7cm}
+
+\begin{multicols}{2}
+
 \section*{Ansprechpartner im Studium}
 
 Nicht nur am Anfang eures Studiums, sondern auch mitten drin können kleinere und größere Fragen und Probleme auftreten. Damit ihr mit diesen Problemen nicht alleine da steht, gibt es mehrere Personen, die euch bei diesen helfen können. Erste Ansprechpartnerin in allen Dingen ist natürlich die Fachschaft. Falls wir euch dann nicht weiter helfen können, gibt es an jeder Fakultät noch weitere Ansprechpartnerinnen.
 
-\newcommand{\proffoto}[2]{
-    \centering
-    \includegraphics[width=3.5cm]{#1}\\
-    #2
-    \vspace{4mm}
-}
 
-\begin{figure}[b]
-    \vspace*{4mm}
-    \begin{subfigure}{.5\linewidth}
-        \ifdefined\dekanphysikfoto
-            \proffoto{\dekanphysikfoto}{\dekanphysiklang\\[-1ex]{\scriptsize Dekan Physik}}
-        \fi
-    \end{subfigure}
-    \begin{subfigure}{.42\linewidth}
-        %\vspace{-8mm} %Feinjustierung
-
-        \ifdefined\dekanmathefoto
-            \proffoto{\dekanmathefoto}{\dekanmathelang\\[-1ex] \vspace*{5mm}{\scriptsize Dekan Mathe \& Info}}
-        \fi
-    \end{subfigure}
-\end{figure}
-
-\begin{figure*}
-    \centering
-    \begin{subfigure}{.3\linewidth}
-        \ifdefined\studiendekanphysikfoto
-            \proffoto{\studiendekanphysikfoto}{\studiendekanphysik\\[-1ex]{\scriptsize Studiendekan Physik}}
-        \fi
-    \end{subfigure}
-    \begin{subfigure}{.22\linewidth}
-        \ifdefined\studiendekanmathefoto
-            \proffoto{\studiendekanmathefoto}{\studiendekanmathe\\[-1ex]{\scriptsize ~ Studiendekan Mathe}}
-        \fi
-    \end{subfigure}
-    \begin{subfigure}{.3\linewidth}
-        \ifdefined\studiendekaninformatikfoto
-            \proffoto{\studiendekaninformatikfoto}{\studiendekaninformatik\\[-1ex]{\scriptsize ~ Studiendekan Info}}
-        \fi
-    \end{subfigure}
+\begin{figure*}[t]
+	\centering
+	\begin{subfigure}{.3\linewidth}
+		\ifdefined\studienberatungphysikphoto
+		\proffoto{\studienberatungphysikphoto}{\studienberatungphysikersti\\[-1ex]{\scriptsize Studienberater Physik}}
+		\fi
+	\end{subfigure}
+	\begin{subfigure}{.22\linewidth}
+		\ifdefined\studienberatungmathephoto
+		\proffoto{\studienberatungmathephoto}{\studienberatungmathe\\[-1ex]{\scriptsize ~ Studienberater Mathe}}
+		\fi
+	\end{subfigure}
+	\begin{subfigure}{.3\linewidth}
+		\ifdefined\studienberatunginformatikphoto
+		\proffoto{\studienberatunginformatikphoto}{\studienberatunginformatik\\[-1ex]{\scriptsize ~ Studienberater Info}}
+		\fi
+	\end{subfigure}
 \end{figure*}
+
+
+
 
 
 \begin{description}
     %\sidebar{
-    %    \chaptersidebarpushdown
-    %    \ifdefined\dekanphysikfoto
-    %    \proffoto{\dekanphysikfoto}{\dekanphysiklang\\[-1ex]{\scriptsize Dekan Physik}}
-    %    \fi
-    %
-    %    \ifdefined\dekanmathefoto
-    %   \proffoto{\dekanmathefoto}{\dekanmathelang\\[-1ex]{\scriptsize Dekan Mathe \& Info}}
-    %    \fi
-    %
-    %    \ifdefined\studiendekaninformatikfoto
-    %    \proffoto{\studiendekaninformatikfoto}{\studiendekaninformatik\\[-1ex]{\scriptsize Studiendekan Info}}
-    %    \fi
-    %
-    %    \ifdefined\studiendekanphysikfoto
-    %    \proffoto{\studiendekanphysikfoto}{\studiendekanphysik\\[-1ex]{\scriptsize Studiendekan Physik}}
-    %    \fi
-    %
-    %   \vspace*{1.8cm}
-    %
-    %    \ifdefined\studiendekanmathefoto
-    %    \proffoto{\studiendekanmathefoto}{\studiendekanmathe\\[-1ex]{\scriptsize Studiendekan Mathe}}
-    %    \fi
-    %\iffalse
-    %    \ifdefined\prodekanmathefoto
-    %   \proffoto{\prodekanmathefoto}{\prodekanmathe\\[-1ex]{\scriptsize Prodekan Mathe \& Info}}
-    %    \fi
-    %
-    %    \ifdefined\prodekanphysikfotoA
-    %    \proffoto{\prodekanphysikfotoA}{\prodekanphysikA\\[-1ex]{\scriptsize Prodekan Physik}}
-    %    \fi
-    %
-    %    \ifdefined\prodekanphysikfotoB
-    %    \proffoto{\prodekanphysikfotoB}{\prodekanphysikB\\[-1ex]{\scriptsize Prodekan Physik}}
-    %    \fi
-    %\fi
-    %    % Rest weiter unten weil die Physik zwei Prodekane hat
-    %    % und damit nicht mehr alles in die Spalten passt
-    %}
-    \item[Deine Fachschaft] vertritt die Interessen der Studierenden in den Fakultätsgremien und ist diskrete Ansprechpartnerin bei Problemen mit einer Dozentin oder Fragen zur Prüfungsordnung. \\\fsraum; \\
+        %\chaptersidebarpushdown
+        
+    
+        
+    \item[Deine Fachschaft] vertritt die Interessen der Studierenden in den Fakultätsgremien und ist diskrete Ansprechpartnerin bei Problemen mit einer Dozentin oder Fragen zur Prüfungsordnung.\\ 
+    
+    \fsraum; \\
     \email{fachschaft@mathphys.info}
 
     \item[Die Dekanin] ist sozusagen Chefin der Fakultät und leitet diese. Sie wird für vier Jahre gewählt.\\
+    
     Mathe und Info: \dekanmathelang \\
-    \email{\studiendekanmatheemail} \\
+    \email{\dekanmatheemail} \\
+    
     Physik: \dekanphysiklang \\
-    \email{\dekanphysikemail}
+    \email{\dekanphysikemail}\\
+    
 
     \item[Die Prodekanin] ist Vertreterin der Dekanin und unterstützt diese in ihren Aufgaben.\\
+    
     Mathe und Info: \prodekanmathe \\
     \email{\prodekanmatheemail} \\
+    
     Physik: \prodekanphysik  \\
-    \prodekanphysikAemail \\
+    \email{\prodekanphysikAemail} \\
     \email{\prodekanphysikBemail}
 
     \item[Das Dekanat] ist das Sekretariat der Fakultät. Hier kann euch geholfen werden, wenn ihr nicht wisst, an wen ihr euch genau wenden sollt\\
+    
     Mathe und Info: Tel. \dekanatmathetelefon \\
-    Physik: Tel.\dekanatphysiktelefon \\
-    \email{\dekanatphysikemail}
+    \gls{INF} 205, 1. OG \\
+    
+    Physik: \dekanatphysik\\
+    Tel.\dekanatphysiktelefon \\
+    \email{\dekanatphysikemail}\\
 
 
-    \item[Die Studiendekanin] ist Vorsitzende der Studienkommission. Diese ist für alle Fragen der Lehre zuständig und auch die erste Adresse bei Fragen und Problemen.\\
+    \item[Die Studiendekanin] ist Vorsitzende der Studienkommission. Diese ist für alle Fragen der Lehre zuständig und damit eine Anlaufstelle bei gravierenden Problemen in der Lehre.\\
+    
     Mathematik: \studiendekanmathe \\
     \email{\studiendekanmatheemail} \\
+    
     Informatik: \studiendekaninformatik \\
     \email{\studiendekaninformatikemail} \\
+    
     Physik: \studiendekanphysik \\
     \email{\studiendekanphysikemail} \\
-
+   
+    
+	
     \item[Die Studienberaterinnen] beantworten Fragen zur persönlichen Studienplanung, zur Orientierung und zum Studium allgemeinen.\\
+    
     Mathematik: \studienberatungmathe \\
+    \studienberatungmatheraum \\
     \email{\studienberatungmatheemail} \\
+    
     Informatik: \studienberatunginformatik\\
+    \studienberatunginformatikraum \\
     \email{\studienberatunginformatikemail} \\
+    
     Physik: \studienberatungphysikersti\\
+    \studienberatungphysikraum \\
     \email{\studienberatungphysikemail}\\
 
-
-
-    \item[Das Prüfungssekretariat] ist zuständig für Prüfungsfragen aller Art. Ob es jetzt um die Anrechnung von Modulen anderer Fakultäten, die Anmeldung von Bachelorarbeiten oder sonstige Fragen rund um die Prüfungsordnung geht, im Prüfungssekretariat sitzen kompetente Menschen, die dir weiterhelfen. \\
+	%\newcolumn
+	
+    \item[Das Prüfungssekretariat] \label{pruefsek}ist zuständig für Prüfungsfragen aller Art. Ob es jetzt um die Anrechnung von Modulen anderer Fakultäten, die Anmeldung von Bachelorarbeiten oder sonstige Fragen rund um die Prüfungsordnung geht, im Prüfungssekretariat sitzen kompetente Menschen, die dir weiterhelfen. Bei den meisten E-Mails an das Prüfungssekretariat ist es hilfreich, gleich seine Matrikelnummer anzugeben. \\
+    
     Mathematik: \pruefsekmathe \\
     \email{\pruefsekmatheemail}\\
     Tel: \pruefsekmathetel\\
+    \gls{INF} 205, 1. OG\\
+    geöffnet: Dienstags 13:30-15:30,\\ Mittwochs 11:00-13:00\\
+    
     Informatik: \pruefsekinfo \\ \email{\pruefsekinfoemail}\\
     Tel: \pruefsekinfotel \\
+    \gls{INF} 205, 1. OG\\
+    geöffnet: Mittwochs 9:30-11:30, \\ Dienstags und Donnerstags 13:30-15:30 \\
+    
     Physik: \pruefsekphysik \\
-    \email{\pruefsekphysikemail}\\
     Tel: \pruefsekphysiktel \\
+    \email{\pruefsekphysikemail}\\
+    \gls{INF} 227 EG\\ geöffnet: 11:00-13:00\\
+    
+    \begin{figure*}[b]
+    	\centering{
+    		\includegraphics[width=\textwidth]{bilder/Prof.png}}
+    \end{figure*}
 
-    \item[Der Prüfungsausschuss] hilft da, wo das Prüfungssekretariat nicht weiter weiß. Er ist die letzte Instanz in Fragen der Prüfungsordnung. Meist hat man aber nur mit dem Vorsitz zu tun. Genauso wie beim Prüfungssekretariat solltest du deine Emails gleich mit deiner Matrikelnummer versehen\\
+    \item[Der Prüfungsausschuss] hilft da, wo das Prüfungssekretariat nicht weiter weiß. Er ist die letzte Instanz in Fragen der Prüfungsordnung, insbesondere bei Härtefallanträgen und Nachteilsausgleichsanträgen. Meist hat man aber nur mit dem Vorsitz zu tun. Genauso wie beim Prüfungssekretariat solltest du deine E-Mails mit deiner Matrikelnummer versehen.\\
+    
     Mathematik: \pruefausschussvorsitzmathe\\
     \email{\pruefausschussvorsitzmatheemail} \\
+    
     Informatik: \pruefausschussvorsitzinformatik\\
     \email{\pruefausschussvorsitzinformatikemail} \\
+    
     Physik: \pruefausschussvorsitzphysik\\
     \email{\pruefausschussvorsitzphysikemail} \\
 
     \item[BAföG-Beauftragte] Spätestens zu Beginn des 5. Semesters braucht ihr einen Leistungsnachweis, dass ihr die bei geordnetem Verlauf der Ausbildung bis zum Ende des 4. Fachsemesters üblichen Leistungen erbracht habt.\\
+    
     Mathematik: \bafogmathe\\
     \email{\bafogmatheemail} \\
+    
     Informatik: \bafoginformatik\\
     \email{\bafoginformatikemail}\\
+    
     Physik: \bafogphysik\\
-    \email{\bafogphysikemail}
+    \email{\bafogphysikemail}\\
 
-    \item[Lehramt] Alle Fragen, die das Lehramt betreffen, können euch im Zentrum für Lehrerbildung beantwortet werden: ZLB, Akademiestraße 3, Zimmer 237.
+    \item[Lehramt] Alle Fragen, die das Lehramt betreffen, können euch im Zentrum für Lehrerbildung beantwortet werden: ZLB, Akademiestraße 3, Zimmer 237.\\
 
     \item[Gleichstellungskommissionen] setzen sich für die Chancengleichheit von Frauen und Männern ein und informieren über gesetzliche Regelungen. Falls ihr Fragen zum Thema Gleichstellung habt, könnt ihr euch jederzeit an sie wenden.\\
-    Mathe und Info: \email{\gleichstellungsbeauftragtemathe} \\
+    
+    Mathe und Info: \gleichstellungsbeauftragtemathe \\ \email{\gleichstellungsbeauftragtematheemail} \\
+    
     Physik: \gleichstellungsbeauftragtephysik\\
     \email{\gleichstellungsbeauftragtephysikemail} \\
+    
 \end{description}
 
-\noindent Die Zuständigen für die jeweiligen Bereiche wechseln gelegentlich, können aber immer aktuell auf den Internetseiten der entsprechenden Fakultäten eingesehen werden. Dort findet ihr auch alle Sprechzeiten und Telefonnummern. Achtung: Manchmal ist auch eine vorherige Anmeldung erforderlich! Oft kann man die Dozentinnen aber auch außerhalb ihrer Sprechzeiten erreichen, zur Not immer per E-Mail.\\[.9cm]
+\noindent Die Zuständigen für die jeweiligen Bereiche wechseln gelegentlich, können aber immer aktuell auf den Internetseiten der entsprechenden Fakultäten eingesehen werden. Dort findet ihr auch alle Sprechzeiten und Telefonnummern. Achtung: Manchmal ist auch eine vorherige Anmeldung erforderlich! Oft kann man die Dozentinnen aber auch außerhalb ihrer Sprechzeiten erreichen, zur Not immer per E-Mail.\\
 
 \relax
 
@@ -240,15 +262,12 @@ Nicht nur am Anfang eures Studiums, sondern auch mitten drin können kleinere un
         \end{minipage}
     \fi
 \fi
+
+\end{multicols}
 % Wenn noch Platz ist, z.B. weil Fotos fehlen oder die Physik
 % nur noch einen Prodekan hat, kann man das als Lückenfüller nehmen:
 
-%~ \begin{figure}[h]
-%~ \vspace{10mm}
-%~ \centering{
-%~ \includegraphics[width=\textwidth]{bilder/Prof.png}
-%~ }
-%~ \end{figure}
+
 %\begin{figure}[h]
     %\centering
     %\includegraphics[width=\linewidth]{geeks_and_nerds.png}

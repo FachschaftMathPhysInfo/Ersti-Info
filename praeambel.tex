@@ -13,7 +13,7 @@
 
 % Diese Datei wird automatisch vom Makefile erstellt aus config_web.tex
 % und config_druck.tex, je nachdem was man will
-\input{config.tex}
+\input{config_druck.tex}
 
 \usepackage{eurosym} % eurozeichen kann man schon gut gebrauchen
 \usepackage{amsmath}
@@ -32,9 +32,20 @@
 \usepackage[T1]{fontenc}
 \usepackage{subcaption} %für subfigures
 \usepackage{enumitem} % für descriptions mit style=unboxed
+\usepackage{amssymb}%für besondere symbole wie die Quadrate der Checkliste
 \setlist[itemize]{itemsep=1pt} % reduce spacing between bullet points
 \usepackage{dblfloatfix}    % To enable figures at the bottom of page
 \usepackage{wrapfig} % für bildumfließende texte
+\usepackage{pdfpages} %Seite mit PDF vollmachen, z.B dem Liniennetzplan
+\usepackage{placeins} %mehr Kontrolle über wildgewordene Plazierung von floats in twocolumns mit \FloatBarrier
+\usepackage{multicol}%um zwischen der Anzahl an Spalten zu wechseln ohne eine neue Seite zu machen
+\usepackage{todonotes}%damit wir im Text annotieren können was noch gemacht werden muss
+%\usepackage{emerald}%Handschrift-Style
+%\usepackage[T1]{fontenc}
+%\usepackage{aurical}
+%\usepackage{graphicx}
+\usepackage{setspace}
+
 
 \usepackage[section=chapter,numberedsection=false,numberline,nonumberlist]{glossaries}
 \renewcommand*{\glsclearpage}{\clearpage}
@@ -153,7 +164,7 @@
 
                 Um die Lesbarkeit zu gewährleisten, nutzt dieses Schriftstück das generische Femininum. Soweit personenbezogene Bezeichnungen in weiblicher Form aufgeführt sind, beziehen sie sich auf alle Geschlechter in gleicher Weise.\\
 
-                \textbf{Danksagung}: Die Ersti-Info \jahr \, wäre ohne die Unterstützung von zahlreichen Helferinnen nicht möglich gewesen. Wir möchten uns insbesondere bedanken bei: \textit{Max Wipplinger} für umfangreiche textuelle Überarbeitungen und technische Umsetzung, \textit{Arvin Nikou} für Mitarbeit in der Organisation und die Verfassung eines Artikels und \textit{Lorena Ergenzinger} für die Leitung der neuen Ersti-Info. Außerdem danken wir \textit{Dominik Plein} für die Einarbeitung und Wissensübergabe. Danke an die Fachschaft und die Dekanate MathInf und Physik, für die Versorgung mit mehr als aktuellen Informationen, insbesondere an \textit{Frau Dewald} für die Organisation des Druckereiprozesses. Ein großes Dankeschön gebührt auch den vielen Studis der letzten Jahre, die die vorherigen Ersti-Infos geschrieben haben und deren Texte in großen Teilen übernommen wurden! Wenn ihr die Ersti-Info gerade in den Händen haltet, dann habt ihr wohl auch eine Erstitüte bekommen, darum mussten sich natürlich auch Leute kümmern. Ganz herzlichen Dank also an \textit{Adam Fuge} für die Organisation und an \textit{Bjela Böttcher}, \textit{Caroline Niewa}, \textit{Aaron Fath} und \textit{Holger Heck} für die Umsetzung. In diesem Zug danke an \textit{Michael} vom Fantasy Kolosseum \url{https://www.kolosseum.de/}, einem Laden für Brettspiele, Trading Card Games, Warhammer und Pen\&Paper Rollenspiele in Bergheim, der dafür gesorgt hat, dass Demospiele in den Tüten landen. Und zu guter Letzt: vielen Dank an euch als Leserinnen, dass ihr euch die Zeit nehmt, diese Ersti-Info zu lesen. Wir hoffen, dass sie euch hilft, euch an der Uni zurechtzufinden und wünschen euch einen guten Start ins Studium!
+                \textbf{Danksagung}: Die Ersti-Info \jahr \, wäre ohne die Unterstützung von zahlreichen Helferinnen nicht möglich gewesen. Wir möchten uns insbesondere bedanken bei: \textit{Lorena Ergenzinger} für die Leitung der neuen Ersti-Info und \textit{Katharina Jacobi} fürs Korrekturlesen. Außerdem danken wir \textit{Maxim Kreizer} und \textit{Frederico Alesiani} vom AK Photographie für die Coverphotos. Danke an die Fachschaft und die Dekanate MathInf und Physik, für die Versorgung mit mehr als aktuellen Informationen, insbesondere an \textit{Frau Dewald-Klussmann} für die Organisation des Druckereiangebots. Ein großes Dankeschön gebührt auch den vielen Studis der letzten Jahre, die die vorherigen Ersti-Infos geschrieben haben und deren Texte in großen Teilen übernommen wurden! Wenn ihr die Ersti-Info gerade in den Händen haltet, dann habt ihr wohl auch eine Erstitüte bekommen, darum mussten sich natürlich auch Leute kümmern. Ganz herzlichen Dank also an \textit{Aaron Fath}, \textit{Olga Sergeyeva}, \textit{Sarah Nattenmüller}, \textit{Dominik Schillai}, \textit{Linus Bauer} und \textit{Henry Müller} für die Organisation und an alle Helfis, die die Tüten am Ende gepackt haben. In diesem Zuge danke an \textit{Michael} vom Fantasy Kolosseum \url{https://www.kolosseum.de}, einem Laden für Brettspiele, Trading Card Games, Warhammer und Pen\&Paper Rollenspiele in Bergheim, der dafür gesorgt hat, dass Spiele in den Tüten landen. Und zu guter Letzt: vielen Dank an euch als Leserinnen, dass ihr euch die Zeit nehmt, diese Ersti-Info zu lesen. Wir hoffen, dass sie euch hilft, euch an der Uni zurechtzufinden und wünschen euch einen guten Start ins Studium!
 
                 }
             \vspace{5cm}
@@ -186,7 +197,7 @@
     \begin{textblock*}{203mm}[0,1](-7mm,290mm)
         \begin{flushright}
             \footnotesize
-            \href{https://mathphys.info/}{Cover und Rückseite: Lorena Ergenzinger}\\ %2012
+            \href{https://mathphys.info/}{Cover und Rückseite: Maxim Kreizer und Frederico Alesiani}\\ %2012
             \href{https://xkcd.com/}{xkcd Comics: Randall Munroe} \href{https://creativecommons.org/licenses/by-nc/2.5/}{(CC-BY-NC)}\\
             \href{https://abstrusegoose.com/}{Abstruse Goose Comics: lcfr} \href{https://creativecommons.org/licenses/by-nc/3.0/us/}{(CC-BY-NC)}\\
             \href{https://nfccomic.com}{Not From Concentrate Comics: \copyright{} Thomas Dobrosielski}\\

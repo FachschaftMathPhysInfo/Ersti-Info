@@ -6,18 +6,68 @@
 
 Im Uni-Alltag benötigt ihr zahlreiche digitale Tools, die teilweise von der Universität selbst, teilweise von externen Anbietern gehostet werden. Dementsprechend sind sie manchmal frei zugänglich oder ihr benötigt einen Account; meist euren Uni-Account.
 
-\begin{description}
-    \item[\href{https://heico.uni-heidelberg.de/}{heiCO (Heidelberg Campus Online)}]
-    Neues Campus-Management-System, das für alle studentischen Angelegenheiten wie Bewerbung, Zulassung, Prüfungsanmeldung, Bescheinigungen etc. verwendet wird. Außerdem läuft die ganze Vorlesungsverwaltung darüber, sprich die Anmeldungen zu den Vorlesungen, das Vorlesungsverzeichnis, Informationen zu Personen, Gebäuden, Rückmeldung durchführen, Bescheinigungen ausdrucken... Das System wurde vor kurzem eingeführt, wodurch es noch zu dem ein oder anderen Problem kommen kann.
+\hspace{1cm}
 
-	\item[\href{https://lsf.uni-heidelberg.de/}{LSF (Lehre, Studium und Forschung)}]
-    Das Ehemalige System zur Vorlesungsverwaltung, der Vorgänger von HeiCo. Wird nicht mehr aktiv verwendet, außer um einige Veranstaltungen und Einrichtungen zu finden.
+\begin{figure*}[b]
+	\centering
+	\includegraphics[width=.6\textwidth]{bilder/14_different_standarts.png}
+\end{figure*}
+
+{\ifthenelse{\boolean{druckversion}}{
+		\includegraphics[width=.5\linewidth]{bilder/heiCO_logo_mon.jpg}
+	}{
+		\includegraphics[width=0.5\linewidth]{bilder/heiCO_logo.jpg}
+}}
+
+\begin{description}[style=nextline]
+    \item[\href{https://heico.uni-heidelberg.de/} {heiCO} \vspace*{2mm} ]
+	
+	Kennt ihr schon aus dem Immatrikulationsverfahren, über HeiCo läuft fast alles organisatorische im Studium, dazu gehören:
+	
+	\begin{description}
+		\item[Veranstaltungssuche] Wollt ihr wissen, wann ihr eigentlich wo für eure erste Vorlesung sein sollt, oder was für Vorlesungen es überhaupt gibt, könnt ihr unter \grqq Lehrveranstaltungen\grqq\ danach suchen. Die Suchleiste hat allerdings keinerlei Fehlertoleranz, es kann deshalb einfacher sein, unter \grqq Studiengang\grqq\ den eigenen Studiengang zu wählen, um in der nun eingeschränkten Veranstaltungsliste notfalls manuell suchen zu können.\\
+		Habt ihr eure Wunschveranstaltung gefunden, könnt ihr euch hoffentlich unter \grqq Zur LV-Anmeldung \grqq\ anmelden, sollte es diesen Knopf nicht geben, könnt ihr auf der Seite der Vorlesung den Stern wählen, um euch die Vorlessung zumindest vorzumerken. Wichtig ist, dass ihr euch (wenn die Anmeldung geöffnet ist) für Vorlesung und Übung zur Vorlesung anmeldet, das sind in HeiCO zwei separate Lehrveranstaltungen. Sonst könnt ihr euch später nicht für die Klausur anmelden.
+		
+		\item[Prüfungsanmeldung] Normalerweise (in der Physik ist das anders) bedeutet für eine Vorlesung angemeldet sein nicht automatisch auch für die Prüfung angemeldet sein, ihr werdet also einige Wochen vor dem Klausur eine E-Mail kriegen, dass die Anmeldung auf HeiCO eröffnet ist. Dann könnt ihr auf \grqq Prüfungstermine\grqq\ eure Veranstaltung suchen, und euch für die Klausur anmelden. Ob die Anmeldung erfolgt ist, könnt ihr auf \grqq Meine Prüfungstermine\grqq\ überprüfen.\\
+		Selten kann es passieren, dass HeiCO euch aus leicht mysteriösen gründen von einer Prüfung wieder abmeldet, es lohnt sich also seine E-Mails regelmäßig zu lesen. Sollte das der Fall sein, wendet euch an die Obertutorin der Vorlesung oder an das Prüfungssekretariat (Kontakt auf \autopageref{pruefsek}). Das gleiche gilt, wenn ihr merkt, dass ihr doch die Anmeldung zur Übung zur Vorlesung vergessen haben solltet.
+		
+		\item[Rückmeldung] Ist eine seltsame Art, Zahlung des Semesterbeitrags zu sagen. Über \grqq Studienbeitragsstatus\grqq\ erfahrt ihr, an welches Konto ihr wie viel Geld bis wann überweisen müsst, und ob es angekommen ist.
+		
+		\item[Bescheinigungen] Unter \grqq Bescheinigungen und Dokumente\grqq\ findet ihr Immatrikulationsbescheinigungen und unter \grqq Meine Leistungen\grqq\ den Transcript of records.
+		
+		\item[Ein einradfahrender Waschbär]
+		
+		\begin{minipage}{0.55\linewidth}
+			\vspace{1.5mm}
+			Der Ladebildschirm-Waschbär ist dafür zuständig, eure Daten sicher von den Prüfungssekretariaten im Feld zur zentralen Universitätsverwaltung in der Altstadt zu fahren.
+		\end{minipage}
+		\begin{minipage}{0.4\linewidth}
+			{\ifthenelse{\boolean{druckversion}}{
+					\includegraphics[width=\linewidth]{bilder/heiCO_waschbär_mon.jpg}
+				}{
+					\includegraphics[width=\linewidth]{bilder/heiCO_waschbär.jpg}
+			}}
+		\end{minipage}
+		\hfill
+		
+		
+		
+	\end{description}
+	
+	\vspace{5mm}
+	
+	{\ifthenelse{\boolean{druckversion}}{
+			\includegraphics[width=.9\linewidth]{bilder/moodle_logo_mon.jpg}
+		}{
+			\includegraphics[width=0.9\linewidth]{bilder/moodle_logo.png}
+	}}
 
 	\item[\href{https://moodle.uni-heidelberg.de}{Moodle}]
-    E-Learning-Plattform der Uni, auf der in manchen Vorlesungen Lernmaterialien, Zettelabgaben, Punkteeinsicht, Klausuranmeldung und organisatorische Informationen angeboten werden. Ist nur über den VPN der Uni oder aus dem Uni-Netz (eduroam) erreichbar.
+    E-Learning-Plattform der Uni, auf der in manchen Vorlesungen (besonders in der Informatik) Lernmaterialien, Zettelabgaben, Punkteeinsicht und organisatorische Informationen angeboten werden. Ist nur über den VPN der Uni (zur Installation siehe nächste Seite) oder aus dem Uni-Netz (eduroam) erreichbar.
 
+	\label{PhÜ}
 	\item[\href{https://uebungen.physik.uni-heidelberg.de}{PhÜ (Physik-Übungruppen)}]
-    Der Name ist Programm. Hier könnt ihr euch in der Physik in Übungsgruppen eintragen, zu Veranstaltungen anmelden sowie Punkte für Übungszettel und die Klausurnoten einsehen. Integriert Rocket-Chatrooms, die teilweise für die Kommunikation mit den Tutorinnen genutzt werden.
+    Der Name ist Programm. Hier könnt ihr euch in der Physik in Übungsgruppen eintragen, zu Veranstaltungen anmelden sowie Punkte für Übungszettel und die Klausurnoten einsehen. Integriert Rocket-Chatrooms, die teilweise für die Kommunikation mit den Tutorinnen genutzt werden. Außerdem gibt es bei manchen Vorlesungen eine Zettelpartner-Tauschbörse, bei der ihr euch in euer Wunschtutorium, in dem z.B. eure Zettelpartner schon drin sind, reintauschen könnt.
 
 	\item[\href{https://muesli.mathi.uni-heidelberg.de}{MÜSLI}]
     In der Mathe und Info werden mit diesem System Übungsgruppen organisiert. Man kann sich in Übungsgruppen eintragen, zu Veranstaltungen und Klausuren anmelden und Punkte für Übungszettel und die Klausurnote einsehen.
@@ -28,6 +78,9 @@ Im Uni-Alltag benötigt ihr zahlreiche digitale Tools, die teilweise von der Uni
 	\item[\href{https://heiconf.uni-heidelberg.de}{heiCONF}]
     Uni-internes Videokonferenztool basierend auf BigBlueButton. 
 \end{description}
+
+
+
 
 \newpage
 %\subsection{Universitätsrechenzentrum (URZ)}
@@ -56,7 +109,7 @@ Auf dem RFID-Chip der Karte ist nur die ID für die Bezahlfunktion des Studieren
 Alle anderen Informationen wie euer Name, die Matrikelnummer usw. sind lediglich aufgedruckt. Wichtig ist vor allem, dass euer Studierendenausweis auch validiert ist, sonst ist er nämlich nicht gültig. Diese Validierung müsst ihr am Anfang jeden Semesters nach eurer Rückmeldung\footnote{Mit Rückmeldung ist gemeint, dass ihr jedes Semester innerhalb der Rückmeldefrist den Semesterbeitrag zahlt.} durchführen, vergesst das nicht!
 
 \subsection{Account}
-Damit ihr überhaupt Zugang zum URZ bekommt, benötigt ihr Nutzername und Passwort. Euer Nutzername (Uni-ID) ist auf eurem multifunktionalen Studierendenausweis aufgedruckt. Um dann den Account nutzen zu können, muss die Uni-ID freigeschaltet\footnote{\url{https://online-services.urz.uni-heidelberg.de/id/uni_hd_account_activate.php}} werden. Hier könnt ihr auch euer Passwort und eure Uni-E-Mail-Adresse auswählen. Die Freischaltung kann man auch direkt beim Infoservice im URZ erledigen.
+Damit ihr überhaupt Zugang zum URZ bekommt, benötigt ihr Nutzername und Passwort. Euer Nutzername (Uni-ID) ist auf eurem multifunktionalen Studierendenausweis aufgedruckt. Um dann den Account nutzen zu können, muss die Uni-ID freigeschaltet\footnote{\url{https://online-services.urz.uni-heidelberg.de/id/uni_hd_account_activate.php}} werden. Hier könnt ihr auch euer Passwort und eure Uni-E-Mail-Adresse auswählen. Die Freischaltung kann man auch direkt beim Infoservice im URZ (INF 330) erledigen.
 
 \vspace*{-2mm}
 \subsection{E-Mail}
@@ -88,7 +141,7 @@ Zum Drucken kann man seine Dokumente auf einen speziellen Druck-Server\footnote{
 \subsection{CIP-Pools -- Internet ohne Notebook}
 \vspace*{-1mm}
 Rechnerräume gibt es im \gls{KIP} und im \gls{PI} im 1. Stock, in der Bibliothek im \gls{Mathematikon} und natürlich im \gls{URZ}, in letzterem sogar mehrere. 
- \newpage
+
 
 \subsection{WLAN -- Internet mit Notebook}
 
