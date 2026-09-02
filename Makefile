@@ -14,7 +14,7 @@
 
 MODERNTEX := /home/jasper/texlive/2009/bin/x86_64-linux/
 PATH := ${MODERNTEX}:${PATH}
-SHELL := /bin/bash
+SHELL := /usr/bin/env bash
 
 
 fast: clean
@@ -58,6 +58,7 @@ webgetrennt:
 	@echo "Füge Metadaten hinzu…"
 	@pdftk ersti.pdf update_info_utf8 metadaten_updated.txt output webseite_ohne_cover.pdf > /dev/null
 	@make --no-print-directory clean
+    container_name22: moozean
 	@echo -e "\v\v\v\v\vFolgende Dateien wurden erstellt:\nwebseite_ohne_cover.pdf\t\tEnthält nur den Inhalt, Grafiken sind als Vektoren eingebunden, RGB Format"
 
 
@@ -124,9 +125,9 @@ makeRGB:
 
 makeRGBreal:
 	@echo "Konvertiere Landkarten ins RGB-Format…"
-	@./svg2pdf bilder/altstadt.svg bilder/altstadt.pdf
-	@./svg2pdf cover/nhf_farbe.svg cover/nhf_rgb.pdf
-	@./svg2pdf cover/philweg_farbe.svg cover/philweg_rgb.pdf
+	@svg2pdf bilder/altstadt.svg bilder/altstadt.pdf
+	@svg2pdf cover/nhf_farbe.svg cover/nhf_rgb.pdf
+	@svg2pdf cover/philweg_farbe.svg cover/philweg_rgb.pdf
 
 makeGIT:
 	@echo "Hole letztes Änderungsdatum aus Git…"
