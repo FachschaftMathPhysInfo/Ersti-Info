@@ -11,12 +11,12 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
-labels = 'VS-Beitrag', 'VRNextbike',  'Theaterflatrate', 'Studierendenwerk',  'Verwaltungskostenbeitrag'
+labels = 'Theaterflatrate', 'VS-Beitrag', 'VRNextbike', 'Studierendenwerk',  'Verwaltungskostenbeitrag'
 
 # Values taken from https://www.stura.uni-heidelberg.de/finanzen/vs-beitrag/
-sizes = [10, 2.55, 2.5, 66, 70]
+sizes = [ 2.5, 10, 2.3, 95, 80]
 
-explode = (0, 0.2, 0.5, 0, 0)  # moved a bit outwards for better readability
+explode = (0.1, 0.2, 0.3, 0, 0)  # moved a bit outwards for better readability
 
 # see https://matplotlib.org/stable/gallery/color/named_colors.html
 # for more colors
@@ -24,14 +24,16 @@ colors = ['tab:orange', 'tab:blue', 'tab:cyan',
           'tab:purple',  'tab:red']
 
 
-with plt.xkcd():  # enables xkcd style
+with plt.xkcd():
 
-    plt.figure(figsize=(11, 4))
+    plt.rcParams.update({'font.size': 11})
 
-    plt.title("Wohin fließt mein Semesterbeitrag?")
+    plt.figure(figsize=(6, 3))
+
+    plt.title("Wohin fließt mein Semesterbeitrag?") 
 
     p, tx, autotexts = plt.pie(sizes, explode=explode, labels=labels,
-                               autopct='', shadow=True, startangle=0, colors=colors)
+                            autopct='', startangle=0, colors=colors)
 
     # Equal aspect ratio ensures that pie is drawn as a circle.
     plt.axis('equal')
@@ -39,9 +41,9 @@ with plt.xkcd():  # enables xkcd style
     # sets description with actual values. No decimal places if round value, otherwise two places
     for i, a in enumerate(autotexts):
         a.set_text("{:.2f} €"
-                   .format(sizes[i])
-                   .replace('.00', '')
-                   .replace('.', ','))
+                .format(sizes[i])
+                .replace('.00', '')
+                .replace('.', ','))
 
     plt.savefig('bilder/semesterbeitrag', dpi=300)
 
