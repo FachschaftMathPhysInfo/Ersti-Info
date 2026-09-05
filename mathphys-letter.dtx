@@ -1,0 +1,508 @@
+% \iffalse meta-comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% Copyright (C) 2014–2016 by Moritz Brinkmann <mo@uni-hd.de>
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+% 
+%     http://www.latex-project.org/lppl.txt
+% 
+% This work has the LPPL maintenance status `maintained'. 
+% The Current Maintainer of this work is Moritz Brinkmann.
+% 
+% Do not distribute a modified version of this file under the same name.
+% 
+% \fi
+% 
+% \iffalse
+%<*driver>
+\ProvidesFile{mathphys-letter.dtx}
+%</driver>
+%<class>\NeedsTeXFormat{LaTeX2e}[2007/07/20]
+%<class>\ProvidesClass{mathphys-letter}
+%<*class>
+      [2016/03/01 v1.4 customized letter class]
+%</class>
+% 
+%<*batchfile>
+\begingroup
+
+\input{docstrip.tex}
+\keepsilent
+
+\declarepreamble\class
+
+Copyright (C) 2012–2016 by Moritz Brinkmann <mo@uni-hd.de>
+
+This file may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3
+of this license or (at your option) any later version.
+The latest version of this license is in:
+
+    http://www.latex-project.org/lppl.txt
+
+This work has the LPPL maintenance status `maintained'. 
+The Current Maintainer of this work is Moritz Brinkmann.
+
+Do not distribute a modified version of this file under the same name.
+
+\endpreamble
+\declarepreamble\example
+
+Copyright (C) 2012–2016 by Moritz Brinkmann <mo@uni-hd.de>
+
+\endpreamble
+\postamble
+
+This work consists of the files  mathphys-letter.dtx
+                              a  README
+              the derived files  mathphys-leter.cls
+                                 mathphys-letter.pdf
+                                 mathphys-example.tex
+                     as well as  MathPhysLogo.pdf
+                                 MathPhysLogoInfo.pdf
+                                 MathPhysLogoMathe.pdf
+                                 MathPhysLogoMathInf.pdf
+                            and  MathPhysLogoPhysik.pdf
+
+\endpostamble
+
+\askforoverwritefalse
+\generate{\file{mathphys-letter.cls}{\from{mathphys-letter.dtx}{class}\usepreamble\class}}
+\askforoverwritetrue
+\generate{\file{mathphys-example.tex}{\from{mathphys-letter.dtx}{example}\usepreamble\example}}
+
+\endgroup
+%</batchfile>
+%
+%
+%<*driver>
+
+\typeout{Expect some under- and overfull boxes!}
+
+\documentclass[a4paper]{ltxdoc}
+
+\EnableCrossrefs
+\RecordChanges
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{
+    hyperref,
+    nicefrac,
+  }
+
+\hypersetup{%
+  pdfborder={000},
+  colorlinks={true},
+  linkcolor={blue},
+  pdftitle={The mathphys-letter Class},
+  pdfauthor={Moritz Brinkmann (Fachschaft MathPhys)},
+}
+
+\begin{document}
+\DocInput{mathphys-letter.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \changes{v1.0}{2012/11/07}{Initial version}
+% \changes{v1.1}{2014/05/20}{added different logos for math, info, physics, …}
+% \changes{v1.2}{2016/01/21}{Load the \textsf{libertine}-package with |mono=false| option}
+% \changes{v1.3}{2016/03/01}{Renewed Address to Mathematikon, introduce twoside-mode and resolve the EvilNameHack}
+% \changes{v1.4}{2016/03/01}{fixed bug where fachschaft= class option was ignored}
+% 
+% \GetFileInfo{mathphys-letter.dtx}
+%
+% \DoNotIndex{\begin, \end, \\, \sg, \sgb}
+%
+% \title{The \textsf{mathphys-letter} Class\thanks{This document corresponds to%
+% \textsf{mathphys-letter}~\fileversion, dated~\filedate}.}
+% \author{Moritz Brinkmann\thanks{\href{mailto://mo@uni-hd.de}{\texttt{mo@uni-hd.de}}}}
+% \date{\filedate}
+%
+% \maketitle
+%
+% \begin{abstract}
+% \noindent A class to typeset letters in the official format and with the official header of Fachschaft MathPhys at the
+%  Heidelberg University. It's mainly based on the \textsf{scrlttr2} class by Markus Kohm.
+% \end{abstract}
+%
+% \tableofcontents
+% 
+% \section{Introduction}
+% The \textsf{mathphys-letter} class is derived from the \textsf{scrlttr2} class out of the KOMA bundle. It makes very
+% little changes to the macros of the original class. What it does is to make sure there is the official header
+% and footer of MathPhys on every first page of a letter. 
+% 
+% \noindent{}There are a few files needed to use \textsf{mathphys-letter}, these include:
+% \begin{itemize}
+%   \item |mathphys-letter.pdf|: this documentation, derived from |mathphys-letter.dtx|
+%   \item |mathphys-letter.cls|: the class file, also derived from |mathphys-letter.dtx|, if you got this pdf file
+%       by running pdf\LaTeX\ you probably will have gotten the class file as well.
+%   \item |MathPhysLogo*.pdf|:  vector images of the association's logos,
+%       going to be placed in the upper right corner of each letter.
+% \end{itemize}
+% 
+%
+% \section{Usage}
+% You can use this class nearly the same way you use the \textsf{scrlttr2} class with one exception:
+% You don't need to provide all of your personal information with  |\setkomavar{fromaddress}|\marg{address}, ... \\ 
+% All this stuff as well as the right placing of those elements is done by the class.
+% 
+% Some might ask why I don’t use a letter class option file (|.lco|). This is kind of a matter of taste, there is nothing (yet) that
+% couldn’t have been done inside an |lco| file.  I don’t want the user to be too happy to try some new things since a corporate
+% design should be really consistent.
+% 
+% \subsection{scrlttr2}
+% This section describes in short words, some features of the \textsf{scrlttr2} class which might be relevant when
+% writing letters in general and writing letters for MathPhys in particular.
+% It cannot replace a further reading of the KOMA script documentation \cite{KOMA}\footnote{This should be available
+% under your \TeX\ distribution via |texdoc scrguien| for the International version or |texdoc scrguide| for the
+% German equivalent.} which I strongly advice.
+% 
+% Options can be passed to \textsf{scrlttr2} by |\KOMAoption|\marg{options}. In \textsf{mathphys-letter} some of these
+% options are already set. The following table summarizes the options that might be relevant to a
+% \textsf{mathphys-letter} author.
+% 
+% \begin{tabbing}
+% \hspace*{8em} \= \hspace*{5em} \= \hfill \kill
+% \textbf{Option} \> \textbf{Value} \> \textbf{Description} \\
+% |draft| \> \meta{boolean} \> Draws little boxes next to overfull paragraphs. \\
+% |priority| \> \meta{A,B} \> Sets a priority tag for international letters.
+% \end{tabbing}
+% 
+% \textsf{scrlttr2} defines a very useful variable handling routine. You can easily set variables using the
+% command |\setkomavar|\marg{variable}\marg{value}. The following table gives a summary of the most important
+% variables
+% 
+% \begin{tabbing}
+% \hspace*{6em} \= \hfill \kill
+% \textbf{Variable} \> \textbf{Description} \\
+% |customer| \> Adds a 'customer No' entry to the reference line. \\
+% |date| \> Changes the printed date.\\
+% |fromemail| \> Places the given mail address in the contact person field.\\
+% |fromname| \> Places the given name as ‘contact person’ under the logo.\\
+% |invoice| \> Adds a 'invoice No' entry to the reference line. \\
+% |myref| \> Adds a 'our reference' entry to the reference line. \\
+% |place| \> Changes the place, where the letter has been written.  \\
+% |signature| \> Changes the name underneath the signature. \\
+% |specialmail| \> Prints \meta{value} in the upper right corner of the address field. \\
+% |subject| \> Sets the letter's subject line. \\
+% |yourmail| \> Adds a 'your letter of' entry to the reference line. \\
+% |yourref| \> Adds a 'your reference' entry to the reference line. \\
+% \end{tabbing}
+% 
+% \subsection{The Reference Line}
+% \DescribeMacro{\MathPhysReflineTrue}
+% The Layout intends the date to be placed inside the right column. This can lead to a strange appearance if the reference line
+%  is used on the same height. To avoid this behavior some horizontal space needs to be added to the reference line.
+%  This can be done by the |\MathPhysReflineTrue| command in the documents preamble. So if you want to typeset a refline use this command!\footnote{This command will go away as soon as I implement a proper test for refline-content}
+%  
+%  \subsection{Colors}
+%  \DescribeMacro{\color\{unihd\}}
+%  \DescribeMacro{\textcolor\{unihd\}\{\meta{text}\}}
+%  \textsf{mathphys-letter} uses the \textsf{xcolor} package to define colored parts of the letterhead (i.e. the line and
+%  contact information in the footer). The Heidelberg University’s house color (a dark red) is defined under the name |unihd| and
+%  can be used via the macros |\color{unihd}| and |\textcolor{unihd}{|\meta{text}|}|.
+% 
+% \subsection{Language Support}
+% Language support is not yet implemented. You can only use this class in German right now. Look for updates in a newer version.
+%  
+% \subsection{Example}
+% % \iffalse
+%<*example> 
+% \fi
+% A ready to use mathphys-letter could be something like this:\\
+%    \begin{macrocode}
+\documentclass{mathphys-letter}
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{
+    blindtext,
+    microtype
+}
+
+\setkomavar{fromname}{Kai-Uwe Grabowski}
+\setkomavar{fromemail}{kai-uwe@mathphys.fsk.uni-heidelberg.de}
+\setkomavar{subject}{Wichtiger Betreff}
+
+\begin{document}
+    \begin{letter}{
+        Universität Heidelberg\\
+        Grabengasse 1\\
+        D-69124 Heidelberg\\
+    }
+
+        \opening{Sehr geehrte Damen und Herren,}
+            \blindtext
+        \closing{Mit freundlichem Gruß,}
+
+    \end{letter}
+\end{document}
+
+%    \end{macrocode}
+%  
+% \iffalse
+%</example> 
+% \fi
+%  
+% \clearpage
+% \StopEventually{
+%   \bibliographystyle{natdin}
+%   \begin{thebibliography}{9}
+%   \bibitem{KOMA}M.~Kohm,~J.-U.~Morowski:~\textit{KOMA-Skript},~2009
+%   \end{thebibliography}
+%   }
+%
+% \section{Implementation}
+% 
+% 
+%
+% \iffalse
+%<*class> 
+% \fi
+% 
+% Load the underlying class \textsf{scrlttr2} and set all the required options:
+% \CodelineNumbered
+%    \begin{macrocode}
+\LoadClass[
+     fontsize=11pt,
+     paper=a4,
+     parskip=half,
+     backaddress=plain,
+     refline=nodate,
+     numericaldate=true,
+     firsthead=false,
+]{scrlttr2}[2011/04/02]
+%    \end{macrocode}
+% Load all the required packages
+% 
+%    \begin{macrocode}
+\RequirePackage{
+      graphicx,     % use graphic-files
+      kvoptions,    % key=value-stuff
+      lastpage,	    % page n of m
+      marvosym,     % for the little phone and fax symbols
+      tikz,         % used for absolute placing of logo and stuff
+      xcolor,       % colored text
+      ifthen,       % for if-then-ele-stuff
+      hyperref,     % use cool pdf-features    
+}
+\RequirePackage[mono=false]{libertine}    % use linux-libertine font family
+%    \end{macrocode}
+% Set page dimensions as we need them:
+% 
+%    \begin{macrocode}
+\LoadLetterOption{DIN}
+\LetterOptionNeedsPapersize{paper=a4}{a4}
+
+\setlength{\textwidth}{115.5mm}
+\setlength{\rightmargin}{62.86mm}
+\setlength{\marginparwidth}{50.86mm}
+\setlength{\marginparsep}{6mm}
+\setlength\headsep{22mm}
+\setlength{\marginparsep}{7.1mm}
+
+\@setplength{lochpos}{14.3mm}
+\@setplength{locvpos}{65mm}
+\@setplength{locheight}{50mm}
+
+\renewcommand{\raggedsignature}{\raggedright} 
+
+\hypersetup{
+      pdfborder={0 0 0},
+}
+%    \end{macrocode}
+% Process key-value-options:
+% 
+%    \begin{macrocode}
+\DeclareStringOption[default]{fachschaft}
+\DeclareBoolOption[true]{twoside}
+\DeclareComplementaryOption{oneside}{twoside}
+\ProcessKeyvalOptions*
+\ifthenelse{\equal{\MathPhys@fachschaft}{mathematik}}{\typeout{using logo: mathematik}\def\MathPhysLogo{MathPhysLogoMathe}}{
+\ifthenelse{\equal{\MathPhys@fachschaft}{physik}}{\typeout{using logo: physik}\def\MathPhysLogo{MathPhysLogoPhysik}}{
+\ifthenelse{\equal{\MathPhys@fachschaft}{informatik}}{\typeout{using logo: informatik}\def\MathPhysLogo{MathPhysLogoInfo}}{
+\ifthenelse{\equal{\MathPhys@fachschaft}{mathinf}}{\typeout{using logo: mathinf}\def\MathPhysLogo{MathPhysLogoMathInf}}{
+\typeout{using logo: default}\def\MathPhysLogo{MathPhysLogo}}}}}
+%    \end{macrocode}
+% Set some KOMA variables:
+% 
+%    \begin{macrocode}
+\setkomavar{backaddress}{Fachschaft MathPhys\\INF 205\\Raum 01.301\\69120 Heidelberg}
+\setkomavar{place}{Heidelberg}
+\setkomavar{backaddressseparator}{ \textperiodcentered\ }
+%    \end{macrocode}
+% Set the contact person’s name and mail in the location field if |fromname| and |fromemail| are defined: 
+% 
+%    \begin{macrocode}
+\AtBeginDocument{
+	\setkomavar{location}{%
+		\ifkomavarempty{fromname}{
+			\vspace*{31.11mm}
+		}{%
+			\textsf{\textbf{Ansprechpartner:}}\\
+			\usekomavar{fromname}\\
+			\ifkomavarempty{fromemail}{}{
+				\usekomavar{fromemail}
+			}
+			\vspace*{18.83mm}%18.83
+		}
+			
+		\scriptsize \textsf\datename\\\normalsize\today
+	}
+}
+%    \end{macrocode}
+% \begin{macro}{\MathPhysReflineTrue}
+% add another field to the refline:
+% 
+%    \begin{macrocode}
+\newkomavar*[\null]{null}
+\def\MathPhysReflineTrue{\setkomavar{null}{\null}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\MathPhysSetLogo}
+% Define how the logo is placed:
+% 
+%    \begin{macrocode}
+\iftrue
+\def\MathPhysSetLogo{
+	\tikz [remember picture,overlay]
+			\node [shift={(-46.15mm,-19.12mm)}]
+	     			at (current page.north east) 
+	        	{\includegraphics%[width=92.29mm, height=38.24mm]
+         {\MathPhysLogo.pdf}};
+	\tikz [remember picture,overlay]
+	    \node [shift={(-59.71mm,19.12mm)}]
+	    			at (current page.south east) 
+	    			{\textcolor{unihd}{\rule{0.859mm}{26.241mm}}};
+}
+\def\MathPhysSetBars{
+\tikz [remember picture,overlay]
+    \node [shift={(-59.71mm,-19.12mm)}]
+     at (current page.north east)
+     {\textcolor{unihd}{\rule{0.859mm}{26.241mm}}};
+\tikz [remember picture,overlay]
+    \node [shift={(-59.71mm,19.12mm)}]
+     at (current page.south east)
+     {\textcolor{unihd}{\rule{0.859mm}{26.241mm}}};
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\MathPhysSetFooter}
+% Define how the footer (contact informations) is placed:
+% 
+%    \begin{macrocode}
+\def\MathPhysSetFooter{
+	\tikz [remember picture,overlay]
+			\node [
+				shift={(-85.21mm,19.12mm)}
+			]
+	    			at (current page.south east) 
+	    			{\parbox{4.4cm}{
+	    					\color{gray}
+	    					\sffamily
+	    					\scriptsize
+	    					\begin{flushright}
+	    						\Telefon\quad 06221\,54-14\,999\\
+	    						\FAX\quad 06221\,54-161\,14\,999\\
+	    						\Letter\quad \href{mailto:mathphys@uni-hd.de}{mathphys@uni-hd.de}\\
+	    						\href{http://mathphys.uni-hd.de}{http://mathphys.uni-hd.de}
+	    					\end{flushright}
+					}};
+	\tikz [remember picture,overlay]
+			\node [
+				shift={(-34.01mm,19.12mm)}
+			]
+	    			at (current page.south east) 
+	    			{\parbox{4.4cm}{
+	    					\color{gray}
+	    					\sffamily
+	    					\scriptsize
+	    					\begin{flushleft}
+	    						Fachschaft MathPhys\\
+	    						Im Neuenheimer Feld 205\\
+	    						Raum 01.301\\
+								69120 Heidelberg
+	    					\end{flushleft}
+					}};
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\MathPhysSetPageNumber}
+% Place “page $n$ of $m$” on consecutive pages:
+% 
+%    \begin{macrocode}
+\def\MathPhysSetPageNumber{
+	\tikz [remember picture,overlay]
+			\node [shift={(-34.01mm,-47.15mm)}]
+	     			at (current page.north east) 
+	    			{\parbox{4.4cm}{\textcolor{gray}{\normalfont \sffamily Seite \thepage\ von \pageref{LastPage}}}};
+}
+%    \end{macrocode}
+% \end{macro}
+% Now call the above macros in the right time:
+%
+%    \begin{macrocode}
+\setkomavar{firstfoot}{
+	\MathPhysSetLogo
+	\MathPhysSetFooter
+}
+\setkomavar{nexthead}{
+	\ifMathPhys@twoside
+		\ifthenelse{\isodd{\thepage}}{
+			\MathPhysSetLogo
+		}{
+			\MathPhysSetBars
+		}
+	\else
+		\MathPhysSetLogo
+	\fi
+	\MathPhysSetPageNumber
+}
+\setkomavar{nextfoot}{}
+\pagestyle{myheadings}
+%    \end{macrocode}
+% \begin{macro}{unihd}
+%  Last but not least, define the color |unihd|:
+%
+%    \begin{macrocode}
+\iftrue
+	\definecolor{unihd}{RGB}{153,0,0}
+\else
+	\definecolor{unihd}{cmyk}{0,1,1,.4}
+\fi
+%    \end{macrocode}
+% \end{macro}
+% \iffalse
+%</class>
+% \fi
+%
+%\Finale
+% 
+% \typeout{****************************************************}
+% \typeout{*}
+% \typeout{* To finish the installation you have to move the}
+% \typeout{* following files into a directory where TeX can}
+% \typeout{* find them:}
+% \typeout{*}
+% \typeout{* mathphys-letter.cls}
+% \typeout{* MathPhysLogo*.pdf}
+% \typeout{*}
+% \typeout{* The documentation and an example should have}
+% \typeout{* been produced along with the other files.}
+% \typeout{*}
+% \typeout{* Happy TeXing!}
+% \typeout{*}
+% \typeout{****************************************************}
+% 
+\endinput
