@@ -11,7 +11,9 @@
 \newcommand{\dekanphysiknach}{Hansmann-Menzemer}
 \newcommand{\dekanphysiklang}{Stephanie Hansmann-Menzemer}
 \newcommand{\dekanphysikraum}{}
-\newcommand{\dekanphysikfoto}{bilder/Hansmann-Menzemer_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\dekanphysikfoto}{bilder/Hansmann-Menzemer_mon.jpg}}
+{\newcommand{\dekanphysikfoto}{bilder/Hansmann-Menzemer.jpg}}
 \newcommand{\dekanphysikemail}{menzemer@physi.uni-heidelberg.de}
 
 \newcommand{\prodekanphysik}{Markus Oberthaler und Maurits Haverkort}
@@ -25,7 +27,9 @@
 \newcommand{\studiendekanphysikvor}{Maurits}
 \newcommand{\studiendekanphysiknach}{Haverkort}
 \newcommand{\studiendekanphysik}{Maurits Haverkort}
-\newcommand{\studiendekanphysikfoto}{bilder/haverkort_mon.jpeg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\studiendekanphysikfoto}{bilder/haverkort_mon.jpg}}
+{\newcommand{\studiendekanphysikfoto}{bilder/haverkort.jpg}}
 \newcommand{\studiendekanphysikemail}{m.haverkort@thphys.uni-heidelberg.de}
 
 \newcommand{\pruefausschussvorsitzphysik}{Cornelis Dullemond}
@@ -35,7 +39,9 @@
 \newcommand{\studienberatungphysikersti}{Ulrich Uwer}
 \newcommand{\studienberatungphysikraum}{Im Neuenheimer Feld 226}
 \newcommand{\studienberatungphysikemail}{ulrich.uwer@physi.uni-heidelberg.de}
-\newcommand{\studienberatungphysikphoto}{bilder/uwer_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\studienberatugphysikphoto}{bilder/uwer_mon.jpg}}
+{\newcommand{\studienberatungphysikphoto}{bilder/uwer.jpg}}
 
 \newcommand{\bafogphysik}{Andreas Reifenberger}
 \newcommand{\bafogphysikemail}{andreas.reifenberger@kip.uni-heidelberg.de}
@@ -62,17 +68,23 @@
 
 %Erstidozenten Physik
 \newcommand{\theodozentname}{Matthias Bartelmann}
-\newcommand{\theodozentphoto}{bilder/bartelmann_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\theodozentphoto}{bilder/bartelmann_mon.jpg}}
+{\newcommand{\theodozentphoto}{bilder/bartelmann.jpg}}
 \newcommand{\theodozenntemail}{bartelmann@uni-heidelberg.de}
 \newcommand{\theozeiten}{dienstags und donnerstags um 11:15-12:45 Uhr}
 
 \newcommand{\exdozentname}{Andreas Quirrenbach}
-\newcommand{\exdozentphoto}{quirrenbach_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\exdozentphoto}{bilder/quirrenbach_mon.jpg}}
+{\newcommand{\exdozentphoto}{bilder/quirrenbach.jpg}}
 \newcommand{\exdozentemail}{a.quirrenbach@lsw.uni-heidelberg.de}
 \newcommand{\exzeiten}{montags und mittwochs um 11:15-12:45 Uhr}
 
 \newcommand{\hoemadozentname}{Razvan Gurau}
-\newcommand{\hoemadozentphoto}{bilder/gurau_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\hoemadozentphoto}{bilder/gurau_mon.jpg}}
+{\newcommand{\hoemadozentphoto}{bilder/gurau.jpg}}
 \newcommand{\hoemadozentemail}{gurau@thphys.uni-heidelberg.de}
 \newcommand{\hoemazeiten}{dienstags und donnerstags um 9:15-11:45 Uhr im Hörsaal 1 des KIPs}
 
@@ -82,17 +94,23 @@
 \newcommand{\dekanmathevor}{Otmar}
 \newcommand{\dekanmathenach}{Venjakob}
 \newcommand{\dekanmathelang}{Otmar Venjakob}
-\newcommand{\dekanmathefoto}{bilder/venjakob_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\dekanmathefoto}{bilder/venjakob_mon.jpg}}
+{\newcommand{\dekanmathefoto}{bilder/venjakob.jpg}}
 \newcommand{\dekanmatheemail}{venjakob@mathi.uni-heidelberg.de}
 
 \newcommand{\prodekanmathe}{Felix Joos}
-\newcommand{\prodekanmathefoto}{bilder/joos_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\prodekanmathefoto}{bilder/joos_mon.jpg}}
+{\newcommand{\prodekanmathefoto}{bilder/joos.jpg}}
 \newcommand{\prodekanmatheemail}{joos@informatik.uni-heidelberg.de}
 
 \newcommand{\studiendekanmathevor}{Ekaterina}
 \newcommand{\studiendekanmathenach}{Kostina}
 \newcommand{\studiendekanmathe}{Ekaterina Kostina}
-\newcommand{\studiendekanmathefoto}{bilder/ekaterina_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\studiendekanmathefoto}{bilder/ekaterina_mon.jpg}}
+{\newcommand{\studiendekanmathefoto}{bilder/ekaterina.jpg}}
 \newcommand{\studiendekanmatheemail}{studiendekan.mathematik@uni-heidelberg.de}
 
 \newcommand{\pruefausschussvorsitzmathe}{Alexander Schmidt}
@@ -101,7 +119,9 @@
 \newcommand{\studienberatungmathe}{Hendrik Kasten}
 \newcommand{\studienberatungmatheraum}{\gls{INF} 205, Raum 3/315 \\ Sprechstunde: Freitags 13:00-14:00 Uhr}
 \newcommand{\studienberatungmatheemail}{kasten@mathi.uni-heidelberg.de}
-\newcommand{\studienberatungmathephoto}{kasten_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\studienberatungmathephoto}{bilder/kasten_mon.jpg}}
+{\newcommand{\studienberatungmathephoto}{bilder/kasten.jpg}}
 
 \newcommand{\gleichstellungsbeauftragtemathe}{Peter Bastian}
 \newcommand{\gleichstellungsbeauftragtematheemail}{peter.bastian@iwr.uni-heidelberg.de}
@@ -119,12 +139,16 @@
 \newcommand{\pruefsekmathetel}{06221 54-14018}
 
 \newcommand{\LAdozentname}{Denis Vogel}
-\newcommand{\LAdozentphoto}{bilder/vogel_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\LAdozentphoto}{bilder/vogel_mon.jpg}}
+{\newcommand{\LAdozentphoto}{bilder/vogel.jpg}}
 \newcommand{\LAdozentemail}{vogel@mathi.uni-heidelberg.de}
 \newcommand{\LAzeiten}{Dienstags und Donnerstags von 9:15-10:45 Uhr im audiMAX (\gls{INF} 289) in HS1}
 
 \newcommand{\Anadozentname}{Hendrik Kasten}
-\newcommand{\Anadozentphoto}{bilder/kasten_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\Anadozentphoto}{bilder/kasten_mon.jpg}}
+{\newcommand{\Anadozentphoto}{bilder/kasten.jpg}}
 \newcommand{\Anadozentemail}{kasten@mathi.uni-heidelberg.de}
 \newcommand{\Anazeiten}{mittwochs und freitags von 9:15-10:45 Uhr im audiMAX \gls{INF} 289 in HS1}
 
@@ -132,13 +156,17 @@
 \newcommand{\studiendekaninformatikvor}{Christian}
 \newcommand{\studiendekaninformatiknach}{Schulz}
 \newcommand{\studiendekaninformatik}{Christian Schulz}
-\newcommand{\studiendekaninformatikfoto}{bilder/schulz_mon.jpeg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\studiendekaninformatikfoto}{bilder/schulz_mon.jpg}}
+{\newcommand{\studiendekaninformatikfoto}{bilder/schulz.jpg}}
 \newcommand{\studiendekaninformatikemail}{studiendekan.informatik@mathinf.uni-heidelberg.de}
 
 \newcommand{\studienberatunginformatik}{Wolfgang Merkle}
 \newcommand{\studienberatunginformatikraum}{\gls{INF} 205, Raum 2/211}
 \newcommand{\studienberatunginformatikemail}{merkle@math.uni-heidelberg.de}
-\newcommand{\studienberatunginformatikphoto}{merkle_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\studienberatunginformatikphoto}{bilder/merkle_mon.jpg}}
+{\newcommand{\studienberatunginformatikphoto}{bilder/merkle.jpg}}
 
 \newcommand{\pruefausschussvorsitzinformatik}{Michael Gertz}
 \newcommand{\pruefausschussvorsitzinformatikemail}{gertz@informatik.uni-heidelberg.de}
@@ -155,17 +183,23 @@
 \newcommand{\IPKdozentname}{Stefan Meggendorfer}
 \newcommand{\IPKzeiten}{Donnerstags um 11:15-12:45 Uhr im audiMAX (\gls{INF} 289) in HS 2 \& 3 (zusammengelegt)}
 \newcommand{\IMIdozentname}{Stefan Meggendorfer}
-\newcommand{\IMIdozentphoto}{bilder/meggendorfer_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\IMIdozentphoto}{bilder/meggendorfer_mon.jpg}}
+{\newcommand{\IMIdozentphoto}{bilder/meggendorfer.jpg}}
 \newcommand{\IMIdozentemail}{stefan.meggendorfer@iwr.uni-heidelberg.de}
 \newcommand{\IMIzeiten}{Dienstags um 9:30-11:00 und Freitags um 11:15-12:45 im audiMAX (\gls{INF} 289) in HS 2 \& 3 (zusammengelegt)}
 
 \newcommand{\IPIdozentname}{Michael Gertz}
-\newcommand{\IPIdozentphoto}{bilder/gertz_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\IPIdozentphoto}{bilder/gertz_mon.jpg}}
+{\newcommand{\IPIdozentphoto}{bilder/gertz.jpg}}
 \newcommand{\IPIdozentemail}{gertz@informatik.uni-heidelberg.de}
 \newcommand{\IPIzeiten}{dienstags und donnerstags um 14:14-15:45 Uhr im audiMAX (\gls{INF} 289) in HS1}
 
 \newcommand{\ETIdozentname}{Dirk Koch}
-\newcommand{\ETIdozentphoto}{bilder/koch_mon.jpg}
+\ifthenelse{\boolean{druckversion}}
+{\newcommand{\ETIdozentphoto}{bilder/koch_mon.jpg}}
+{\newcommand{\ETIdozentphoto}{bilder/koch.jpg}}
 \newcommand{\ETIdozentemail}{dirk.koch@ziti.uni-heidelberg.de}
 \newcommand{\ETIzeiten}{montags 11:15-12:45 Uhr um im audiMAX \gls{INF} 289 HS1 und mittwochs 11:15-12:45 Uhr im audiMAX \gls{INF} 289 in  HS 2 \& 3 (zusammengelegt)}
 
